@@ -1,0 +1,267 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
+:root {
+    --primary-light: #fbfbfb;
+    --primary-dark: #1c1c1c;
+    --primary-accent: #377be7;
+    --primary-background: #eaf0ff;
+
+    --utils-error: #ef4444;
+    --utils-warning: #fbbf24;
+    --utils-success: #34d399;
+    --utils-link: #60a5fa;
+}
+
+h1 {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 36px;
+    font-weight: bold;
+    letter-spacing: 3%;
+}
+
+h2 {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 3%;
+}
+
+h3 {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 3%;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+
+    padding: 0;
+    margin: 0;
+
+    background-color: var(--primary-background);
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+    align-items: center;
+
+    width: 100wh;
+    height: 80px;
+
+    background-color: var(--primary-dark);
+    color: var(--primary-light);
+
+    margin: 0px;
+}
+
+header > .container {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+    align-items: center;
+
+    width: 1200px;
+
+    margin: 0px;
+    padding: 0px;
+}
+
+header > .container > nav {
+    font-size: 20px;
+
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 40px;
+    height: 48px;
+}
+
+nav > a,
+h2 > a {
+    color: var(--primary-light);
+
+    text-decoration: none;
+}
+
+nav > a > img {
+    width: 48px;
+    height: 48px;
+
+    border-radius: 999px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    margin: 20px;
+}
+
+.small-text {
+    font-size: 14px;
+    font-weight: lighter;
+}
+
+button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    flex: 1;
+    width: 100%;
+
+    border: none;
+    padding: 12px 16px;
+    border-radius: 8px;
+
+    font-family: "Lato", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+    box-sizing: border-box;
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.1s ease;
+}
+
+.accent-btn {
+    background-color: var(--primary-accent);
+    color: var(--primary-light);
+}
+
+.normal-btn {
+    background-color: var(--primary-light);
+    color: var(--primary-dark);
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.recommended-events {
+    display: flex;
+    flex-direction: column;
+
+    width: auto;
+    height: auto;
+
+    justify-content: left;
+}
+
+.event-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 570px);
+
+    gap: 20px;
+}
+
+.event-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+
+    width: 570px;
+    height: 270px;
+
+    background-color: var(--primary-dark);
+    color: var(--primary-light);
+
+    border-radius: 18px;
+    padding: 10px 10px 10px 35px;
+
+    box-sizing: border-box;
+    gap: 20px;
+
+    position: relative;
+}
+
+.event-card::before {
+    content: "";
+    position: absolute;
+    left: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 32px;
+    background-color: var(--primary-background);
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+}
+
+.event-card-data {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-between;
+    flex: 1;
+
+    padding: 10px 0;
+}
+
+.primary-data {
+    display: flex;
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+#date {
+    color: var(--primary-light);
+}
+
+#description {
+    font-size: 14px;
+    line-height: 1.4;
+
+    color: var(--primary-light);
+    margin: 12px 0;
+}
+
+.buttons {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+}
+
+.participants {
+    color: var(--primary-light);
+    margin-top: 8px;
+}
+
+.event-card-image-wrapper {
+    width: 220px;
+    height: 100%;
+
+    border-radius: 12px;
+    overflow: hidden;
+    flex-shrink: 0;
+
+    align-self: center;
+}
+
+.event-card-image {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    display: block;
+}

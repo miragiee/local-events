@@ -120,16 +120,13 @@ button {
     justify-content: center;
     align-items: center;
 
-    flex: 1;
-    width: 100%;
-
     border: none;
     padding: 12px 16px;
     border-radius: 8px;
 
     font-family: "Lato", sans-serif;
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 400;
 
     cursor: pointer;
     box-sizing: border-box;
@@ -139,22 +136,26 @@ button {
         transform 0.1s ease;
 }
 
+button:hover {
+    opacity: 0.9;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
 .accent-btn {
     background-color: var(--primary-accent);
     color: var(--primary-light);
+    font-weight: 600;
+    flex: 1;
 }
 
 .normal-btn {
     background-color: var(--primary-light);
     color: var(--primary-dark);
-}
-
-.btn:hover {
-    opacity: 0.9;
-}
-
-.btn:active {
-    transform: scale(0.98);
+    font-weight: 600;
+    flex: 1;
 }
 
 .recommended-events {
@@ -169,7 +170,7 @@ button {
 
 .event-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 570px);
+    grid-template-columns: repeat(2, 570px);
 
     gap: 20px;
 }
@@ -264,4 +265,91 @@ button {
 
     object-fit: cover;
     display: block;
+}
+
+.filters {
+    display: flex;
+    flex-direction: column;
+
+    width: 1200px;
+    height: 142px;
+
+    gap: 30px;
+
+    margin-bottom: 20px;
+}
+
+.type-filters {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+    align-items: center;
+}
+
+.text-btn {
+    font-size: 20px;
+
+    background-color: var(--primary-background);
+    color: var(--primary-dark);
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.1s ease;
+}
+
+.text-btn:hover {
+    color: var(--primary-accent);
+}
+
+.selected {
+    color: var(--primary-accent);
+}
+
+.other-filters {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+    align-items: center;
+}
+
+.clear-btn {
+    background-color: var(--primary-background);
+
+    width: 36px;
+    height: 36px;
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.1s ease;
+}
+
+.clear-btn:active {
+    background-color: var(--primary-dark);
+}
+
+.clear-btn > img {
+    width: 36px;
+    height: 36px;
+}
+
+.other-filters > select {
+    font-family: "Lato", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+
+    background-color: var(--primary-background);
+
+    border: none;
+}
+
+.other-filters > input {
+    font-family: "Lato", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+
+    background-color: var(--primary-background);
+
+    border: none;
 }

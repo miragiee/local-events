@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Все мероприятия</title>
+        <link rel="stylesheet" href="../styles/styles.css" />
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <h2 class="name"><a href="#">Локаливент</a></h2>
+
+                <nav>
+                    <a href="/pages/index.html">Главная</a>
+                    <a href="/pages/all-events.html">Мероприятия</a>
+                    <a href="/pages/my-events.html">Мои записи</a>
+                    <a href="/pages/profile.html">
+                        <img src="../resources/images/sakura-art.png" alt="Профиль" />
+                    </a>
+                </nav>
+            </div>
+        </header>
+        <main>
+            <div class="container">
+                <h2>Все мероприятия</h2>
+
+                <section class="filters">
+                    <div class="type-filters">
+                        <button class="text-btn selected">Все</button>
+                        <button class="text-btn">Выставки</button>
+                        <button class="text-btn">Концерты</button>
+                        <button class="text-btn">Спектакли</button>
+                        <button class="text-btn">Кино</button>
+                        <button class="text-btn">Обучение</button>
+                        <button class="text-btn">Встречи</button>
+                        <button class="text-btn">Экскурсии</button>
+                        <button class="text-btn">Праздники</button>
+                        <button class="text-btn">Прочее</button>
+                    </div>
+                    <div class="other-filters">
+                        <button class="clear-btn">
+                            <img
+                                src="../resources/icons/ink_eraser_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"
+                                alt="Очистить"
+                            />
+                        </button>
+
+                        <select name="cities" id="citise">
+                            <option value="" disabled selected>По всей стране</option>
+                            <option value="moskow">Москва</option>
+                            <option value="saint-petersburg">Санкт-Петербург</option>
+                            <option value="cherepovets">Череповец</option>
+                            <option value="vladivostok">Владивосток</option>
+                        </select>
+                        <select name="organizators" id="organizator">
+                            <option value="" disabled selected>Все организаторы</option>
+                            <option value="opt1">Опция 1</option>
+                            <option value="opt2">Опция 2</option>
+                        </select>
+                        <select name="places" id="places">
+                            <option value="" disabled selected>Все площадки</option>
+                            <option value="opt1">Опция 1</option>
+                            <option value="opt2">Опция 2</option>
+                        </select>
+                        <select name="prices" id="prices">
+                            <option value="" disabled selected>Любая цена</option>
+                            <option value="opt1">Опция 1</option>
+                            <option value="opt2">Опция 2</option>
+                        </select>
+                        <input type="date" id="event-date" />
+                    </div>
+                </section>
+
+                <section class="event-cards">
+                    <div class="event-card">
+                        <div class="event-card-data">
+                            <div class="primary-data">
+                                <div class="small-text" id="date">XX.XX.XXXX XX:XX</div>
+                                <h3 id="name">Название Мероприятия</h3>
+                            </div>
+
+                            <div id="description">Краткое описание мероприятия</div>
+
+                            <div class="buttons">
+                                <button class="btn accent-btn" id="event-register">
+                                    Записаться
+                                </button>
+                                <button class="btn normal-btn" id="learn-about">
+                                    Узнать больше
+                                </button>
+                            </div>
+
+                            <div class="participants">Участников: XXXXX</div>
+                        </div>
+
+                        <div class="event-card-image-wrapper">
+                            <img
+                                class="event-card-image"
+                                src="../resources/images/event-image-placeholder.jpg"
+                                alt="Название мероприятия"
+                            />
+                        </div>
+                    </div>
+                    <div class="event-card">
+                        <div class="event-card-data">
+                            <div class="primary-data">
+                                <div class="small-text" id="date">XX.XX.XXXX XX:XX</div>
+                                <h3 id="name">Название Мероприятия</h3>
+                            </div>
+
+                            <div id="description">Краткое описание мероприятия</div>
+
+                            <div class="buttons">
+                                <button class="btn accent-btn" id="event-register">
+                                    Записаться
+                                </button>
+                                <button class="btn normal-btn" id="learn-about">
+                                    Узнать больше
+                                </button>
+                            </div>
+
+                            <div class="participants">Участников: XXXXX</div>
+                        </div>
+
+                        <div class="event-card-image-wrapper">
+                            <img
+                                class="event-card-image"
+                                src="../resources/images/event-image-placeholder.jpg"
+                                alt="Название мероприятия"
+                            />
+                        </div>
+                    </div>
+                    <div class="event-card">
+                        <div class="event-card-data">
+                            <div class="primary-data">
+                                <div class="small-text" id="date">XX.XX.XXXX XX:XX</div>
+                                <h3 id="name">Название Мероприятия</h3>
+                            </div>
+
+                            <div id="description">Краткое описание мероприятия</div>
+
+                            <div class="buttons">
+                                <button class="btn accent-btn" id="event-register">
+                                    Записаться
+                                </button>
+                                <button class="btn normal-btn" id="learn-about">
+                                    Узнать больше
+                                </button>
+                            </div>
+
+                            <div class="participants">Участников: XXXXX</div>
+                        </div>
+
+                        <div class="event-card-image-wrapper">
+                            <img
+                                class="event-card-image"
+                                src="../resources/images/event-image-placeholder.jpg"
+                                alt="Название мероприятия"
+                            />
+                        </div>
+                    </div>
+                    <div class="event-card">
+                        <div class="event-card-data">
+                            <div class="primary-data">
+                                <div class="small-text" id="date">XX.XX.XXXX XX:XX</div>
+                                <h3 id="name">Название Мероприятия</h3>
+                            </div>
+
+                            <div id="description">Краткое описание мероприятия</div>
+
+                            <div class="buttons">
+                                <button class="btn accent-btn" id="event-register">
+                                    Записаться
+                                </button>
+                                <button class="btn normal-btn" id="learn-about">
+                                    Узнать больше
+                                </button>
+                            </div>
+
+                            <div class="participants">Участников: XXXXX</div>
+                        </div>
+
+                        <div class="event-card-image-wrapper">
+                            <img
+                                class="event-card-image"
+                                src="../resources/images/event-image-placeholder.jpg"
+                                alt="Название мероприятия"
+                            />
+                        </div>
+                    </div>
+                    <div class="event-card">
+                        <div class="event-card-data">
+                            <div class="primary-data">
+                                <div class="small-text" id="date">XX.XX.XXXX XX:XX</div>
+                                <h3 id="name">Название Мероприятия</h3>
+                            </div>
+
+                            <div id="description">Краткое описание мероприятия</div>
+
+                            <div class="buttons">
+                                <button class="btn accent-btn" id="event-register">
+                                    Записаться
+                                </button>
+                                <button class="btn normal-btn" id="learn-about">
+                                    Узнать больше
+                                </button>
+                            </div>
+
+                            <div class="participants">Участников: XXXXX</div>
+                        </div>
+
+                        <div class="event-card-image-wrapper">
+                            <img
+                                class="event-card-image"
+                                src="../resources/images/event-image-placeholder.jpg"
+                                alt="Название мероприятия"
+                            />
+                        </div>
+                    </div>
+                    <div class="event-card">
+                        <div class="event-card-data">
+                            <div class="primary-data">
+                                <div class="small-text" id="date">XX.XX.XXXX XX:XX</div>
+                                <h3 id="name">Название Мероприятия</h3>
+                            </div>
+
+                            <div id="description">Краткое описание мероприятия</div>
+
+                            <div class="buttons">
+                                <button class="btn accent-btn" id="event-register">
+                                    Записаться
+                                </button>
+                                <button class="btn normal-btn" id="learn-about">
+                                    Узнать больше
+                                </button>
+                            </div>
+
+                            <div class="participants">Участников: XXXXX</div>
+                        </div>
+
+                        <div class="event-card-image-wrapper">
+                            <img
+                                class="event-card-image"
+                                src="../resources/images/event-image-placeholder.jpg"
+                                alt="Название мероприятия"
+                            />
+                        </div>
+                    </div>
+                    <div class="event-card">
+                        <div class="event-card-data">
+                            <div class="primary-data">
+                                <div class="small-text" id="date">XX.XX.XXXX XX:XX</div>
+                                <h3 id="name">Название Мероприятия</h3>
+                            </div>
+
+                            <div id="description">Краткое описание мероприятия</div>
+
+                            <div class="buttons">
+                                <button class="btn accent-btn" id="event-register">
+                                    Записаться
+                                </button>
+                                <button class="btn normal-btn" id="learn-about">
+                                    Узнать больше
+                                </button>
+                            </div>
+
+                            <div class="participants">Участников: XXXXX</div>
+                        </div>
+
+                        <div class="event-card-image-wrapper">
+                            <img
+                                class="event-card-image"
+                                src="../resources/images/event-image-placeholder.jpg"
+                                alt="Название мероприятия"
+                            />
+                        </div>
+                    </div>
+                    <div class="event-card">
+                        <div class="event-card-data">
+                            <div class="primary-data">
+                                <div class="small-text" id="date">XX.XX.XXXX XX:XX</div>
+                                <h3 id="name">Название Мероприятия</h3>
+                            </div>
+
+                            <div id="description">Краткое описание мероприятия</div>
+
+                            <div class="buttons">
+                                <button class="btn accent-btn" id="event-register">
+                                    Записаться
+                                </button>
+                                <button class="btn normal-btn" id="learn-about">
+                                    Узнать больше
+                                </button>
+                            </div>
+
+                            <div class="participants">Участников: XXXXX</div>
+                        </div>
+
+                        <div class="event-card-image-wrapper">
+                            <img
+                                class="event-card-image"
+                                src="../resources/images/event-image-placeholder.jpg"
+                                alt="Название мероприятия"
+                            />
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </body>
+</html>

@@ -404,7 +404,7 @@ button:active {
     border-radius: 999px;
 }
 
-.update-text-data {
+.input-section {
     display: flex;
     flex-direction: column;
 
@@ -502,4 +502,32 @@ button:active {
 
 .text-data > .accent-btn {
     width: 240px;
+}
+
+.center-container {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    height: 90vh;
+
+    width: 1200px;
+}
+
+.question-link {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+    align-items: center;
+
+    width: 260px;
+}
+
+.question-link > a {
+    text-decoration: none;
+
+    color: var(--utils-link);
 }

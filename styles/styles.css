@@ -107,7 +107,7 @@ main {
     justify-content: center;
     align-items: center;
 
-    margin: 20px;
+    margin: 10px;
 }
 
 .small-text {
@@ -115,7 +115,8 @@ main {
     font-weight: lighter;
 }
 
-button {
+button,
+.btn {
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -147,15 +148,23 @@ button:active {
 .accent-btn {
     background-color: var(--primary-accent);
     color: var(--primary-light);
-    font-weight: 600;
+    font-weight: 400;
     flex: 1;
 }
 
 .normal-btn {
     background-color: var(--primary-light);
     color: var(--primary-dark);
-    font-weight: 300;
+    font-weight: 400;
     flex: 1;
+}
+
+.courusel {
+    margin-top: 10px;
+}
+
+.courusel > img {
+    border-radius: 18px;
 }
 
 .recommended-events {
@@ -355,4 +364,79 @@ button:active {
 
 .cancel {
     background-color: var(--utils-error);
+    color: var(--primary-light);
+}
+
+.update-user-data {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+    align-items: start;
+
+    gap: 40px;
+}
+
+.update-avatar {
+    display: flex;
+    flex-direction: column;
+
+    width: 150px;
+
+    gap: 10px;
+}
+
+.update-avatar > img {
+    width: 150px;
+    height: 150px;
+    border-radius: 999px;
+}
+
+.update-text-data {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: left;
+
+    gap: 10px;
+
+    width: 250px;
+}
+
+.input-block {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.input-block > label {
+    font-weight: 600;
+}
+
+.input-block > input {
+    width: 250px;
+    height: 48px;
+
+    color: var(--primary-light);
+    background-color: var(--primary-dark);
+
+    padding: 0 15px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 6px;
+}
+
+.input-block > input::placeholder {
+    color: var(--primary-light);
+}
+
+.input-buttons {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin-top: 10px;
 }

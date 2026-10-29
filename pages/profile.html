@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Профиль</title>
+        <link rel="stylesheet" href="/styles/styles.css" />
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <h2 class="name"><a href="#">Локаливент</a></h2>
+
+                <nav>
+                    <a href="/pages/index.html">Главная</a>
+                    <a href="/pages/all-events.html">Мероприятия</a>
+                    <a href="/pages/my-events.html">Мои записи</a>
+                    <a href="/pages/profile.html">
+                        <img src="../resources/images/sakura-art.png" alt="Профиль" />
+                    </a>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <div class="container">
+                <h2>Привет, Пользователь!</h2>
+            </div>
+
+            <section class="update-user-data">
+                <div class="update-avatar">
+                    <img src="../resources/images/sakura-art.png" alt="Ваш текущий аватар" />
+                    <button class="accent-btn">Сменить аватар</button>
+                    <button class="cancel">Удалить аватар</button>
+                </div>
+
+                <div class="update-text-data">
+                    <div class="input-block">
+                        <label for="lastname">Фамилия</label>
+                        <input type="text" id="username" placeholder="Иванов" />
+                    </div>
+                    <div class="input-block">
+                        <label for="firstname">Имя</label>
+                        <input type="text" id="firstname" placeholder="Иван" />
+                    </div>
+                    <div class="input-block">
+                        <label for="email">Почта</label>
+                        <input type="useremail" id="useremail" placeholder="mail@example.com" />
+                    </div>
+                    <div class="input-block">
+                        <label for="userphone">Телефон</label>
+                        <input type="tel" id="userphone" placeholder="88005553535" />
+                    </div>
+
+                    <div class="input-block">
+                        <label for="usercity">Город</label>
+                        <input type="text" id="usercity" placeholder="Санкт-Петербург" />
+                    </div>
+
+                    <div class="input-buttons">
+                        <button class="accent-btn">Сохранить изменения</button>
+                        <button class="cancel">Отменить изменения</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>

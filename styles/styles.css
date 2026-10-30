@@ -10,6 +10,8 @@ html {
     --primary-accent: #377be7;
     --primary-background: #eaf0ff;
 
+    --secondary-dark: #31313c;
+
     --utils-error: #ef4444;
     --utils-warning: #fbbf24;
     --utils-success: #34d399;
@@ -240,6 +242,10 @@ button:active {
     gap: 20px;
 
     position: relative;
+}
+
+.event-card:hover {
+    background-color: var(--secondary-dark);
 }
 
 .event-card::before {

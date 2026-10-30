@@ -11,7 +11,7 @@
             <div class="container">
                 <h2 class="name"><a href="/pages/index.html">Локаливент</a></h2>
 
-                <nav>
+                                <nav>
                     <a href="/pages/index.html">Главная</a>
                     <a href="/pages/all-events.html">Мероприятия</a>
                     <a href="/pages/my-events.html">Мои записи</a>
@@ -19,13 +19,54 @@
                         <img src="../resources/images/sakura-art.png" alt="Профиль" />
                     </a>
                 </nav>
+                <details class="mobile-menu">
+                    <summary aria-label="Меню">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </summary>
+                    <nav>
+                        <a href="/pages/index.html">Главная</a>
+                        <a href="/pages/all-events.html">Мероприятия</a>
+                        <a href="/pages/my-events.html">Мои записи</a>
+                        <a href="/pages/profile.html" aria-label="Профиль">
+                            <img src="../resources/images/sakura-art.png" alt="" />
+                            <span>Профиль</span>
+                        </a>
+                    </nav>
+                </details>
             </div>
         </header>
         <main>
             <div class="container">
-                <h2>Все мероприятия</h2>
-
-                <div class="filters">
+                <div class="filters mobile-filter-bar">
+                    <input
+                        class="filters-toggle"
+                        type="checkbox"
+                        id="filters-toggle"
+                        aria-label="Показать фильтры"
+                    />
+                    <label class="filters-toggle-button" for="filters-toggle">
+                        <img
+                            src="../resources/icons/filter_alt_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"
+                            alt=""
+                        />
+                    </label>
+                    <h2>Все мероприятия</h2>
+                    <div class="filter-options">
+                        <select class="mobile-category-filter" name="categories" aria-label="Категория">
+                            <option value="" disabled selected>Категория</option>
+                            <option value="all">Все</option>
+                            <option value="exhibitions">Выставки</option>
+                            <option value="concerts">Концерты</option>
+                            <option value="performances">Спектакли</option>
+                            <option value="cinema">Кино</option>
+                            <option value="education">Обучение</option>
+                            <option value="meetings">Встречи</option>
+                            <option value="excursions">Экскурсии</option>
+                            <option value="holidays">Праздники</option>
+                            <option value="other">Прочее</option>
+                        </select>
                     <div class="type-filters">
                         <button class="text-btn selected">Все</button>
                         <button class="text-btn">Выставки</button>
@@ -54,7 +95,7 @@
                             <option value="vladivostok">Владивосток</option>
                         </select>
                         <select name="organizators" id="organizator">
-                            <option value="" disabled selected>Все организаторы</option>
+                            <option value="" disabled selected>Все учреждения</option>
                             <option value="opt1">Опция 1</option>
                             <option value="opt2">Опция 2</option>
                         </select>
@@ -68,7 +109,12 @@
                             <option value="opt1">Опция 1</option>
                             <option value="opt2">Опция 2</option>
                         </select>
-                        <input type="date" id="event-date" />
+                        <label class="mobile-date-filter" for="event-date">
+                            <span>Дата</span>
+                            <input type="date" id="event-date" />
+                        </label>
+                    </div>
+                    <label class="mobile-filter-apply" for="filters-toggle">Применить</label>
                     </div>
                 </div>
 

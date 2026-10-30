@@ -32,6 +32,7 @@ h1 {
     font-family: "JetBrains Mono", monospace;
     font-size: 36px;
     font-weight: bold;
+
     letter-spacing: 3%;
 }
 
@@ -39,6 +40,7 @@ h2 {
     font-family: "JetBrains Mono", monospace;
     font-size: 24px;
     font-weight: bold;
+
     letter-spacing: 3%;
 }
 
@@ -46,6 +48,7 @@ h3 {
     font-family: "JetBrains Mono", monospace;
     font-size: 18px;
     font-weight: bold;
+
     letter-spacing: 3%;
 }
 
@@ -54,10 +57,10 @@ body {
     font-weight: 400;
     font-size: 16px;
 
+    background-color: var(--primary-background);
+
     padding: 0;
     margin: 0;
-
-    background-color: var(--primary-background);
 }
 
 header {
@@ -79,8 +82,10 @@ header {
 header > .container {
     display: flex;
     flex-direction: row;
+
     justify-content: space-between;
     align-items: center;
+
     width: 1200px;
 
     margin: 0px;
@@ -88,23 +93,23 @@ header > .container {
 }
 
 header > .container > nav {
-    font-size: 20px;
-
     display: flex;
     flex-direction: row;
 
     justify-content: space-between;
     align-items: center;
 
-    gap: 40px;
+    font-size: 20px;
     height: 48px;
+
+    gap: 40px;
 }
 
 nav > a,
 h2 > a {
-    color: var(--primary-light);
-
     text-decoration: none;
+
+    color: var(--primary-light);
 }
 
 nav > a > img {
@@ -136,19 +141,21 @@ main {
 button,
 .btn {
     display: inline-flex;
+
     justify-content: center;
     align-items: center;
-
-    border: none;
-    padding: 12px 16px;
-    border-radius: 8px;
 
     font-family: "Lato", sans-serif;
     font-size: 14px;
     font-weight: 400;
+    box-sizing: border-box;
+
+    border: none;
+    border-radius: 8px;
+
+    padding: 12px 16px;
 
     cursor: pointer;
-    box-sizing: border-box;
 
     transition:
         opacity 0.2s ease,
@@ -164,16 +171,20 @@ button:active {
 }
 
 .accent-btn {
+    font-weight: 400;
+
     background-color: var(--primary-accent);
     color: var(--primary-light);
-    font-weight: 400;
+
     flex: 1;
 }
 
 .normal-btn {
+    font-weight: 400;
+
     background-color: var(--primary-light);
     color: var(--primary-dark);
-    font-weight: 400;
+
     flex: 1;
 }
 
@@ -189,10 +200,10 @@ button:active {
     display: flex;
     flex-direction: column;
 
+    justify-content: left;
+
     width: auto;
     height: auto;
-
-    justify-content: left;
 }
 
 .event-cards {
@@ -204,35 +215,41 @@ button:active {
 
 .event-card {
     display: flex;
+
     justify-content: space-between;
     align-items: stretch;
 
     width: 570px;
     height: 270px;
+    box-sizing: border-box;
 
     background-color: var(--primary-dark);
     color: var(--primary-light);
 
     border-radius: 18px;
+
     padding: 10px 10px 10px 35px;
 
-    box-sizing: border-box;
     gap: 20px;
 
     position: relative;
 }
 
 .event-card::before {
+    width: 16px;
+    height: 32px;
+
+    background-color: var(--primary-background);
+
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+
     content: "";
+
     position: absolute;
     left: 0px;
     top: 50%;
     transform: translateY(-50%);
-    width: 16px;
-    height: 32px;
-    background-color: var(--primary-background);
-    border-top-right-radius: 16px;
-    border-bottom-right-radius: 16px;
 }
 
 .event-card-data {
@@ -240,9 +257,10 @@ button:active {
     flex-direction: column;
 
     justify-content: space-between;
-    flex: 1;
 
     padding: 10px 0;
+
+    flex: 1;
 }
 
 .primary-data {
@@ -261,37 +279,43 @@ button:active {
     line-height: 1.4;
 
     color: var(--primary-light);
+
     margin: 12px 0;
 }
 
 .buttons {
     display: flex;
-    gap: 12px;
+
     width: 100%;
+
+    gap: 12px;
 }
 
 .participants {
     color: var(--primary-light);
+
     margin-top: 8px;
 }
 
 .event-card-image-wrapper {
+    align-self: center;
+
     width: 220px;
     height: 100%;
 
     border-radius: 12px;
+
     overflow: hidden;
     flex-shrink: 0;
-
-    align-self: center;
 }
 
 .event-card-image {
+    display: block;
+
     width: 100%;
     height: 100%;
 
     object-fit: cover;
-    display: block;
 }
 
 .filters {
@@ -301,9 +325,9 @@ button:active {
     width: 1200px;
     height: 142px;
 
-    gap: 30px;
-
     margin-bottom: 20px;
+
+    gap: 30px;
 }
 
 .filters-toggle,
@@ -317,12 +341,14 @@ button:active {
 
 .filters.mobile-filter-bar {
     height: auto;
+
     gap: 0;
 }
 
 .filter-options {
     display: flex;
     flex-direction: column;
+
     gap: 30px;
 }
 
@@ -333,6 +359,7 @@ button:active {
 
 .mobile-date-filter {
     display: flex;
+
     align-items: center;
 }
 
@@ -375,10 +402,10 @@ button:active {
 }
 
 .clear-btn {
-    background-color: var(--primary-background);
-
     width: 36px;
     height: 36px;
+
+    background-color: var(--primary-background);
 
     transition:
         opacity 0.2s ease,
@@ -442,6 +469,7 @@ button:active {
 .update-avatar > img {
     width: 150px;
     height: 150px;
+
     border-radius: 999px;
 }
 
@@ -451,9 +479,9 @@ button:active {
 
     justify-content: center;
 
-    gap: 10px;
-
     width: 250px;
+
+    gap: 10px;
 }
 
 .input-block {
@@ -470,14 +498,15 @@ button:active {
 .input-block > input {
     width: 250px;
     height: 48px;
+    box-sizing: border-box;
 
     color: var(--primary-light);
     background-color: var(--primary-dark);
 
-    padding: 0 15px;
-    box-sizing: border-box;
     border: none;
     border-radius: 6px;
+
+    padding: 0 15px;
 }
 
 .input-block > input::placeholder {
@@ -488,18 +517,18 @@ button:active {
     display: flex;
     flex-direction: column;
 
-    gap: 10px;
-
     margin-top: 10px;
+
+    gap: 10px;
 }
 
 .event-details {
     display: flex;
     flex-direction: row;
 
-    gap: 50px;
-
     margin-top: 10px;
+
+    gap: 50px;
 }
 
 .event-details > img {
@@ -526,12 +555,14 @@ button:active {
 .event-info {
     display: flex;
     flex-direction: row;
+
     gap: 10px;
 }
 
 .blue-text {
-    color: var(--primary-accent);
     font-weight: 600;
+
+    color: var(--primary-accent);
 }
 
 .event-info > p {
@@ -550,7 +581,6 @@ button:active {
     align-items: center;
 
     height: 90vh;
-
     width: 1200px;
 }
 
@@ -561,9 +591,9 @@ button:active {
     align-items: center;
     justify-content: center ;
 
-    gap: 10px;
-
     width: 260px;
+
+    gap: 10px;
 }
 
 .question-link > a {
@@ -608,20 +638,23 @@ button:active {
     }
 
     .event-details {
-        width: 100%;
         align-items: flex-start;
+
+        width: 100%;
     }
 
     .event-details > img {
         width: min(42%, 500px);
         height: auto;
         aspect-ratio: 1;
+
         object-fit: cover;
     }
 
     .text-data {
-        flex: 1;
         min-width: 0;
+
+        flex: 1;
     }
 
     .text-data > h2,
@@ -646,28 +679,33 @@ button:active {
 
     header > .container {
         width: calc(100% - 48px);
+
         gap: 24px;
     }
 
     header > .container > nav {
-        gap: 20px;
         font-size: 18px;
+
+        gap: 20px;
     }
 
     .filters {
         height: auto;
+
         gap: 20px;
     }
 
     .type-filters {
-        flex-wrap: wrap;
         justify-content: flex-start;
+
+        flex-wrap: wrap;
         gap: 6px 12px;
     }
 
     .other-filters {
-        flex-wrap: wrap;
         justify-content: flex-start;
+
+        flex-wrap: wrap;
         gap: 12px 20px;
     }
 
@@ -679,19 +717,23 @@ button:active {
     }
 
     .event-cards {
-        width: 100%;
         display: flex;
+
+        width: 100%;
+
         gap: 16px;
         overflow-x: auto;
     }
 
     .event-card {
         width: 520px;
-        flex: 0 0 520px;
         height: auto;
         min-height: 270px;
-        gap: 16px;
+
         padding-left: 28px;
+
+        flex: 0 0 520px;
+        gap: 16px;
     }
 
     .event-card-image-wrapper {
@@ -708,8 +750,10 @@ button:active {
     }
 
     .event-details {
-        width: 100%;
         align-items: flex-start;
+
+        width: 100%;
+
         gap: 24px;
     }
 
@@ -718,12 +762,14 @@ button:active {
         max-width: 420px;
         height: auto;
         aspect-ratio: 1;
+
         object-fit: cover;
     }
 
     .text-data {
-        flex: 1;
         min-width: 0;
+
+        flex: 1;
     }
 
     .text-data > h2,
@@ -734,6 +780,7 @@ button:active {
 
     .update-user-data {
         width: calc(100% - 48px);
+
         gap: 24px;
     }
 
@@ -743,19 +790,7 @@ button:active {
     }
 }
 
-@media (max-width: 767.98px) {
-    h1 {
-        font-size: 28px;
-    }
-
-    h2 {
-        font-size: 21px;
-    }
-
-    h3 {
-        font-size: 16px;
-    }
-
+@media (max-width: 767px) {
     header {
         width: 100%;
         height: 80px;
@@ -763,9 +798,12 @@ button:active {
     }
 
     header > .container {
-        width: calc(100% - 24px);
         flex-direction: row;
+
         align-items: center;
+
+        width: calc(100% - 24px);
+
         gap: 0;
     }
 
@@ -779,19 +817,24 @@ button:active {
 
     .mobile-menu {
         display: block;
-        position: relative;
+
         margin-left: auto;
+
+        position: relative;
     }
 
     .mobile-menu > summary {
         display: flex;
         flex-direction: column;
+
         justify-content: center;
-        gap: 5px;
+
         width: 40px;
         height: 40px;
-        cursor: pointer;
         list-style: none;
+
+        gap: 5px;
+        cursor: pointer;
     }
 
     .mobile-menu > summary::-webkit-details-marker {
@@ -800,32 +843,43 @@ button:active {
 
     .mobile-menu > summary span {
         display: block;
+
         width: 36px;
         height: 4px;
+
         background-color: var(--primary-light);
     }
 
     .mobile-menu[open] > nav {
         display: flex;
         flex-direction: column;
-        gap: 0;
+
         width: 260px;
         height: auto;
+        box-sizing: border-box;
+
+        background-color: var(--primary-dark);
+
+        border-radius: 0 0 18px 18px;
+
         padding: 24px 20px;
+
+        gap: 0;
+
         position: absolute;
         top: calc(100% + 15px);
         right: 0;
         z-index: 1;
-        background-color: var(--primary-dark);
-        border-radius: 0 0 18px 18px;
-        box-sizing: border-box;
     }
 
     .mobile-menu > nav > a {
         display: flex;
+
         align-items: center;
-        gap: 20px;
+
         min-height: 64px;
+
+        gap: 20px;
     }
 
     .mobile-menu > nav > a > img {
@@ -850,6 +904,7 @@ button:active {
     .courusel > img {
         width: 100%;
         height: auto;
+
         border-radius: 12px;
     }
 
@@ -860,19 +915,24 @@ button:active {
 
     .event-cards {
         grid-template-columns: minmax(0, 1fr);
+
         gap: 12px;
     }
 
     .event-card {
+        flex-direction: column;
+
         width: min(300px, 100%);
-        flex: 0 0 auto;
-        margin: 0 auto;
         height: auto;
         min-height: 0;
-        flex-direction: column-reverse;
-        gap: 12px;
-        padding: 12px;
+
         border-radius: 18px;
+
+        margin: 0 auto;
+        padding: 12px;
+
+        flex: 0 0 auto;
+        gap: 12px;
     }
 
     .event-card::before {
@@ -885,29 +945,38 @@ button:active {
         max-width: none;
         min-width: 0;
         aspect-ratio: 1;
+
         border-radius: 12px;
     }
 
     .event-card-data {
         justify-content: flex-start;
-        gap: 8px;
+
         padding: 0;
+
+        gap: 8px;
     }
 
     .primary-data {
-        gap: 4px;
         align-items: center;
+
+        gap: 4px;
     }
 
     .participants {
-        order: 2;
         text-align: center;
         font-size: 12px;
+
+        order: 5;
     }
 
     .description {
-        order: 3;
+        width: 100%;
+        box-sizing: border-box;
+
         margin: 4px 0;
+
+        order: 3;
     }
 
     .buttons {
@@ -917,8 +986,9 @@ button:active {
     }
 
     .buttons > button {
-        flex: 1 1 100%;
         min-height: 48px;
+
+        flex: 1 1 100%;
     }
 
     .event-register + .learn-about {
@@ -927,6 +997,7 @@ button:active {
 
     .event-cards.scroll-cards {
         display: flex;
+
         gap: 20px;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
@@ -940,43 +1011,56 @@ button:active {
     .filters {
         width: 100%;
         height: auto;
-        gap: 16px;
+
         margin-bottom: 16px;
+
+        gap: 16px;
     }
 
     .filters.mobile-filter-bar {
         display: grid;
-        position: relative;
         grid-template-columns: 40px minmax(0, 1fr) 40px;
+
         align-items: center;
+
         gap: 12px;
+
+        position: relative;
     }
 
     .filters-toggle {
         display: block;
-        position: absolute;
+
         width: 1px;
         height: 1px;
+        white-space: nowrap;
+
+        border: 0;
+
         padding: 0;
         margin: -1px;
+
         overflow: hidden;
         clip: rect(0, 0, 0, 0);
-        white-space: nowrap;
-        border: 0;
+
+        position: absolute;
     }
 
     .filters-toggle-button {
         display: flex;
-        grid-column: 1;
-        grid-row: 1;
+
         align-items: center;
         justify-content: flex-start;
+
+        grid-column: 1;
+        grid-row: 1;
         cursor: pointer;
     }
 
     .filters-toggle-button img {
         width: 32px;
         height: 32px;
+
         filter: brightness(0) saturate(100%) invert(43%) sepia(89%) saturate(1852%) hue-rotate(198deg) brightness(94%) contrast(91%);
     }
 
@@ -986,27 +1070,35 @@ button:active {
     }
 
     .filters > h2 {
-        grid-column: 2;
-        grid-row: 1;
-        margin: 0;
         text-align: center;
         text-transform: uppercase;
+
+        margin: 0;
+
+        grid-column: 2;
+        grid-row: 1;
     }
 
     .filter-options {
         display: none;
+
+        width: min(232px, calc(100vw - 32px));
+        max-height: calc(100vh - 100px);
+        box-sizing: border-box;
+
+        background-color: var(--primary-dark);
+
+        border-radius: 20px;
+
+        padding: 20px;
+
+        overflow-y: auto;
+        gap: 0;
+
         position: absolute;
         top: calc(100% + 10px);
         left: 0;
         z-index: 5;
-        width: min(232px, calc(100vw - 32px));
-        max-height: calc(100vh - 100px);
-        padding: 20px;
-        overflow-y: auto;
-        box-sizing: border-box;
-        border-radius: 20px;
-        background-color: var(--primary-dark);
-        gap: 0;
     }
 
     .filters-toggle:checked ~ .filter-options {
@@ -1015,15 +1107,19 @@ button:active {
 
     .filter-options > .mobile-category-filter {
         display: block;
+
         width: 100%;
         height: 54px;
-        padding: 0 4px;
-        border: 0;
+        font-family: "Lato", sans-serif;
+        font-size: 18px;
+
         color: var(--primary-light);
         background: transparent;
         color-scheme: dark;
-        font-family: "Lato", sans-serif;
-        font-size: 18px;
+
+        border: 0;
+
+        padding: 0 4px;
     }
 
     .filter-options option {
@@ -1036,14 +1132,17 @@ button:active {
     }
 
     .text-btn {
-        padding: 8px 10px;
         font-size: 15px;
+
+        padding: 8px 10px;
     }
 
     .other-filters {
         display: flex;
         flex-direction: column;
+
         align-items: stretch;
+
         gap: 0;
     }
 
@@ -1055,73 +1154,112 @@ button:active {
         width: 100%;
         min-width: 0;
         height: 54px;
-        padding: 0 4px;
-        border: 0;
+        font-size: 18px;
+
         color: var(--primary-light);
         background: transparent;
         color-scheme: dark;
-        font-size: 18px;
+
+        border: 0;
+
+        padding: 0 4px;
     }
 
     .other-filters > .mobile-date-filter {
-        position: relative;
         width: 100%;
         height: 54px;
-        color: var(--primary-light);
         font-size: 18px;
+
+        color: var(--primary-light);
+
+        position: relative;
     }
 
     .mobile-date-filter > span {
         display: flex;
+
         align-items: center;
     }
 
     .mobile-date-filter > input {
-        position: absolute;
-        inset: 0;
         width: 100%;
         height: 100%;
+
         opacity: 0;
+
         cursor: pointer;
+
+        position: absolute;
+        inset: 0;
     }
 
     .mobile-date-filter::after {
+        width: 8px;
+        height: 8px;
+
+        border-right: 2px solid var(--primary-light);
+        border-bottom: 2px solid var(--primary-light);
+
         content: "";
+        pointer-events: none;
+
         position: absolute;
         right: 12px;
         top: 21px;
-        width: 8px;
-        height: 8px;
-        border-right: 2px solid var(--primary-light);
-        border-bottom: 2px solid var(--primary-light);
         transform: rotate(45deg);
-        pointer-events: none;
     }
 
     .filter-options > .mobile-filter-apply {
         display: flex;
+
         align-items: center;
         justify-content: center;
+
         width: 100%;
         height: 44px;
-        margin-top: 12px;
-        border-radius: 6px;
+        font-size: 16px;
+
         color: var(--primary-light);
         background-color: var(--primary-accent);
-        font-size: 16px;
+
+        border-radius: 6px;
+
+        margin-top: 12px;
+
         cursor: pointer;
     }
 
     .update-user-data {
-        width: calc(100% - 24px);
         flex-direction: column;
+
         align-items: center;
+
+        width: calc(100% - 24px);
+
         gap: 24px;
     }
 
     .update-avatar {
-        width: 100%;
+        flex-direction: row;
+
         align-items: center;
+        justify-content: center;
+
+        width: 100%;
+        height: 150px;
+
+        gap: 8px 12px;
+    }
+
+    .update-avatar > img {
+        width: 128px;
+        height: 128px;
+    }
+
+    .update-avatar > .input-buttons {
+        gap: 8px;
+
+        margin-top: 0;
     }
 
     .input-section {
@@ -1134,18 +1272,22 @@ button:active {
     }
 
     .event-details {
-        width: 100%;
         flex-direction: column;
+
+        width: 100%;
+
         gap: 16px;
     }
 
     .event-details > img {
+        align-self: center;
+
         width: 100%;
         max-width: 420px;
         height: auto;
         aspect-ratio: 1;
+
         object-fit: cover;
-        align-self: center;
     }
 
     .text-data {
@@ -1177,6 +1319,7 @@ button:active {
 
     .question-link {
         width: 100%;
+
         flex-wrap: wrap;
         gap: 8px;
     }

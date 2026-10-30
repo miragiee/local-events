@@ -39,7 +39,7 @@
         </header>
         <main>
             <div class="container">
-                <div class="filters mobile-filter-bar">
+                <section class="filters mobile-filter-bar">
                     <input
                         class="filters-toggle"
                         type="checkbox"
@@ -95,7 +95,7 @@
                             <option value="vladivostok">Владивосток</option>
                         </select>
                         <select name="organizators" id="organizator">
-                            <option value="" disabled selected>Все учреждения</option>
+                            <option value="" disabled selected>Все организаторы</option>
                             <option value="opt1">Опция 1</option>
                             <option value="opt2">Опция 2</option>
                         </select>
@@ -116,9 +116,9 @@
                     </div>
                     <label class="mobile-filter-apply" for="filters-toggle">Применить</label>
                     </div>
-                </div>
+                </section>
 
-                <div class="event-cards">
+                <section class="event-cards" aria-label="Список мероприятий">
                     <div class="event-card">
                         <div class="event-card-image-wrapper">
                             <img
@@ -319,7 +319,7 @@
                             <div class="participants">Участников: XXXXX</div>
                         </div>
                     </div>
-                </div>
+                </section>
             </div>
         </main>
     </body>

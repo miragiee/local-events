@@ -229,7 +229,10 @@ button:active {
     flex-direction: column;
 
     width: 100%;
+
+    margin: 10px;
 }
+
 
 .event-cards {
     display: grid;
@@ -586,6 +589,7 @@ button:active {
     display: flex;
     flex-direction: row;
 
+    margin-top: 10px;
     gap: 10px;
 }
 
@@ -1350,12 +1354,15 @@ button:active {
 
         display: flex;
         flex-direction: row;
-        flex-wrap: wrap;
 
         justify-content: center;
         align-items: center;
 
         width: 100%;
         gap: 8px;
+    }
+
+    .question-link>p {
+        vertical-align: middle;
     }
 }

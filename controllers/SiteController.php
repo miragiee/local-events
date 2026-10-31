@@ -64,6 +64,34 @@ class SiteController extends Controller
         return $this->render('index');
     }
 
+    public function actionAllEvents()
+    {
+        return $this->render('all-events');
+    }
+
+    public function actionEventDetails()
+    {
+        return $this->render('event-details');
+    }
+
+    public function actionMyEvents()
+    {
+        return $this->render('my-events');
+    }
+
+    public function actionProfile()
+    {
+        return $this->render('profile');
+    }
+
+    public function actionRegisterStep1() {
+        return $this->render('register-1');
+    }
+    
+    public function actionRegisterStep2() {
+        return $this->render('register-2');
+    }
+
     /**
      * Login action.
      *

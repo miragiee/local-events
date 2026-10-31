@@ -30,6 +30,10 @@ html {
     padding: 0;
 }
 
+.container>h2 {
+    margin-top: 20px;
+}
+
 h1 {
     font-family: "JetBrains Mono", monospace;
     font-size: 36px;
@@ -216,6 +220,10 @@ button:active {
     margin-top: 20px;
 }
 
+.recommended-events>h2 {
+    margin-bottom: 20px;
+}
+
 .event-list-section {
     display: flex;
     flex-direction: column;
@@ -346,6 +354,7 @@ button:active {
     width: 1200px;
     height: 142px;
 
+    margin-top: 20px;
     margin-bottom: 20px;
 
     gap: 30px;
@@ -362,8 +371,6 @@ button:active {
 
 .filters.mobile-filter-bar {
     height: auto;
-
-    margin-top: 20px;
 
     gap: 0;
 }
@@ -656,11 +663,6 @@ button:active {
         height: 270px;
     }
 
-    .courusel>img {
-        width: 100%;
-        height: auto;
-    }
-
     .event-details {
         align-items: flex-start;
 
@@ -769,9 +771,11 @@ button:active {
         aspect-ratio: 0.88;
     }
 
-    .courusel>img {
-        width: 100%;
-        height: auto;
+    .carousel-item>img {
+        width: 500px;
+        height: 400px;
+
+        border-radius: 18px;
     }
 
     .event-details {
@@ -907,6 +911,13 @@ button:active {
         gap: 20px;
     }
 
+    .carousel-item>img {
+        width: 400px;
+        height: 230px;
+
+        border-radius: 18px;
+    }
+
     .mobile-menu>nav>a>img {
         width: 48px;
         height: 48px;
@@ -924,13 +935,6 @@ button:active {
     .container,
     .center-container {
         width: calc(100% - 24px);
-    }
-
-    .courusel>img {
-        width: 100%;
-        height: auto;
-
-        border-radius: 12px;
     }
 
     .recommended-events,

@@ -81,7 +81,7 @@ header {
     margin: 0px;
 }
 
-header > .container {
+header>.container {
     display: flex;
     flex-direction: row;
 
@@ -94,7 +94,7 @@ header > .container {
     padding: 0px;
 }
 
-header > .container > nav {
+header>.container>nav {
     display: flex;
     flex-direction: row;
 
@@ -107,14 +107,21 @@ header > .container > nav {
     gap: 40px;
 }
 
-nav > a,
-h2 > a {
+nav>a,
+h2>a {
     text-decoration: none;
 
     color: var(--primary-light);
 }
 
-nav > a > img {
+nav>a:hover,
+h2>a:hover {
+    text-decoration: none;
+
+    color: var(--utils-link);
+}
+
+nav>a>img {
     width: 48px;
     height: 48px;
 
@@ -190,7 +197,7 @@ button:active {
     flex: 1;
 }
 
-.carousel-item > img {
+.carousel-item>img {
     width: 1140px;
     height: 704px;
 
@@ -349,7 +356,7 @@ button:active {
     display: none;
 }
 
-.mobile-filter-bar > h2 {
+.mobile-filter-bar>h2 {
     margin: 0 0 16px;
 }
 
@@ -379,7 +386,7 @@ button:active {
     align-items: center;
 }
 
-.mobile-date-filter > span {
+.mobile-date-filter>span {
     display: none;
 }
 
@@ -432,12 +439,12 @@ button:active {
     background-color: var(--primary-dark);
 }
 
-.clear-btn > img {
+.clear-btn>img {
     width: 36px;
     height: 36px;
 }
 
-.other-filters > select {
+.other-filters>select {
     font-family: "Lato", sans-serif;
     font-size: 20px;
     font-weight: 400;
@@ -447,8 +454,8 @@ button:active {
     border: none;
 }
 
-.other-filters > input,
-.other-filters > .mobile-date-filter > input {
+.other-filters>input,
+.other-filters>.mobile-date-filter>input {
     font-family: "Lato", sans-serif;
     font-size: 20px;
     font-weight: 400;
@@ -482,7 +489,7 @@ button:active {
     gap: 10px;
 }
 
-.update-avatar > img {
+.update-avatar>img {
     width: 150px;
     height: 150px;
 
@@ -507,11 +514,11 @@ button:active {
     gap: 10px;
 }
 
-.input-block > label {
+.input-block>label {
     font-weight: 600;
 }
 
-.input-block > input {
+.input-block>input {
     width: 250px;
     height: 48px;
     box-sizing: border-box;
@@ -525,7 +532,7 @@ button:active {
     padding: 0 15px;
 }
 
-.input-block > input::placeholder {
+.input-block>input::placeholder {
     color: var(--primary-light);
 }
 
@@ -547,7 +554,7 @@ button:active {
     gap: 50px;
 }
 
-.event-details > img {
+.event-details>img {
     width: 500px;
     height: 500px;
 
@@ -559,12 +566,12 @@ button:active {
     flex-direction: column;
 }
 
-.text-data > h2 {
+.text-data>h2 {
     width: 650px;
     text-align: center;
 }
 
-.text-data > p {
+.text-data>p {
     width: 650px;
 }
 
@@ -581,11 +588,11 @@ button:active {
     color: var(--primary-accent);
 }
 
-.event-info > p {
+.event-info>p {
     color: var(--primary-dark);
 }
 
-.text-data > .accent-btn {
+.text-data>.accent-btn {
     width: 240px;
 }
 
@@ -605,22 +612,23 @@ button:active {
     flex-direction: row;
 
     align-items: center;
-    justify-content: center ;
+    justify-content: center;
 
     width: 260px;
 
     gap: 10px;
 }
 
-.question-link > a {
+.question-link>a {
     text-decoration: none;
 
     color: var(--utils-link);
 }
 
 @media (min-width: 1200px) {
+
     .container,
-    header > .container,
+    header>.container,
     .filters,
     .center-container {
         width: min(1200px, calc(100vw - 40px));
@@ -648,7 +656,7 @@ button:active {
         height: 270px;
     }
 
-    .courusel > img {
+    .courusel>img {
         width: 100%;
         height: auto;
     }
@@ -659,7 +667,7 @@ button:active {
         width: 100%;
     }
 
-    .event-details > img {
+    .event-details>img {
         width: min(42%, 500px);
         height: auto;
         aspect-ratio: 1;
@@ -673,14 +681,15 @@ button:active {
         flex: 1;
     }
 
-    .text-data > h2,
-    .text-data > p {
+    .text-data>h2,
+    .text-data>p {
         width: 100%;
         max-width: 650px;
     }
 }
 
 @media (min-width: 768px) and (max-width: 1199.98px) {
+
     .container,
     .filters,
     .center-container {
@@ -693,13 +702,13 @@ button:active {
         min-height: 80px;
     }
 
-    header > .container {
+    header>.container {
         width: calc(100% - 48px);
 
         gap: 24px;
     }
 
-    header > .container > nav {
+    header>.container>nav {
         font-size: 18px;
 
         gap: 20px;
@@ -725,9 +734,9 @@ button:active {
         gap: 12px 20px;
     }
 
-    .other-filters > select,
-    .other-filters > input,
-    .other-filters > .mobile-date-filter > input {
+    .other-filters>select,
+    .other-filters>input,
+    .other-filters>.mobile-date-filter>input {
         min-width: 140px;
         font-size: 16px;
     }
@@ -760,7 +769,7 @@ button:active {
         aspect-ratio: 0.88;
     }
 
-    .courusel > img {
+    .courusel>img {
         width: 100%;
         height: auto;
     }
@@ -773,7 +782,7 @@ button:active {
         gap: 24px;
     }
 
-    .event-details > img {
+    .event-details>img {
         width: 42%;
         max-width: 420px;
         height: auto;
@@ -788,8 +797,8 @@ button:active {
         flex: 1;
     }
 
-    .text-data > h2,
-    .text-data > p {
+    .text-data>h2,
+    .text-data>p {
         width: 100%;
         max-width: 650px;
     }
@@ -813,7 +822,7 @@ button:active {
         min-height: 80px;
     }
 
-    header > .container {
+    header>.container {
         flex-direction: row;
 
         align-items: center;
@@ -823,11 +832,11 @@ button:active {
         gap: 0;
     }
 
-    header > .container > h2 {
+    header>.container>h2 {
         margin: 0;
     }
 
-    header > .container > nav {
+    header>.container>nav {
         display: none;
     }
 
@@ -839,7 +848,7 @@ button:active {
         position: relative;
     }
 
-    .mobile-menu > summary {
+    .mobile-menu>summary {
         display: flex;
         flex-direction: column;
 
@@ -853,11 +862,11 @@ button:active {
         cursor: pointer;
     }
 
-    .mobile-menu > summary::-webkit-details-marker {
+    .mobile-menu>summary::-webkit-details-marker {
         display: none;
     }
 
-    .mobile-menu > summary span {
+    .mobile-menu>summary span {
         display: block;
 
         width: 36px;
@@ -866,7 +875,7 @@ button:active {
         background-color: var(--primary-light);
     }
 
-    .mobile-menu[open] > nav {
+    .mobile-menu[open]>nav {
         display: flex;
         flex-direction: column;
 
@@ -888,7 +897,7 @@ button:active {
         z-index: 1;
     }
 
-    .mobile-menu > nav > a {
+    .mobile-menu>nav>a {
         display: flex;
 
         align-items: center;
@@ -898,12 +907,12 @@ button:active {
         gap: 20px;
     }
 
-    .mobile-menu > nav > a > img {
+    .mobile-menu>nav>a>img {
         width: 48px;
         height: 48px;
     }
 
-    nav > a > img {
+    nav>a>img {
         width: 40px;
         height: 40px;
     }
@@ -917,7 +926,7 @@ button:active {
         width: calc(100% - 24px);
     }
 
-    .courusel > img {
+    .courusel>img {
         width: 100%;
         height: auto;
 
@@ -1001,13 +1010,13 @@ button:active {
         gap: 8px;
     }
 
-    .buttons > button {
+    .buttons>button {
         min-height: 48px;
 
         flex: 1 1 100%;
     }
 
-    .event-register + .learn-about {
+    .event-register+.learn-about {
         display: none;
     }
 
@@ -1019,7 +1028,7 @@ button:active {
         scroll-snap-type: x mandatory;
     }
 
-    .event-cards.scroll-cards > .event-card {
+    .event-cards.scroll-cards>.event-card {
         flex: 0 0 300px;
         scroll-snap-align: start;
     }
@@ -1080,12 +1089,12 @@ button:active {
         filter: brightness(0) saturate(100%) invert(43%) sepia(89%) saturate(1852%) hue-rotate(198deg) brightness(94%) contrast(91%);
     }
 
-    .filters-toggle:focus-visible + .filters-toggle-button {
+    .filters-toggle:focus-visible+.filters-toggle-button {
         outline: 2px solid var(--primary-accent);
         outline-offset: 3px;
     }
 
-    .filters > h2 {
+    .filters>h2 {
         text-align: center;
         text-transform: uppercase;
 
@@ -1117,11 +1126,11 @@ button:active {
         z-index: 5;
     }
 
-    .filters-toggle:checked ~ .filter-options {
+    .filters-toggle:checked~.filter-options {
         display: flex;
     }
 
-    .filter-options > .mobile-category-filter {
+    .filter-options>.mobile-category-filter {
         display: block;
 
         width: 100%;
@@ -1166,7 +1175,7 @@ button:active {
         display: none;
     }
 
-    .filter-options .other-filters > select {
+    .filter-options .other-filters>select {
         width: 100%;
         min-width: 0;
         height: 54px;
@@ -1181,7 +1190,7 @@ button:active {
         padding: 0 4px;
     }
 
-    .other-filters > .mobile-date-filter {
+    .other-filters>.mobile-date-filter {
         width: 100%;
         height: 54px;
         font-size: 18px;
@@ -1191,13 +1200,13 @@ button:active {
         position: relative;
     }
 
-    .mobile-date-filter > span {
+    .mobile-date-filter>span {
         display: flex;
 
         align-items: center;
     }
 
-    .mobile-date-filter > input {
+    .mobile-date-filter>input {
         width: 100%;
         height: 100%;
 
@@ -1225,7 +1234,7 @@ button:active {
         transform: rotate(45deg);
     }
 
-    .filter-options > .mobile-filter-apply {
+    .filter-options>.mobile-filter-apply {
         display: flex;
 
         align-items: center;
@@ -1267,12 +1276,12 @@ button:active {
         gap: 8px 12px;
     }
 
-    .update-avatar > img {
+    .update-avatar>img {
         width: 128px;
         height: 128px;
     }
 
-    .update-avatar > .input-buttons {
+    .update-avatar>.input-buttons {
         gap: 8px;
 
         margin-top: 0;
@@ -1283,7 +1292,7 @@ button:active {
         max-width: 420px;
     }
 
-    .input-block > input {
+    .input-block>input {
         width: 100%;
     }
 
@@ -1295,7 +1304,7 @@ button:active {
         gap: 16px;
     }
 
-    .event-details > img {
+    .event-details>img {
         align-self: center;
 
         width: 100%;
@@ -1310,8 +1319,8 @@ button:active {
         width: 100%;
     }
 
-    .text-data > h2,
-    .text-data > p {
+    .text-data>h2,
+    .text-data>p {
         width: 100%;
     }
 
@@ -1320,11 +1329,11 @@ button:active {
         gap: 4px 10px;
     }
 
-    .event-info > p {
+    .event-info>p {
         margin: 0;
     }
 
-    .text-data > .accent-btn {
+    .text-data>.accent-btn {
         width: 100%;
     }
 

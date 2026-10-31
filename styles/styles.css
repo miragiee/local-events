@@ -190,11 +190,10 @@ button:active {
     flex: 1;
 }
 
-.courusel {
-    margin-top: 10px;
-}
+.carousel-item > img {
+    width: 1140px;
+    height: 704px;
 
-.courusel > img {
     border-radius: 18px;
 }
 
@@ -206,6 +205,8 @@ button:active {
 
     width: auto;
     height: auto;
+
+    margin-top: 20px;
 }
 
 .event-list-section {

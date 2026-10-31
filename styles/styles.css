@@ -1347,9 +1347,15 @@ button:active {
     }
 
     .question-link {
-        width: 100%;
 
+        display: flex;
+        flex-direction: row;
         flex-wrap: wrap;
+
+        justify-content: center;
+        align-items: center;
+
+        width: 100%;
         gap: 8px;
     }
 }

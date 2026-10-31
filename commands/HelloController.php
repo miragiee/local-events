@@ -1,12 +1,9 @@
 <?php
-
 /**
- * @link https://www.yiiframework.com/
+ * @link http://www.yiiframework.com/
  * @copyright Copyright (c) 2008 Yii Software LLC
- * @license https://www.yiiframework.com/license/
+ * @license http://www.yiiframework.com/license/
  */
-
-declare(strict_types=1);
 
 namespace app\commands;
 
@@ -28,9 +25,9 @@ class HelloController extends Controller
      * @param string $message the message to be echoed.
      * @return int Exit code
      */
-    public function actionIndex(string $message = 'hello world'): int
+    public function actionIndex($message = 'hello world')
     {
-        echo "{$message}\n";
+        echo $message . "\n";
 
         return ExitCode::OK;
     }

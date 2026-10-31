@@ -1,22 +1,18 @@
 <?php
 
-declare(strict_types=1);
-
-namespace app\tests\Acceptance;
-
-use app\tests\Support\AcceptanceTester;
 use yii\helpers\Url;
 
-final class HomeCest
+class HomeCest
 {
     public function ensureThatHomePageWorks(AcceptanceTester $I)
     {
-        $I->amOnPage(Url::toRoute('/site/index'));
-        $I->see(\Yii::$app->name);
-
+        $I->amOnPage(Url::toRoute('/site/index'));        
+        $I->see('My Company');
+        
         $I->seeLink('About');
         $I->click('About');
-
+        $I->wait(2); // wait for page to be opened
+        
         $I->see('This is the About page.');
     }
 }

@@ -1,19 +1,13 @@
 <?php
-
 /**
- * @link https://www.yiiframework.com/
+ * @link http://www.yiiframework.com/
  * @copyright Copyright (c) 2008 Yii Software LLC
- * @license https://www.yiiframework.com/license/
+ * @license http://www.yiiframework.com/license/
  */
-
-declare(strict_types=1);
 
 namespace app\assets;
 
-use yii\bootstrap5\BootstrapAsset;
 use yii\web\AssetBundle;
-use yii\web\View;
-use yii\web\YiiAsset;
 
 /**
  * Main application asset bundle.
@@ -29,13 +23,9 @@ class AppAsset extends AssetBundle
         'css/site.css',
     ];
     public $js = [
-        'js/color-mode.js',
-    ];
-    public $jsOptions = [
-        'position' => View::POS_HEAD,
     ];
     public $depends = [
-        YiiAsset::class,
-        BootstrapAsset::class,
+        'yii\web\YiiAsset',
+        'yii\bootstrap4\BootstrapAsset',
     ];
 }

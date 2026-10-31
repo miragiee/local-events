@@ -1,16 +1,16 @@
 <?php
 
-declare(strict_types=1);
-
-namespace app\tests\Unit\Models;
+namespace tests\unit\models;
 
 use app\models\ContactForm;
-use Yii;
 use yii\mail\MessageInterface;
 
-final class ContactFormTest extends \Codeception\Test\Unit
+class ContactFormTest extends \Codeception\Test\Unit
 {
-    public mixed $tester = null;
+    /**
+     * @var \UnitTester
+     */
+    public $tester;
 
     public function testEmailIsSentOnContact()
     {
@@ -24,19 +24,18 @@ final class ContactFormTest extends \Codeception\Test\Unit
             'verifyCode' => 'testme',
         ];
 
-        verify($model->contact(Yii::$app->mailer, 'admin@example.com', 'noreply@example.com', 'Example.com mailer'))->notEmpty();
+        expect_that($model->contact('admin@example.com'));
 
         // using Yii2 module actions to check email was sent
         $this->tester->seeEmailIsSent();
 
         /** @var MessageInterface $emailMessage */
         $emailMessage = $this->tester->grabLastSentEmail();
-
-        verify($emailMessage)->instanceOf('yii\mail\MessageInterface');
-        verify($emailMessage->getTo())->arrayHasKey('admin@example.com');
-        verify($emailMessage->getFrom())->arrayHasKey('noreply@example.com');
-        verify($emailMessage->getReplyTo())->arrayHasKey('tester@example.com');
-        verify($emailMessage->getSubject())->equals('very important letter subject');
-        verify($emailMessage->toString())->stringContainsString('body of current message');
+        expect('valid email is sent', $emailMessage)->isInstanceOf('yii\mail\MessageInterface');
+        expect($emailMessage->getTo())->hasKey('admin@example.com');
+        expect($emailMessage->getFrom())->hasKey('noreply@example.com');
+        expect($emailMessage->getReplyTo())->hasKey('tester@example.com');
+        expect($emailMessage->getSubject())->equals('very important letter subject');
+        expect($emailMessage->toString())->stringContainsString('body of current message');
     }
 }

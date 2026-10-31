@@ -1,81 +1,65 @@
 <?php
 
-/* @var $this \yii\web\View */
-/* @var $content string */
+use yii\bootstrap4\BootstrapAsset;
+use yii\helpers\Url;
+use yii\web\YiiAsset;
 
-use app\assets\AppAsset;
-use app\widgets\Alert;
-use yii\bootstrap4\Breadcrumbs;
-use yii\bootstrap4\Html;
-use yii\bootstrap4\Nav;
-use yii\bootstrap4\NavBar;
 
-AppAsset::register($this);
 ?>
+
 <?php $this->beginPage() ?>
-<!DOCTYPE html>
-<html lang="<?= Yii::$app->language ?>" class="h-100">
+<!doctype html>
+<html lang="en">
+
 <head>
-    <meta charset="<?= Yii::$app->charset ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <?php $this->registerCsrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?></title>
-    <?php $this->head() ?>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Главная</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="<?= Url::to('@web/css/styles.css') ?>" />
 </head>
-<body class="d-flex flex-column h-100">
-<?php $this->beginBody() ?>
 
-<header>
-    <?php
-    NavBar::begin([
-        'brandLabel' => Yii::$app->name,
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar navbar-expand-md navbar-dark bg-dark fixed-top',
-        ],
-    ]);
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav'],
-        'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
-            Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
-            ) : (
-                '<li>'
-                . Html::beginForm(['/site/logout'], 'post', ['class' => 'form-inline'])
-                . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
-                    ['class' => 'btn btn-link logout']
-                )
-                . Html::endForm()
-                . '</li>'
-            )
-        ],
-    ]);
-    NavBar::end();
-    ?>
-</header>
+<body>
+    <?php $this->beginBody() ?>
+    <header>
+        <div class="container">
+            <a href="<?= Url::to('@web/site/index') ?>" class="name">Локаливент</a>
 
-<main role="main" class="flex-shrink-0">
-    <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= Alert::widget() ?>
+            <nav>
+                <a href="<?= Url::to('@web/site/index') ?>">Главная</a>
+                <a href="<?= Url::to('@web/site/all-events') ?>">Мероприятия</a>
+                <a href="<?= Url::to('@web/site/my-events') ?>">Мои записи</a>
+                <a href="<?= Url::to('@web/site/profile') ?>">
+                    <img src="../../web/resources/images/sakura-art.png" alt="Профиль" />
+                </a>
+            </nav>
+            <details class="mobile-menu">
+                <summary aria-label="Меню">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </summary>
+                <nav>
+                    <a href="/index.html">Главная</a>
+                    <a href="/pages/all-events.html">Мероприятия</a>
+                    <a href="/pages/my-events.html">Мои записи</a>
+                    <a href="/pages/profile.html" aria-label="Профиль">
+                        <img src="../resources/images/sakura-art.png" alt="" />
+                        <span>Профиль</span>
+                    </a>
+                </nav>
+            </details>
+        </div>
+    </header>
+    <main>
+
         <?= $content ?>
-    </div>
-</main>
 
-<footer class="footer mt-auto py-3 text-muted">
-    <div class="container">
-        <p class="float-left">&copy; My Company <?= date('Y') ?></p>
-        <p class="float-right"><?= Yii::powered() ?></p>
-    </div>
-</footer>
-
-<?php $this->endBody() ?>
+    </main>
+    <?php $this->endBody() ?>
 </body>
+
 </html>
 <?php $this->endPage() ?>

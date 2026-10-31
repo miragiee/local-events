@@ -2,52 +2,206 @@
 
 /* @var $this yii\web\View */
 
+use yii\helpers\Url;
+use yii\bootstrap4\Carousel;
+use yii\helpers\Html;
+
 $this->title = 'My Yii Application';
 ?>
-<div class="site-index">
+<div class="container">
+    <?=
+    Carousel::widget([
 
-    <div class="jumbotron text-center bg-transparent">
-        <h1 class="display-4">Congratulations!</h1>
+        'items' => [
+            [
+                'content' => Html::img(Url::to('@web/resources/images/syrneke.jpg'), ['alt' => 'Слайд 1', 'class'   => 'd-block w-100']),
+                'options' => ['class' => 'carousel-item'],
+            ],
+            [
+                'content' => Html::img(Url::to('@web/resources/images/omon.png'), ['alt' => 'Слайд 2', 'class'   => 'd-block w-100']),
+                'options' => ['class' => 'carousel-item'],
+            ],
+            [
+                'content' => Html::img(Url::to('@web/resources/images/musya.jpg'), ['alt' => 'Слайд 3', 'class'   => 'd-block w-100']),
+                'options' => ['class' => 'carousel-item'],
+            ],
+        ],
 
-        <p class="lead">You have successfully created your Yii-powered application.</p>
+        'controls' => [
+            '<span class="carousel-control-prev-icon" aria-hidden="true"></span><span   class="sr-only">Назад</span>',
+            '<span class="carousel-control-next-icon" aria-hidden="true"></span><span   class="sr-only">Вперёд</span>'
+        ],
+        'clientOptions' => [
+            'interval' => 3000,
+            'ride' => 'carousel',
+            'wrap' => true,
+        ],
+    ]);
+    ?>
+    <section class="recommended-events">
+        <h2>Рекомендуемые мероприятия</h2>
+        <div class="event-cards">
+            <div class="event-card">
+                <div class="event-card-image-wrapper">
+                    <img class="event-card-image" src="../resources/images/event-image-placeholder.jpg"
+                        alt="Название мероприятия" />
+                </div>
 
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
-    </div>
+                <div class="event-card-data">
+                    <div class="primary-data">
+                        <div class="small-text date">XX.XX.XXXX XX:XX</div>
+                        <h3 class="event-name">Название Мероприятия</h3>
+                    </div>
 
-    <div class="body-content">
+                    <div class="description">Краткое описание мероприятия</div>
 
-        <div class="row">
-            <div class="col-lg-4">
-                <h2>Heading</h2>
+                    <div class="buttons">
+                        <button class="accent-btn event-register">
+                            Записаться
+                        </button>
+                        <button class="normal-btn learn-about">
+                            Узнать больше
+                        </button>
+                    </div>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-outline-secondary" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
+                    <div class="participants">Участников: XXXXX</div>
+                </div>
             </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
+            <div class="event-card">
+                <div class="event-card-image-wrapper">
+                    <img class="event-card-image" src="../resources/images/event-image-placeholder.jpg"
+                        alt="Название мероприятия" />
+                </div>
 
-                <p><a class="btn btn-outline-secondary" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
+                <div class="event-card-data">
+                    <div class="primary-data">
+                        <div class="small-text date">XX.XX.XXXX XX:XX</div>
+                        <h3 class="event-name">Название Мероприятия</h3>
+                    </div>
+
+                    <div class="description">Краткое описание мероприятия</div>
+
+                    <div class="buttons">
+                        <button class="accent-btn event-register">
+                            Записаться
+                        </button>
+                        <button class="normal-btn learn-about">
+                            Узнать больше
+                        </button>
+                    </div>
+
+                    <div class="participants">Участников: XXXXX</div>
+                </div>
             </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
+            <div class="event-card">
+                <div class="event-card-image-wrapper">
+                    <img class="event-card-image" src="../resources/images/event-image-placeholder.jpg"
+                        alt="Название мероприятия" />
+                </div>
 
-                <p><a class="btn btn-outline-secondary" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
+                <div class="event-card-data">
+                    <div class="primary-data">
+                        <div class="small-text date">XX.XX.XXXX XX:XX</div>
+                        <h3 class="event-name">Название Мероприятия</h3>
+                    </div>
+
+                    <div class="description">Краткое описание мероприятия</div>
+
+                    <div class="buttons">
+                        <button class="accent-btn event-register">
+                            Записаться
+                        </button>
+                        <button class="normal-btn learn-about">
+                            Узнать больше
+                        </button>
+                    </div>
+
+                    <div class="participants">Участников: XXXXX</div>
+                </div>
+            </div>
+
+            <div class="event-card">
+                <div class="event-card-image-wrapper">
+                    <img class="event-card-image" src="../resources/images/event-image-placeholder.jpg"
+                        alt="Название мероприятия" />
+                </div>
+
+                <div class="event-card-data">
+                    <div class="primary-data">
+                        <div class="small-text date">XX.XX.XXXX XX:XX</div>
+                        <h3 class="event-name">Название Мероприятия</h3>
+                    </div>
+
+                    <div class="description">Краткое описание мероприятия</div>
+
+                    <div class="buttons">
+                        <button class="accent-btn event-register">
+                            Записаться
+                        </button>
+                        <button class="normal-btn learn-about">
+                            Узнать больше
+                        </button>
+                    </div>
+
+                    <div class="participants">Участников: XXXXX</div>
+                </div>
+            </div>
+
+            <div class="event-card">
+                <div class="event-card-image-wrapper">
+                    <img class="event-card-image" src="../resources/images/event-image-placeholder.jpg"
+                        alt="Название мероприятия" />
+                </div>
+
+                <div class="event-card-data">
+                    <div class="primary-data">
+                        <div class="small-text date">XX.XX.XXXX XX:XX</div>
+                        <h3 class="event-name">Название Мероприятия</h3>
+                    </div>
+
+                    <div class="description">Краткое описание мероприятия</div>
+
+                    <div class="buttons">
+                        <button class="accent-btn event-register">
+                            Записаться
+                        </button>
+                        <button class="normal-btn learn-about">
+                            Узнать больше
+                        </button>
+                    </div>
+
+                    <div class="participants">Участников: XXXXX</div>
+                </div>
+            </div>
+
+            <div class="event-card">
+                <div class="event-card-image-wrapper">
+                    <img class="event-card-image" src="../resources/images/event-image-placeholder.jpg"
+                        alt="Название мероприятия" />
+                </div>
+
+                <div class="event-card-data">
+                    <div class="primary-data">
+                        <div class="small-text date">XX.XX.XXXX XX:XX</div>
+                        <h3 class="event-name">Название Мероприятия</h3>
+                    </div>
+
+                    <div class="description">Краткое описание мероприятия</div>
+
+                    <div class="buttons">
+                        <button class="accent-btn event-register">
+                            Записаться
+                        </button>
+                        <button class="normal-btn learn-about">
+                            Узнать больше
+                        </button>
+                    </div>
+
+                    <div class="participants">Участников: XXXXX</div>
+                </div>
             </div>
         </div>
-
-    </div>
+    </section>
 </div>

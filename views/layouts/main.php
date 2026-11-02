@@ -32,7 +32,7 @@ use yii\web\YiiAsset;
                 <a href="<?= Url::to('@web/site/all-events') ?>">Мероприятия</a>
                 <a href="<?= Url::to('@web/site/my-events') ?>">Мои записи</a>
                 <a href="<?= Url::to('@web/site/profile') ?>">
-                    <img src="../../web/resources/images/sakura-art.png" alt="Профиль" />
+                    <img src="<?= Url::to('@web/resources/images/sakura-art.png') ?>" alt="Профиль" />
                 </a>
             </nav>
             <details class="mobile-menu">

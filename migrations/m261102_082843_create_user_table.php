@@ -28,8 +28,9 @@ class m261102_082843_create_user_table extends Migration
 
         $this->addForeignKey(
             'fk-user-role_id',
-            '{{%user}}',
+            'user',
             'role_id',
+            'role',
             'id',
             'CASCADE',
             'CASCADE'

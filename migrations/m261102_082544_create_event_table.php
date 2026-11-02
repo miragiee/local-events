@@ -18,6 +18,7 @@ class m261102_082544_create_event_table extends Migration
             'description' => $this->string(1000)->notNull(),
             'participations' => $this->integer(),
             'start_date' => $this->date(),
+            'end_date' => $this->date(),
             'image_URL' => $this->string(255)
         ]);
     }

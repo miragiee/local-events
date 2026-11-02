@@ -19,7 +19,8 @@ class m261102_082544_create_event_table extends Migration
             'participations' => $this->integer(),
             'start_date' => $this->date(),
             'end_date' => $this->date(),
-            'image_URL' => $this->string(255)
+            'image_URL' => $this->string(255),
+            'status' => $this->string(255)->defaultValue("Предстоит")
         ]);
     }
 

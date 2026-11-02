@@ -16,6 +16,7 @@ class m261102_084150_create_user_application_table extends Migration
             'id' => $this->primaryKey(),
             'event_id' => $this->integer()->notNull(),
             'user_id' => $this->integer()->notNull(),
+            'status' => $this->string(255)->defaultValue("Оформлено")
         ]);
 
         $this->addForeignKey(

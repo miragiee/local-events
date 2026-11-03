@@ -43,10 +43,11 @@ class User extends \yii\db\ActiveRecord
             [['email', 'fisrt_name', 'last_name', 'patronymic', 'phone_number', 'city', 'avatar_URL'], 'default', 'value' => null],
             [['role_id'], 'default', 'value' => 1],
             [['role_id'], 'integer'],
-            [['password'], 'required'],
-            [['email', 'password', 'fisrt_name', 'last_name', 'patronymic', 'phone_number', 'city', 'avatar_URL'], 'string', 'max' => 255],
+            [['username', 'password'], 'required'],
+            [['username', 'email', 'password', 'fisrt_name', 'last_name', 'patronymic', 'phone_number', 'city', 'avatar_URL'], 'string', 'max' => 255],
             [['username'], 'unique'],
             [['email'], 'unique'],
+            [['phone_number'], 'unique'],
             [['role_id'], 'exist', 'skipOnError' => true, 'targetClass' => Role::class, 'targetAttribute' => ['role_id' => 'id']],
         ];
     }
@@ -59,6 +60,7 @@ class User extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'role_id' => 'Роль',
+            'username' => 'Логин',
             'email' => 'Почта',
             'password' => 'Пароль',
             'fisrt_name' => 'Имя',

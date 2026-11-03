@@ -7,6 +7,7 @@ $config = [
     'id' => 'basic',
     'language' => 'ru_RU',
     'name' => 'Локаливент',
+    'homeUrl' => '@web/site/index',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'aliases' => [

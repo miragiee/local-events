@@ -50,7 +50,9 @@ $config = [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'rules' => [],
+            'rules' => [
+                'register' => 'user/create',
+            ],
         ],
 
     ],

@@ -160,6 +160,11 @@ main {
     letter-spacing: 3%;
 }
 
+.name:hover {
+    text-decoration: none;
+    color: var(--utils-link);
+}
+
 button,
 .btn {
     display: inline-flex;
@@ -372,6 +377,21 @@ button:active {
     gap: 30px;
 }
 
+.register-link {
+    display: flex;
+    flex-direction: row;
+
+    gap: 10px;
+}
+
+.register-link>p {
+    color: var(--primary-dark);
+}
+
+.register-link>a {
+    color: var(--utils-link);
+}
+
 .filters-toggle,
 .filters-toggle-button {
     display: none;
@@ -414,6 +434,19 @@ button:active {
     flex-direction: row;
 
     justify-content: space-between;
+}
+
+.login-btn {
+    color: var(--primary-light);
+    background-color: var(--primary-accent);
+
+    border-radius: 6px;
+    box-sizing: border-box;
+    padding: 10px;
+
+    transition:
+        opcaity 0.2s ease,
+        transform 0.1s ease;
 }
 
 .text-btn {

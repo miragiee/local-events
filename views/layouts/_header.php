@@ -16,7 +16,7 @@ use yii\helpers\Url;
             <?php if (Yii::$app->user->isGuest): ?>
                 <a
                     href="<?= Url::to('@web/site/login') ?>"
-                    class="accent-btn">Войти</a>
+                    class="login-btn">Войти</a>
             <?php else: ?>
                 <a href="<?= Url::to('@web/site/profile') ?>">
                     <img

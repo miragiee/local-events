@@ -18,26 +18,6 @@ class m261102_084150_create_user_application_table extends Migration
             'user_id' => $this->integer()->notNull(),
             'status' => $this->string(255)->defaultValue("Оформлено")
         ]);
-
-        $this->addForeignKey(
-            'fk-application-event_id',
-            'user_application',
-            'event_id',
-            'event',
-            'id',
-            'CASCADE',
-            'CASCADE'
-        );
-
-        $this->addForeignKey(
-            'fk-application-user_id',
-            'user_application',
-            'user_id',
-            'user',
-            'id',
-            'CASCADE',
-            'CASCADE'
-        );
     }
 
     /**

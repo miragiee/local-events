@@ -25,16 +25,6 @@ class m261102_082843_create_user_table extends Migration
             'city' => $this->string(255),
             'avatar_URL' => $this->string(255)
         ]);
-
-        $this->addForeignKey(
-            'fk-user-role_id',
-            'user',
-            'role_id',
-            'role',
-            'id',
-            'CASCADE',
-            'CASCADE'
-        );
     }
 
     /**

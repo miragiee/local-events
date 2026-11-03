@@ -43,8 +43,8 @@ class User extends \yii\db\ActiveRecord
             [['email', 'fisrt_name', 'last_name', 'patronymic', 'phone_number', 'city', 'avatar_URL'], 'default', 'value' => null],
             [['role_id'], 'default', 'value' => 1],
             [['role_id'], 'integer'],
-            [['username', 'password'], 'required'],
-            [['username', 'email', 'password', 'fisrt_name', 'last_name', 'patronymic', 'phone_number', 'city', 'avatar_URL'], 'string', 'max' => 255],
+            [['password'], 'required'],
+            [['email', 'password', 'fisrt_name', 'last_name', 'patronymic', 'phone_number', 'city', 'avatar_URL'], 'string', 'max' => 255],
             [['username'], 'unique'],
             [['email'], 'unique'],
             [['role_id'], 'exist', 'skipOnError' => true, 'targetClass' => Role::class, 'targetAttribute' => ['role_id' => 'id']],
@@ -58,16 +58,15 @@ class User extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'role_id' => 'Role ID',
-            'username' => 'Username',
-            'email' => 'Email',
-            'password' => 'Password',
-            'fisrt_name' => 'Fisrt Name',
-            'last_name' => 'Last Name',
-            'patronymic' => 'Patronymic',
-            'phone_number' => 'Phone Number',
-            'city' => 'City',
-            'avatar_URL' => 'Avatar Url',
+            'role_id' => 'Роль',
+            'email' => 'Почта',
+            'password' => 'Пароль',
+            'fisrt_name' => 'Имя',
+            'last_name' => 'Фамилия',
+            'patronymic' => 'Отчество',
+            'phone_number' => 'Номер телефона',
+            'city' => 'Город',
+            'avatar_URL' => 'Путь к аватару',
         ];
     }
 
@@ -90,5 +89,4 @@ class User extends \yii\db\ActiveRecord
     {
         return $this->hasMany(UserApplication::class, ['user_id' => 'id']);
     }
-
 }

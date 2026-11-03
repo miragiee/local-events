@@ -16,8 +16,12 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'password')->passwordInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'password')->passwordInput(['maxlength' => true])->label("Повторите пароль") ?>
+
     <div class="form-group">
-        <?= Html::submitButton('Далее', ['class' => 'btn btn-success']) ?>
+        <button class="accent-btn">
+            Далее
+        </button>
     </div>
 
     <?php ActiveForm::end(); ?>
@@ -38,6 +42,6 @@ use yii\widgets\ActiveForm;
     <!-- <?= $form->field($model, 'avatar_URL')->textInput(['maxlength' => true]) ?> -->
 
     <div class="form-group">
-        <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Сохранить', ['class' => 'accent-btn']) ?>
     </div>
 </div>

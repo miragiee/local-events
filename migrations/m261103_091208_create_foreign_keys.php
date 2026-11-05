@@ -40,6 +40,16 @@ class m261103_091208_create_foreign_keys extends Migration
         );
 
         $this->addForeignKey(
+            'fk-event-type_id',
+            'event',
+            'type_id',
+            'event_type',
+            'id',
+            'CASCADE',
+            'CASCADE'
+        );
+
+        $this->addForeignKey(
             'fk-application-event_id',
             'user_application',
             'event_id',

@@ -21,6 +21,7 @@ class m261102_082544_create_event_table extends Migration
             'end_date' => $this->date(),
             'organizator_id' => $this->integer()->notNull(),
             'place_id' => $this->integer()->notNull(),
+            'type_id' => $this->integer()->notNull(),
             'image_URL' => $this->string(255),
             'status' => $this->string(255)->defaultValue("Предстоит")
         ]);
@@ -33,6 +34,7 @@ class m261102_082544_create_event_table extends Migration
             'end_date' => '2026-11-12',
             'organizator_id' => '1',
             'place_id' => '1',
+            'type_id' => '4',
             'image_URL' => 'none'
         ]);
     }

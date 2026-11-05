@@ -297,6 +297,13 @@ button:active {
     margin: 10px;
 }
 
+.event-list-section>h3 {
+    font-size: 20px;
+
+    margin-top: 70px;
+    margin-bottom: 20px;
+}
+
 
 .event-cards {
     display: grid;
@@ -519,7 +526,7 @@ button:active {
 
 
 .text-btn {
-    font-size: 14px;
+    font-size: 16px;
 
     background-color: var(--primary-background);
     color: var(--primary-dark);
@@ -561,13 +568,13 @@ button:active {
 }
 
 .clear-btn>img {
-    width: 36px;
-    height: 36px;
+    width: 24px;
+    height: 24px;
 }
 
 .other-filters>select {
     font-family: "Lato", sans-serif;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 400;
 
     background-color: var(--primary-background);
@@ -1320,7 +1327,7 @@ button:active {
     }
 
     .text-btn {
-        font-size: 15px;
+        font-size: 16px;
 
         padding: 8px 10px;
     }
@@ -1329,7 +1336,7 @@ button:active {
         display: flex;
         flex-direction: column;
 
-        align-items: stretch;
+        align-items: center;
 
         gap: 0;
     }
@@ -1341,12 +1348,9 @@ button:active {
     .filter-options .other-filters>select {
         width: 100%;
         min-width: 0;
-        height: 54px;
-        font-size: 18px;
+        font-size: 16px;
 
         color: var(--primary-light);
-        background: transparent;
-        color-scheme: dark;
 
         border: 0;
 

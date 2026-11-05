@@ -1,3 +1,15 @@
+<?php
+
+/* @var $this yii\web\View */
+/* @var $form yii\bootstrap4\ActiveForm */
+/* @var $model app\models\LoginForm */
+
+use yii\bootstrap4\ActiveForm;
+use yii\bootstrap4\Html;
+use yii\helpers\Url;
+
+?>
+
 <section class="center-container">
     <h2>Регистрация</h2>
     <div class="input-section">

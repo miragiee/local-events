@@ -3,6 +3,9 @@
 use yii\bootstrap4\BootstrapAsset;
 use yii\helpers\Url;
 use yii\web\YiiAsset;
+use app\assets\AppAsset;
+
+AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!doctype html>

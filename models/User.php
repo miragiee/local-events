@@ -24,7 +24,7 @@ use Yii;
  */
 class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
 {
-
+    public $password_repeat;
 
     /**
      * {@inheritdoc}
@@ -49,6 +49,7 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
             [['email'], 'unique'],
             [['phone_number'], 'unique'],
             [['role_id'], 'exist', 'skipOnError' => true, 'targetClass' => Role::class, 'targetAttribute' => ['role_id' => 'id']],
+            ['password_repeat', 'compare', 'compareAttribute' => 'password', 'message' => 'Пароли не совпадают.'],
         ];
     }
 
@@ -63,6 +64,7 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
             'username' => 'Логин',
             'email' => 'Почта',
             'password' => 'Пароль',
+            'password_repeat' => 'Повторите пароль',
             'fisrt_name' => 'Имя',
             'last_name' => 'Фамилия',
             'patronymic' => 'Отчество',

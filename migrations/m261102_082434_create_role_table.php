@@ -16,6 +16,12 @@ class m261102_082434_create_role_table extends Migration
             'id' => $this->primaryKey(),
             'title' => $this->string(255)->notNull()->unique(),
         ]);
+        $this->insert('{{%role}}', [
+            'title' => 'Пользователь',
+        ]);
+        $this->insert('{{%role}}', [
+            'title' => 'Администратор',
+        ]);
     }
 
     /**

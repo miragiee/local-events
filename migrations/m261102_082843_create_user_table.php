@@ -25,6 +25,13 @@ class m261102_082843_create_user_table extends Migration
             'city' => $this->string(255),
             'avatar_URL' => $this->string(255)
         ]);
+
+        $this->insert('{{%user}}', [
+            'role_id' => 2,
+            'username' => 'admin',
+            'email' => 'admin@example.com',
+            'password' => 'admin',
+        ]);
     }
 
     /**

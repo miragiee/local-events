@@ -70,32 +70,8 @@ class UserController extends Controller
         $model = new User();
 
         if ($this->request->isPost) {
-            // 1. Пытаемся загрузить данные из POST
-            if ($model->load($this->request->post())) {
-
-                // 2. Вручную запускаем валидацию и смотрим ошибки, если они есть
-                if (!$model->validate()) {
-                    echo "<h3>Ошибки валидации модели:</h3>";
-                    echo "<pre>";
-                    print_r($model->getErrors());
-                    echo "</pre>";
-                    die(); // Останавливаем выполнение, чтобы увидеть текст
-                }
-
-                // 3. Пытаемся сохранить, и если не выходит на уровне БД — смотрим почему
-                if ($model->save(false)) { // false отключает повторную валидацию, если она прошла выше
-                    return $this->redirect(['view', 'id' => $model->id]);
-                } else {
-                    echo "<h3>Ошибка при сохранении в базу данных!</h3>";
-                    die();
-                }
-            } else {
-                echo "<h3>Данные из формы не были загружены в модель!</h3>";
-                echo "Разберитесь с POST-данными:";
-                echo "<pre>";
-                print_r($this->request->post());
-                echo "</pre>";
-                die();
+            if ($model->load($this->request->post()) && $model->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
             }
         } else {
             $model->loadDefaultValues();

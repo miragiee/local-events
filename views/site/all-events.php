@@ -71,7 +71,7 @@
     <section class="event-list-section">
         <h3>Предстоящие мероприятия</h3>
         <div class="event-cards" aria-label="Список мероприятий">
-            <?php for ($i = 0; $i < 13; $i++): ?>
+            <?php for ($i = 0; $i < 4; $i++): ?>
                 <?= $this->render('/layouts/_card') ?>
             <?php endfor; ?>
         </div>

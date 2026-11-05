@@ -17,6 +17,11 @@ class m261102_100457_create_place_table extends Migration
             'title' => $this->string(255),
             'address' => $this->string(255)
         ]);
+
+        $this->insert('{{%place}}', [
+            'title' => 'Остров Эпштейна',
+            'address' => 'Остров Литл Сейнт Джеймс'
+        ]);
     }
 
     /**

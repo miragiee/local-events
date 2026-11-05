@@ -24,6 +24,17 @@ class m261102_082544_create_event_table extends Migration
             'image_URL' => $this->string(255),
             'status' => $this->string(255)->defaultValue("Предстоит")
         ]);
+
+        $this->insert('{{%event}}', [
+            'title' => 'Снос базы под 0',
+            'description' => 'Не надо было переходить дорогу великий китайский клан. 为什么河马不爱吃包子？因为河马只喜欢吃水。为什么河马不爱吃包子？因为河马只喜欢吃水。为什么河马不爱吃包子？因为河马只喜欢吃水。为什么河马不爱吃包子？因为河马只喜欢吃水。为什么河马不爱吃包子？因为河马只喜欢吃水。为什么河马不爱吃包子？因为河马只喜欢吃水。为什么河马不爱吃包子？因为河马只喜欢吃水。为什么河马不爱吃包子？因为河马只喜欢吃水。-1000 Social Credit.',
+            'participations' => '1001',
+            'start_date' => '2026-11-11',
+            'end_date' => '2026-11-12',
+            'organizator_id' => '1',
+            'place_id' => '1',
+            'image_URL' => 'none'
+        ]);
     }
 
     /**

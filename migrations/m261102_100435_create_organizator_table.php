@@ -16,6 +16,18 @@ class m261102_100435_create_organizator_table extends Migration
             'id' => $this->primaryKey(),
             'title' => $this->string(255)->notNull()->unique()
         ]);
+
+        $this->insert('{{%organizator}}', [
+            'title' => 'Китайский клан'
+        ]);
+        
+        $this->insert('{{%organizator}}', [
+            'title' => 'Камерный театр'
+        ]);
+
+        $this->insert('{{%organizator}}', [
+            'title' => 'Министерство Обороны РФ'
+        ]);
     }
 
     /**

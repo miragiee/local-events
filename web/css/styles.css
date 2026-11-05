@@ -215,6 +215,16 @@ button:active {
     flex: 1;
 }
 
+.logout-btn {
+    background-color: var(--primary-background);
+
+    border: 1px solid var(--utils-error);
+    border-radius: 6px;
+    color: var(--utils-error);
+
+    width: 100%;
+}
+
 .carousel-item>img {
     width: 1140px;
     height: 704px;
@@ -518,6 +528,7 @@ button:active {
 }
 
 .cancel {
+
     background-color: var(--utils-error);
     color: var(--primary-light);
 }
@@ -896,6 +907,7 @@ button:active {
         margin-left: auto;
 
         position: relative;
+        z-index: 1080;
     }
 
     .mobile-menu>summary {

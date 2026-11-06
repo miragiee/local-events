@@ -593,6 +593,83 @@ button:active {
     border: none;
 }
 
+.pagination-wrapper {
+    width: 100%;
+    margin: 30px 0;
+}
+
+.pagination-custom {
+    display: flex !important;
+    flex-direction: row !important;
+
+    justify-content: center !important;
+    align-items: center !important;
+
+    list-style-type: none !important;
+
+    padding: 0 !important;
+    margin: 30px 0 !important;
+
+    width: 100%;
+    gap: 20px;
+}
+
+.pagination-custom li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.pagination-custom li a {
+    display: flex;
+    justify-content: center;
+
+    align-items: center;
+
+    width: 40px;
+    height: 40px;
+
+    font-size: 16px;
+    color: var(--primary-dark);
+    text-decoration: none;
+
+    border-radius: 6px;
+
+    transition:
+        background-color 0.2s, color 0.2s;
+}
+
+.pagination-custom li a:hover {
+    background-color: var(--primary-dark);
+    color: var(--primary-accent);
+}
+
+.pagination-custom li.active a {
+    background-color: var(--primary-accent) !important;
+    color: var(--primary-light) !important;
+    font-weight: bold;
+}
+
+
+.pagination-custom li.disabled span {
+    display: flex;
+    justify-content: center;
+
+    align-items: center;
+
+    width: 40px;
+    height: 40px;
+
+    color: var(--secondary-dark);
+    background-color: var(--primary-light);
+
+    border-radius: 6px;
+
+    font-size: 16px;
+    cursor: not-allowed;
+
+}
+
 .cancel {
 
     background-color: var(--utils-error);

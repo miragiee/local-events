@@ -9,6 +9,8 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\Event;
+use yii\data\ActiveDataProvider;
 
 class SiteController extends Controller
 {
@@ -66,7 +68,16 @@ class SiteController extends Controller
 
     public function actionAllEvents()
     {
-        return $this->render('all-events');
+        $query = Event::find()->where(['>=', 'start_date', date('Y-m-d')])->orderBy(['start_date' => SORT_ASC]);
+
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+            'pagination' => [
+                'pageSize' => 4,
+            ],
+        ]);
+
+        return $this->render('all-events', ['dataProvider' => $dataProvider]);
     }
 
     public function actionEventDetails()
@@ -84,11 +95,13 @@ class SiteController extends Controller
         return $this->render('profile');
     }
 
-    public function actionRegisterStep1() {
+    public function actionRegisterStep1()
+    {
         return $this->render('register-1');
     }
-    
-    public function actionRegisterStep2() {
+
+    public function actionRegisterStep2()
+    {
         return $this->render('register-2');
     }
 

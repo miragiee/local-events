@@ -1,4 +1,6 @@
-# Local Evebts
+# Local Events
+
+Учебная практика, 1 семестр, 2026-2027 учебный год.
 
 ## СТРУКТУРА ПРОЕКТА
 
@@ -32,28 +34,15 @@ git clone https://github.com/miragiee/local-events
 composer install
 ```
 
-<!-- ### Install from an Archive File
-
-Extract the archive file downloaded from [yiiframework.com](http://www.yiiframework.com/download/) to
-a directory named `basic` that is directly under the Web root.
-
-Set cookie validation key in `config/web.php` file to some random secret string:
+3. Измените ключ в файле `config/web.php` на какую-нибудь строку
 
 ```php
 'request' => [
-    // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-    'cookieValidationKey' => '<secret random string goes here>',
+    'cookieValidationKey' => '<случайная секретная строка которую вы конечно же никому не скажете =)>',
 ],
 ```
 
-You can then access the application through the following URL:
-
-~~~
-http://localhost/basic/web/
-~~~
-
-
-### Install with Docker
+<!-- ### Install with Docker
 
 Update your vendor packages
 

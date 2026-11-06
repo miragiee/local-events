@@ -25,6 +25,7 @@ use Yii;
 class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
 {
     public $password_repeat;
+    public $avatarFile;
 
     /**
      * {@inheritdoc}
@@ -50,7 +51,11 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
             [['phone_number'], 'unique'],
             [['role_id'], 'exist', 'skipOnError' => true, 'targetClass' => Role::class, 'targetAttribute' => ['role_id' => 'id']],
             ['password_repeat', 'compare', 'compareAttribute' => 'password', 'message' => 'Пароли не совпадают.'],
+            [['avatarFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, jpeg'],
         ];
+        return array_merge(parent::rules(), [
+            [['avatarFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, jpeg'],
+        ]);
     }
 
     /**

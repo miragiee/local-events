@@ -92,7 +92,39 @@ class SiteController extends Controller
 
     public function actionProfile()
     {
-        return $this->render('profile');
+        if (Yii::$app->user->isGuest) {
+            return $this->redirect(['login']);
+        }
+
+        /** @var \app\models\User $model */
+        $model = Yii::$app->user->identity;
+
+        if ($model->load(Yii::$app->request->post())) {
+
+            $file = \yii\web\UploadedFile::getInstance($model, 'avatarFile');
+            if ($file) {
+                $uploadDir = Yii::getAlias('@webroot/resources/images/avatars/');
+
+                if (!is_dir($uploadDir)) {
+                    mkdir($uploadDir, 0777, true);
+                }
+
+                $fileName = uniqid() . '.' . $file->extension;
+
+                if ($file->saveAs($uploadDir . $fileName)) {
+                    $model->avatar_URL = 'web/resources/images/avatars/' . $fileName;
+                }
+            }
+
+            if ($model->save(false)) {
+                Yii::$app->session->setFlash('success', 'Профиль успешно обновлен!');
+                return $this->refresh();
+            }
+        }
+
+        return $this->render('profile', [
+            'model' => $model,
+        ]);
     }
 
     public function actionRegisterStep1()

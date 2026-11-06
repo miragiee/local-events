@@ -206,6 +206,8 @@ button:active {
     color: var(--primary-light);
 
     flex: 1;
+
+    cursor: pointer;
 }
 
 .normal-btn {
@@ -225,6 +227,20 @@ button:active {
     color: var(--utils-error);
 
     width: 100%;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.1s ease;
+}
+
+.logout-btn:hover {
+    background-color: var(--utils-error);
+    color: var(--primary-light);
+    opacity: 0.95;
+}
+
+.logout-btn:active {
+    transform: 0.95;
 }
 
 .site-login {
@@ -283,6 +299,15 @@ button:active {
     width: auto;
     height: auto;
 
+    margin-top: 20px;
+}
+
+.alert {
+    background-color: var(--utils-success);
+    color: var(--primary-light);
+
+    padding: 15px;
+    border-radius: 8px;
     margin-top: 20px;
 }
 
@@ -683,9 +708,47 @@ button:active {
 }
 
 .cancel {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
 
     background-color: var(--utils-error);
     color: var(--primary-light);
+
+    padding: 10px;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    transform:
+        opacity 0.2s ease,
+        transform 0.1s ease;
+
+}
+
+.cancel:hover {
+    color: var(--primary-light);
+    text-decoration: none;
+
+    opacity: 0.95;
+}
+
+.upload-avatar-btn {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+
+    background-color: var(--primary-accent);
+    color: var(--primary-light);
+
+    padding: 10px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
 }
 
 .update-user-data {

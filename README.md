@@ -6,7 +6,7 @@
       commands/           содержит консольные команды
       config/             содержит файлы конфигурации
       controllers/        содержит контроллеры для работы с бд
-      mail/               
+      mail/
       models/             содержит модели для работы с бд
       runtime/            содержит файлы создаваемые во время работы веб-приложения
       tests/              содержит тесты
@@ -16,14 +16,20 @@
 
 ## ТРЕБОВАНИЯ
 
-Поддержка PHP 8.\*
+Поддержка PHP 8.\*, [composer](https://getcomposer.org/download/)
 
 ## УСТАНОВКА И ЗАПУСК
 
-### Клонрирование репозитория
+1. Клонрирование репозитория
 
 ```
 git clone https://github.com/miragiee/local-events
+```
+
+2. Установка зависимостей
+
+```
+composer install
 ```
 
 <!-- ### Install from an Archive File

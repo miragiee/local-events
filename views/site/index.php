@@ -40,168 +40,27 @@ $this->title = 'My Yii Application';
     ?>
     <section class="recommended-events">
         <h2>Рекомендуемые мероприятия</h2>
-        <div class="event-cards">
-            <div class="event-card">
-                <div class="event-card-image-wrapper">
-                    <img class="event-card-image" src="../resources/images/event-image-placeholder.jpg"
-                        alt="Название мероприятия" />
-                </div>
+        <div class="event-cards" aria-label="Список мероприятий">
 
-                <div class="event-card-data">
-                    <div class="primary-data">
-                        <div class="small-text date">XX.XX.XXXX XX:XX</div>
-                        <h3 class="event-name">Название Мероприятия</h3>
-                    </div>
+            <?php if (empty($dataProvider->getModels())):  ?>
+                <p>Мероприятий нет</p>
+            <?php else: ?>
+                <?php foreach ($dataProvider->getModels() as $event):  ?>
+                    <?= $this->render('/layouts/_card', ['event' => $event]) ?>
+                <?php endforeach; ?>
+            <?php endif;  ?>
+        </div>
 
-                    <div class="description">Краткое описание мероприятия</div>
-
-                    <div class="buttons">
-                        <button class="accent-btn event-register">
-                            Записаться
-                        </button>
-                        <button class="normal-btn learn-about">
-                            Узнать больше
-                        </button>
-                    </div>
-
-                    <div class="participants">Участников: XXXXX</div>
-                </div>
-            </div>
-
-            <div class="event-card">
-                <div class="event-card-image-wrapper">
-                    <img class="event-card-image" src="../resources/images/event-image-placeholder.jpg"
-                        alt="Название мероприятия" />
-                </div>
-
-                <div class="event-card-data">
-                    <div class="primary-data">
-                        <div class="small-text date">XX.XX.XXXX XX:XX</div>
-                        <h3 class="event-name">Название Мероприятия</h3>
-                    </div>
-
-                    <div class="description">Краткое описание мероприятия</div>
-
-                    <div class="buttons">
-                        <button class="accent-btn event-register">
-                            Записаться
-                        </button>
-                        <button class="normal-btn learn-about">
-                            Узнать больше
-                        </button>
-                    </div>
-
-                    <div class="participants">Участников: XXXXX</div>
-                </div>
-            </div>
-
-            <div class="event-card">
-                <div class="event-card-image-wrapper">
-                    <img class="event-card-image" src="../resources/images/event-image-placeholder.jpg"
-                        alt="Название мероприятия" />
-                </div>
-
-                <div class="event-card-data">
-                    <div class="primary-data">
-                        <div class="small-text date">XX.XX.XXXX XX:XX</div>
-                        <h3 class="event-name">Название Мероприятия</h3>
-                    </div>
-
-                    <div class="description">Краткое описание мероприятия</div>
-
-                    <div class="buttons">
-                        <button class="accent-btn event-register">
-                            Записаться
-                        </button>
-                        <button class="normal-btn learn-about">
-                            Узнать больше
-                        </button>
-                    </div>
-
-                    <div class="participants">Участников: XXXXX</div>
-                </div>
-            </div>
-
-            <div class="event-card">
-                <div class="event-card-image-wrapper">
-                    <img class="event-card-image" src="../resources/images/event-image-placeholder.jpg"
-                        alt="Название мероприятия" />
-                </div>
-
-                <div class="event-card-data">
-                    <div class="primary-data">
-                        <div class="small-text date">XX.XX.XXXX XX:XX</div>
-                        <h3 class="event-name">Название Мероприятия</h3>
-                    </div>
-
-                    <div class="description">Краткое описание мероприятия</div>
-
-                    <div class="buttons">
-                        <button class="accent-btn event-register">
-                            Записаться
-                        </button>
-                        <button class="normal-btn learn-about">
-                            Узнать больше
-                        </button>
-                    </div>
-
-                    <div class="participants">Участников: XXXXX</div>
-                </div>
-            </div>
-
-            <div class="event-card">
-                <div class="event-card-image-wrapper">
-                    <img class="event-card-image" src="../resources/images/event-image-placeholder.jpg"
-                        alt="Название мероприятия" />
-                </div>
-
-                <div class="event-card-data">
-                    <div class="primary-data">
-                        <div class="small-text date">XX.XX.XXXX XX:XX</div>
-                        <h3 class="event-name">Название Мероприятия</h3>
-                    </div>
-
-                    <div class="description">Краткое описание мероприятия</div>
-
-                    <div class="buttons">
-                        <button class="accent-btn event-register">
-                            Записаться
-                        </button>
-                        <button class="normal-btn learn-about">
-                            Узнать больше
-                        </button>
-                    </div>
-
-                    <div class="participants">Участников: XXXXX</div>
-                </div>
-            </div>
-
-            <div class="event-card">
-                <div class="event-card-image-wrapper">
-                    <img class="event-card-image" src="../resources/images/event-image-placeholder.jpg"
-                        alt="Название мероприятия" />
-                </div>
-
-                <div class="event-card-data">
-                    <div class="primary-data">
-                        <div class="small-text date">XX.XX.XXXX XX:XX</div>
-                        <h3 class="event-name">Название Мероприятия</h3>
-                    </div>
-
-                    <div class="description">Краткое описание мероприятия</div>
-
-                    <div class="buttons">
-                        <button class="accent-btn event-register">
-                            Записаться
-                        </button>
-                        <button class="normal-btn learn-about">
-                            Узнать больше
-                        </button>
-                    </div>
-
-                    <div class="participants">Участников: XXXXX</div>
-                </div>
-            </div>
+        <div class="paganation-wrapper">
+            <?=
+            \yii\widgets\LinkPager::widget([
+                'pagination' => $dataProvider->pagination,
+                'options' => ['class' => 'pagination-custom'],
+                'linkOptions' => ['class' => 'page-link'],
+                'prevPageLabel' => '<',
+                'nextPageLabel' => '>',
+            ])
+            ?>
         </div>
     </section>
 </div>

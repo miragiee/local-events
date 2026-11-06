@@ -108,16 +108,18 @@ class SiteController extends Controller
 
         if ($model->load(Yii::$app->request->post())) {
 
+            if (Yii::$app->request->post('delete_avatar') === '1') {
+                $model->avatar_URL = null;
+            }
+
             $file = \yii\web\UploadedFile::getInstance($model, 'avatarFile');
             if ($file) {
                 $uploadDir = Yii::getAlias('@webroot/resources/images/avatars/');
-
                 if (!is_dir($uploadDir)) {
                     mkdir($uploadDir, 0777, true);
                 }
 
                 $fileName = uniqid() . '.' . $file->extension;
-
                 if ($file->saveAs($uploadDir . $fileName)) {
                     $model->avatar_URL = 'web/resources/images/avatars/' . $fileName;
                 }

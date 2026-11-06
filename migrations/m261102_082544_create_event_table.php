@@ -28,7 +28,7 @@ class m261102_082544_create_event_table extends Migration
 
         $this->insert('{{%event}}', [
             'title' => 'Снос базы под 0',
-            'description' => 'Не надо было переходить дорогу великий китайский клан. 为什么河马不爱吃包子？因为河马只喜欢吃水。为什么河马不爱吃包子？因为河马只喜欢吃水。为什么河马不爱吃包子？因为河马只喜欢吃水。为什么河马不爱吃包子？因为河马只喜欢吃水。为什么河马不爱吃包子？因为河马只喜欢吃水。为什么河马不爱吃包子？因为河马只喜欢吃水。为什么河马不爱吃包子？因为河马只喜欢吃水。为什么河马不爱吃包子？因为河马只喜欢吃水。-1000 Social Credit.',
+            'description' => 'Не надо было переходить дорога великий китайский клан. 为什么河马不爱吃包子？因为河马只喜欢吃水。为什么河马不爱吃包子？因为河马只喜欢吃水。为什么河马不爱吃包子？因为河马只喜欢吃水。为什么河马不爱吃包子？因为河马只喜欢吃水。为什么河马不爱吃包子？因为河马只喜欢吃水。为什么河马不爱吃包子？因为河马只喜欢吃水。为什么河马不爱吃包子？因为河马只喜欢吃水。为什么河马不爱吃包子？因为河马只喜欢吃水。-1000 Social Credit.',
             'participations' => '1001',
             'start_date' => '2026-11-11',
             'end_date' => '2026-11-12',
@@ -41,7 +41,7 @@ class m261102_082544_create_event_table extends Migration
         $this->insert('{{%event}}', [
             'title' => 'Рейд на нелегальных мигрантов',
             'description' => 'Депортация.',
-            'participations' => '1001',
+            'participations' => '129',
             'start_date' => '2026-11-9',
             'end_date' => '2026-11-12',
             'organizator_id' => '1',
@@ -53,7 +53,7 @@ class m261102_082544_create_event_table extends Migration
         $this->insert('{{%event}}', [
             'title' => 'Рейд на нелегальных мигрантов',
             'description' => 'Депортация.',
-            'participations' => '1001',
+            'participations' => '93',
             'start_date' => '2026-12-11',
             'end_date' => '2026-11-12',
             'organizator_id' => '1',
@@ -65,7 +65,7 @@ class m261102_082544_create_event_table extends Migration
         $this->insert('{{%event}}', [
             'title' => 'Рейд на нелегальных мигрантов',
             'description' => 'Депортация.',
-            'participations' => '1001',
+            'participations' => '63',
             'start_date' => '2026-12-14',
             'end_date' => '2026-11-12',
             'organizator_id' => '1',
@@ -77,7 +77,7 @@ class m261102_082544_create_event_table extends Migration
         $this->insert('{{%event}}', [
             'title' => 'Рейд на нелегальных мигрантов',
             'description' => 'Депортация.',
-            'participations' => '1001',
+            'participations' => '12',
             'start_date' => '2027-01-02',
             'end_date' => '2026-11-12',
             'organizator_id' => '1',

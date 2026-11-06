@@ -67,10 +67,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     if (data.success) {
                         if (isRegistering) {
                             btnElement.textContent = 'Отменить';
-                            btnElement.className = 'cancel event-toggle-btn';
+                            btnElement.className = 'cancel accent-btn event-toggle-btn';
                             btnElement.dataset.action = 'cancel';
                         } else {
-                            btnElement.textContent = 'Записаться';
+                            btnElement.textContent = btnElement.dataset.defaultText;
                             btnElement.className = 'accent-btn event-toggle-btn';
                             btnElement.dataset.action = 'register';
                         }

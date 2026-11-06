@@ -1,67 +1,88 @@
-<section class="filters mobile-filter-bar">
+<?php
+
+use yii\helpers\Url;
+use yii\helpers\Html;
+
+$get = Yii::$app->request->get();
+$currentType = $get['type'] ?? '';
+$currentCity = $get['city'] ?? '';
+$currentOrg = $get['organizator'] ?? '';
+$currentPlace = $get['place'] ?? '';
+$currentPrice = $get['price'] ?? '';
+$currentDate = $get['date'] ?? '';
+?>
+
+<form method="get" action="<?= Url::current() ?>" class="filters mobile-filter-bar">
     <input class="filters-toggle" type="checkbox" id="filters-toggle" aria-label="Показать фильтры" />
     <label class="filters-toggle-button" for="filters-toggle">
         <img src="../resources/icons/filter_alt_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="" />
     </label>
-    <div class="filter-options">
-        <select class="mobile-category-filter" name="categories" aria-label="Категория">
-            <option value="" disabled selected>Категория</option>
-            <option value="all">Все</option>
-            <option value="exhibitions">Выставки</option>
-            <option value="concerts">Концерты</option>
-            <option value="performances">Спектакли</option>
-            <option value="cinema">Кино</option>
-            <option value="education">Обучение</option>
-            <option value="meetings">Встречи</option>
-            <option value="excursions">Экскурсии</option>
-            <option value="holidays">Праздники</option>
-            <option value="other">Прочее</option>
-        </select>
-        <div class="type-filters">
-            <button class="text-btn selected">Все</button>
-            <button class="text-btn">Выставки</button>
-            <button class="text-btn">Концерты</button>
-            <button class="text-btn">Спектакли</button>
-            <button class="text-btn">Кино</button>
-            <button class="text-btn">Обучение</button>
-            <button class="text-btn">Встречи</button>
-            <button class="text-btn">Экскурсии</button>
-            <button class="text-btn">Праздники</button>
-            <button class="text-btn">Прочее</button>
-        </div>
-        <div class="other-filters">
-            <button class="clear-btn">
-                <img src="../resources/icons/ink_eraser_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"
-                    alt="Очистить" />
-            </button>
 
-            <select name="cities" id="citise">
-                <option value="" disabled selected>По всей стране</option>
-                <option value="moskow">Москва</option>
-                <option value="saint-petersburg">Санкт-Петербург</option>
-                <option value="cherepovets">Череповец</option>
-                <option value="vladivostok">Владивосток</option>
+    <div class="filter-options">
+        <select class="mobile-category-filter" name="type" aria-label="Категория">
+            <option value="" <?= $currentType === '' ? 'selected' : '' ?>>Все категории</option>
+            <?php foreach ($types as $type): ?>
+                <option value="<?= $type->id ?>" <?= $currentType == $type->id ? 'selected' : '' ?>>
+                    <?= Html::encode($type->title) ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+
+        <div class="type-filters">
+            <label class="text-btn <?= $currentType === '' ? 'selected' : '' ?>">
+                <input type="radio" name="type" value="" <?= $currentType === '' ? 'checked' : '' ?> style="display:none;">Все
+            </label>
+            <?php foreach ($types as $type): ?>
+                <label class="text-btn <?= $currentType == $type->id ? 'selected' : '' ?>">
+                    <input type="radio" name="type" value="<?= $type->id ?>" <?= $currentType == $type->id ? 'checked' : '' ?> style="display:none;">
+                    <?= Html::encode($type->title) ?>
+                </label>
+            <?php endforeach; ?>
+        </div>
+
+        <div class="other-filters">
+            <a href="<?= Url::current() ?>" class="clear-btn" style="display:flex; justify-content:center; align-items:center;">
+                <img src="../resources/icons/ink_eraser_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="Очистить" />
+            </a>
+
+            <select name="city" id="citise">
+                <option value="" <?= $currentCity === '' ? 'selected' : '' ?>>По всей стране</option>
+                <option value="moskow" <?= $currentCity === 'moskow' ? 'selected' : '' ?>>Москва</option>
+                <option value="saint-petersburg" <?= $currentCity === 'saint-petersburg' ? 'selected' : '' ?>>Санкт-Петербург</option>
+                <option value="cherepovets" <?= $currentCity === 'cherepovets' ? 'selected' : '' ?>>Череповец</option>
+                <option value="vladivostok" <?= $currentCity === 'vladivostok' ? 'selected' : '' ?>>Владивосток</option>
             </select>
-            <select name="organizators" id="organizator">
-                <option value="" disabled selected>Все организаторы</option>
-                <option value="opt1">Опция 1</option>
-                <option value="opt2">Опция 2</option>
+
+            <select name="organizator" id="organizator">
+                <option value="" <?= $currentOrg === '' ? 'selected' : '' ?>>Все организаторы</option>
+                <?php foreach ($organizers as $org): ?>
+                    <option value="<?= $org->id ?>" <?= $currentOrg == $org->id ? 'selected' : '' ?>>
+                        <?= Html::encode($org->title) ?>
+                    </option>
+                <?php endforeach; ?>
             </select>
-            <select name="places" id="places">
-                <option value="" disabled selected>Все площадки</option>
-                <option value="opt1">Опция 1</option>
-                <option value="opt2">Опция 2</option>
+
+            <select name="place" id="places">
+                <option value="" <?= $currentPlace === '' ? 'selected' : '' ?>>Все площадки</option>
+                <?php foreach ($places as $place): ?>
+                    <option value="<?= $place->id ?>" <?= $currentPlace == $place->id ? 'selected' : '' ?>>
+                        <?= Html::encode($place->title) ?>
+                    </option>
+                <?php endforeach; ?>
             </select>
-            <select name="prices" id="prices">
-                <option value="" disabled selected>Любая цена</option>
-                <option value="opt1">Опция 1</option>
-                <option value="opt2">Опция 2</option>
+
+            <select name="price" id="prices">
+                <option value="" <?= $currentPrice === '' ? 'selected' : '' ?>>Любая цена</option>
+                <option value="free" <?= $currentPrice === 'free' ? 'selected' : '' ?>>Бесплатно</option>
+                <option value="paid" <?= $currentPrice === 'paid' ? 'selected' : '' ?>>Платно</option>
             </select>
+
             <label class="mobile-date-filter" for="event-date">
                 <span>Дата</span>
-                <input type="date" id="event-date" />
+                <input type="date" name="date" id="event-date" value="<?= Html::encode($currentDate) ?>" />
             </label>
         </div>
-        <label class="mobile-filter-apply" for="filters-toggle">Применить</label>
+
+        <button type="submit" class="mobile-filter-apply" style="border:none; cursor:pointer; width:100%;">Применить</button>
     </div>
-</section>
+</form>

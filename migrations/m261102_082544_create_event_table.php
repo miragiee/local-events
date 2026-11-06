@@ -38,53 +38,34 @@ class m261102_082544_create_event_table extends Migration
             'image_URL' => 'web/resources/images/omon.png'
         ]);
 
-        $this->insert('{{%event}}', [
-            'title' => 'Рейд на нелегальных мигрантов',
-            'description' => 'Депортация.',
-            'participations' => '129',
-            'start_date' => '2026-11-1',
-            'end_date' => '2026-11-3',
-            'organizator_id' => '1',
-            'place_id' => '1',
-            'type_id' => '4',
-            'image_URL' => 'web/resources/images/musya.jpg'
-        ]);
+        $images = [
+            'web/resources/images/omon.png',
+            'web/resources/images/musya.jpg',
+            'web/resources/images/syrneke.jpg',
+            'web/resources/images/event-image-placeholder.jpg'
+        ];
 
-        $this->insert('{{%event}}', [
-            'title' => 'Рейд на нелегальных мигрантов',
-            'description' => 'Депортация.',
-            'participations' => '93',
-            'start_date' => '2026-12-11',
-            'end_date' => '2026-11-12',
-            'organizator_id' => '1',
-            'place_id' => '1',
-            'type_id' => '4',
-            'image_URL' => 'web/resources/images/syrneke.jpg'
-        ]);
+        for ($i = 1; $i <= 30; $i++) {
+            $startTimestamp = time() + (mt_rand(-60, 120) * 86400);
+            $startDate = date('Y-m-d', $startTimestamp);
+            $endDate = date('Y-m-d', $startTimestamp + (mt_rand(1, 5) * 86400));
+            $isFree = mt_rand(0, 1) === 1;
+            $price = $isFree ? 0 : mt_rand(500, 5000);
 
-        $this->insert('{{%event}}', [
-            'title' => 'Рейд на нелегальных мигрантов',
-            'description' => 'Депортация.',
-            'participations' => '63',
-            'start_date' => '2026-12-14',
-            'end_date' => '2026-11-12',
-            'organizator_id' => '1',
-            'place_id' => '1',
-            'type_id' => '4',
-            'image_URL' => 'web/resources/images/event-image-placeholder.jpg'
-        ]);
-
-        $this->insert('{{%event}}', [
-            'title' => 'Рейд на нелегальных мигрантов',
-            'description' => 'Депортация.',
-            'participations' => '12',
-            'start_date' => '2027-01-02',
-            'end_date' => '2026-11-12',
-            'organizator_id' => '1',
-            'place_id' => '1',
-            'type_id' => '4',
-            'image_URL' => 'web/resources/images/event-image-placeholder.jpg'
-        ]);
+            $this->insert('{{%event}}', [
+                'title' => 'Тестовое мероприятие #' . $i,
+                'description' => 'Это тестовое описание для мероприятия #' . $i . '. Оно создано автоматически для проверки работы фильтров и отображения карточек.',
+                'participations' => mt_rand(10, 1000),
+                'start_date' => $startDate,
+                'end_date' => $endDate,
+                'organizator_id' => mt_rand(1, 3),
+                'place_id' => mt_rand(1, 2),
+                'type_id' => mt_rand(1, 9),
+                'price' => $price,
+                'image_URL' => $images[array_rand($images)],
+                'status' => 'Предстоит'
+            ]);
+        }
     }
 
     /**

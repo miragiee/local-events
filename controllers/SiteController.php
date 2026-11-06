@@ -11,78 +11,54 @@ use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\Event;
 use app\models\UserApplication;
+use app\models\EventType;
+use app\models\Organizator;
+use app\models\Place;
 use yii\data\ActiveDataProvider;
 
 class SiteController extends Controller
 {
-    public function behaviors()
+    private function getFilteredEventsQuery()
     {
-        return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'only' => ['logout'],
-                'rules' => [
-                    [
-                        'actions' => ['logout'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'logout' => ['post'],
-                ],
-            ],
-        ];
-    }
+        $query = Event::find();
+        $request = Yii::$app->request;
 
-    public function actions()
-    {
-        return [
-            'error' => [
-                'class' => 'yii\web\ErrorAction',
-            ],
-            'captcha' => [
-                'class' => 'yii\captcha\CaptchaAction',
-                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
-            ],
-        ];
-    }
-
-    public function actionIndex()
-    {
-        $query = Event::find()->where(['>=', 'start_date', date('Y-m-d')])->orderBy(['start_date' => SORT_ASC])->limit(4);
-
-        $dataProvider = new ActiveDataProvider([
-            'query' => $query,
-            'pagination' => false
-        ]);
-
-        $registeredEventIds = [];
-        if (!Yii::$app->user->isGuest) {
-            $registeredEventIds = UserApplication::find()
-                ->select('event_id')
-                ->where(['user_id' => Yii::$app->user->id])
-                ->column();
+        if ($type = $request->get('type')) {
+            $query->andWhere(['type_id' => $type]);
         }
 
-        return $this->render('index', [
-            'dataProvider' => $dataProvider,
-            'registeredEventIds' => $registeredEventIds,
-        ]);
+        if ($org = $request->get('organizator')) {
+            $query->andWhere(['organizator_id' => $org]);
+        }
+
+        if ($place = $request->get('place')) {
+            $query->andWhere(['place_id' => $place]);
+        }
+
+        if ($date = $request->get('date')) {
+            $query->andWhere(['>=', 'start_date', $date]);
+        }
+
+        if ($price = $request->get('price')) {
+            if ($price === 'free') {
+                $query->andWhere(['price' => 0]);
+            } elseif ($price === 'paid') {
+                $query->andWhere(['>', 'price', 0]);
+            }
+        }
+
+        return $query;
     }
 
     public function actionAllEvents()
     {
-        $query = Event::find()->where(['>=', 'start_date', date('Y-m-d')])->orderBy(['start_date' => SORT_ASC]);
+        $query = $this->getFilteredEventsQuery()
+            ->andWhere(['>=', 'start_date', date('Y-m-d')])
+            ->orderBy(['start_date' => SORT_ASC]);
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
-            'pagination' => [
-                'pageSize' => 4,
-            ],
+            'pagination' => ['pageSize' => 4],
         ]);
 
         $registeredEventIds = [];
@@ -93,9 +69,66 @@ class SiteController extends Controller
                 ->column();
         }
 
+        $types = EventType::find()->all();
+        $organizers = Organizator::find()->all();
+        $places = Place::find()->all();
+
         return $this->render('all-events', [
             'dataProvider' => $dataProvider,
             'registeredEventIds' => $registeredEventIds,
+            'types' => $types,
+            'organizers' => $organizers,
+            'places' => $places,
+        ]);
+    }
+
+    public function actionMyEvents()
+    {
+        if (Yii::$app->user->isGuest) {
+            return $this->redirect(['login']);
+        }
+
+        $userId = Yii::$app->user->id;
+        $today = date('Y-m-d');
+
+        $registeredEventIds = UserApplication::find()
+            ->select('event_id')
+            ->where(['user_id' => $userId])
+            ->column();
+
+        $upcomingQuery = $this->getFilteredEventsQuery()
+            ->innerJoin('user_application', 'user_application.event_id = event.id')
+            ->andWhere(['user_application.user_id' => $userId])
+            ->andWhere(['>=', 'event.start_date', $today])
+            ->orderBy(['event.start_date' => SORT_ASC]);
+
+        $upcomingDataProvider = new ActiveDataProvider([
+            'query' => $upcomingQuery,
+            'pagination' => false,
+        ]);
+
+        $pastQuery = $this->getFilteredEventsQuery()
+            ->innerJoin('user_application', 'user_application.event_id = event.id')
+            ->andWhere(['user_application.user_id' => $userId])
+            ->andWhere(['<', 'event.start_date', $today])
+            ->orderBy(['event.start_date' => SORT_DESC]);
+
+        $pastDataProvider = new ActiveDataProvider([
+            'query' => $pastQuery,
+            'pagination' => false,
+        ]);
+
+        $types = EventType::find()->all();
+        $organizers = Organizator::find()->all();
+        $places = Place::find()->all();
+
+        return $this->render('my-events', [
+            'upcomingDataProvider' => $upcomingDataProvider,
+            'pastDataProvider' => $pastDataProvider,
+            'registeredEventIds' => $registeredEventIds,
+            'types' => $types,
+            'organizers' => $organizers,
+            'places' => $places,
         ]);
     }
 
@@ -167,49 +200,6 @@ class SiteController extends Controller
     public function actionEventDetails()
     {
         return $this->render('event-details');
-    }
-
-    public function actionMyEvents()
-    {
-        if (Yii::$app->user->isGuest) {
-            return $this->redirect(['login']);
-        }
-
-        $userId = Yii::$app->user->id;
-        $today = date('Y-m-d');
-
-        $registeredEventIds = UserApplication::find()
-            ->select('event_id')
-            ->where(['user_id' => $userId])
-            ->column();
-
-        $upcomingQuery = Event::find()
-            ->innerJoin('user_application', 'user_application.event_id = event.id')
-            ->where(['user_application.user_id' => $userId])
-            ->andWhere(['>=', 'event.start_date', $today])
-            ->orderBy(['event.start_date' => SORT_ASC]);
-
-        $upcomingDataProvider = new ActiveDataProvider([
-            'query' => $upcomingQuery,
-            'pagination' => false,
-        ]);
-
-        $pastQuery = Event::find()
-            ->innerJoin('user_application', 'user_application.event_id = event.id')
-            ->where(['user_application.user_id' => $userId])
-            ->andWhere(['<', 'event.start_date', $today])
-            ->orderBy(['event.start_date' => SORT_DESC]);
-
-        $pastDataProvider = new ActiveDataProvider([
-            'query' => $pastQuery,
-            'pagination' => false,
-        ]);
-
-        return $this->render('my-events', [
-            'upcomingDataProvider' => $upcomingDataProvider,
-            'pastDataProvider' => $pastDataProvider,
-            'registeredEventIds' => $registeredEventIds,
-        ]);
     }
 
     public function actionProfile()

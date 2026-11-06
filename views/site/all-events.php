@@ -1,7 +1,11 @@
 <div class="container">
     <h2>Все мероприятия</h2>
 
-    <?= $this->render('../layouts/_filters') ?>
+    <?= $this->render('/layouts/_filters', [
+        'types' => $types,
+        'organizers' => $organizers,
+        'places' => $places,
+    ]) ?>
 
     <section class="event-list-section">
         <h3>Предстоящие мероприятия</h3>

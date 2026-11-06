@@ -18,6 +18,16 @@ $dateFormatted = $event->start_date ? Yii::$app->formatter->asDate($event->start
 
 $shortDescription = StringHelper::truncate($event->description, 80);
 $isRegistered = isset($registeredEventIds) && in_array($event->id, $registeredEventIds);
+
+if ($isRegistered) {
+    $btnClass = 'cancel accent-btn';
+    $btnText = 'Отменить';
+    $btnAction = 'cancel';
+} else {
+    $btnClass = 'accent-btn';
+    $btnText = ($event->price > 0) ? $event->price . ' ₽' : 'Записаться';
+    $btnAction = 'register';
+}
 ?>
 
 <div class="event-card">
@@ -36,12 +46,13 @@ $isRegistered = isset($registeredEventIds) && in_array($event->id, $registeredEv
 
         <div class="buttons">
             <?php if (!$isPast): ?>
-                <button class="<?= $isRegistered ? 'cancel accent-btn' : 'accent-btn' ?> event-toggle-btn"
+                <button class="<?= $btnClass ?> event-toggle-btn"
                     data-event-id="<?= $event->id ?>"
-                    data-action="<?= $isRegistered ? 'cancel' : 'register' ?>"
+                    data-action="<?= $btnAction ?>"
+                    data-default-text="<?= $btnText ?>"
                     data-url-register="<?= Url::to(['site/register-event']) ?>"
                     data-url-cancel="<?= Url::to(['site/cancel-event']) ?>">
-                    <?= $isRegistered ? 'Отменить' : 'Записаться' ?>
+                    <?= $btnText ?>
                 </button>
             <?php endif; ?>
 

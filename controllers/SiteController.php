@@ -171,7 +171,45 @@ class SiteController extends Controller
 
     public function actionMyEvents()
     {
-        return $this->render('my-events');
+        if (Yii::$app->user->isGuest) {
+            return $this->redirect(['login']);
+        }
+
+        $userId = Yii::$app->user->id;
+        $today = date('Y-m-d');
+
+        $registeredEventIds = UserApplication::find()
+            ->select('event_id')
+            ->where(['user_id' => $userId])
+            ->column();
+
+        $upcomingQuery = Event::find()
+            ->innerJoin('user_application', 'user_application.event_id = event.id')
+            ->where(['user_application.user_id' => $userId])
+            ->andWhere(['>=', 'event.start_date', $today])
+            ->orderBy(['event.start_date' => SORT_ASC]);
+
+        $upcomingDataProvider = new ActiveDataProvider([
+            'query' => $upcomingQuery,
+            'pagination' => false,
+        ]);
+
+        $pastQuery = Event::find()
+            ->innerJoin('user_application', 'user_application.event_id = event.id')
+            ->where(['user_application.user_id' => $userId])
+            ->andWhere(['<', 'event.start_date', $today])
+            ->orderBy(['event.start_date' => SORT_DESC]);
+
+        $pastDataProvider = new ActiveDataProvider([
+            'query' => $pastQuery,
+            'pagination' => false,
+        ]);
+
+        return $this->render('my-events', [
+            'upcomingDataProvider' => $upcomingDataProvider,
+            'pastDataProvider' => $pastDataProvider,
+            'registeredEventIds' => $registeredEventIds,
+        ]);
     }
 
     public function actionProfile()

@@ -2,11 +2,13 @@
 
 /** @var app\models\Event $event */
 /** @var array $registeredEventIds */
+/** @var bool $isPast */
 
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\helpers\StringHelper;
 
+$isPast = isset($isPast) ? $isPast : false;
 $image = $event->image_URL
     ? '/' . ltrim($event->image_URL, '/')
     : '/web/resources/images/event-image-placeholder.jpg';
@@ -15,7 +17,6 @@ $dateFormatted = $event->start_date ? Yii::$app->formatter->asDate($event->start
     : '';
 
 $shortDescription = StringHelper::truncate($event->description, 80);
-
 $isRegistered = isset($registeredEventIds) && in_array($event->id, $registeredEventIds);
 ?>
 
@@ -34,15 +35,17 @@ $isRegistered = isset($registeredEventIds) && in_array($event->id, $registeredEv
         <div class="description"><?= Html::encode($shortDescription) ?></div>
 
         <div class="buttons">
-            <button class="<?= $isRegistered ? 'cancel' : 'accent-btn' ?> event-toggle-btn"
-                data-event-id="<?= $event->id ?>"
-                data-action="<?= $isRegistered ? 'cancel' : 'register' ?>"
-                data-url-register="<?= Url::to(['site/register-event']) ?>"
-                data-url-cancel="<?= Url::to(['site/cancel-event']) ?>">
-                <?= $isRegistered ? 'Отменить' : 'Записаться' ?>
-            </button>
+            <?php if (!$isPast): ?>
+                <button class="<?= $isRegistered ? 'cancel accent-btn' : 'accent-btn' ?> event-toggle-btn"
+                    data-event-id="<?= $event->id ?>"
+                    data-action="<?= $isRegistered ? 'cancel' : 'register' ?>"
+                    data-url-register="<?= Url::to(['site/register-event']) ?>"
+                    data-url-cancel="<?= Url::to(['site/cancel-event']) ?>">
+                    <?= $isRegistered ? 'Отменить' : 'Записаться' ?>
+                </button>
+            <?php endif; ?>
 
-            <?= Html::a('Узнать больше', Url::to(['event/view', 'id' => $event->id]), ['class' => 'normal-btn learn-about'])  ?>
+            <?= Html::a('Узнать больше', Url::to(['event/view', 'id' => $event->id]), ['class' => 'btn normal-btn learn-about'])  ?>
         </div>
 
         <div class="participants">

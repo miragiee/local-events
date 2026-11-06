@@ -1,6 +1,7 @@
 <?php
 
 /** @var app\models\Event $event */
+/** @var array $registeredEventIds */
 
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -14,6 +15,8 @@ $dateFormatted = $event->start_date ? Yii::$app->formatter->asDate($event->start
     : '';
 
 $shortDescription = StringHelper::truncate($event->description, 80);
+
+$isRegistered = isset($registeredEventIds) && in_array($event->id, $registeredEventIds);
 ?>
 
 <div class="event-card">
@@ -31,10 +34,19 @@ $shortDescription = StringHelper::truncate($event->description, 80);
         <div class="description"><?= Html::encode($shortDescription) ?></div>
 
         <div class="buttons">
-            <button class="accent-btn event-register">Записаться</button>
+            <button class="<?= $isRegistered ? 'cancel' : 'accent-btn' ?> event-toggle-btn"
+                data-event-id="<?= $event->id ?>"
+                data-action="<?= $isRegistered ? 'cancel' : 'register' ?>"
+                data-url-register="<?= Url::to(['site/register-event']) ?>"
+                data-url-cancel="<?= Url::to(['site/cancel-event']) ?>">
+                <?= $isRegistered ? 'Отменить' : 'Записаться' ?>
+            </button>
+
             <?= Html::a('Узнать больше', Url::to(['event/view', 'id' => $event->id]), ['class' => 'normal-btn learn-about'])  ?>
         </div>
 
-        <div class="participants">Участников: <?= (int) $event->participations  ?></div>
+        <div class="participants">
+            Участников: <span class="participants-count" data-event-id="<?= $event->id ?>"><?= (int) $event->participations ?></span>
+        </div>
     </div>
 </div>

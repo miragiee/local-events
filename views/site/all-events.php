@@ -75,8 +75,11 @@
             <?php if (empty($dataProvider->getModels())):  ?>
                 <p>Мероприятий нет</p>
             <?php else: ?>
-                <?php foreach ($dataProvider->getModels() as $event):  ?>
-                    <?= $this->render('/layouts/_card', ['event' => $event]) ?>
+                <?php foreach ($dataProvider->getModels() as $event): ?>
+                    <?= $this->render('/layouts/_card', [
+                        'event' => $event,
+                        'registeredEventIds' => $registeredEventIds
+                    ]) ?>
                 <?php endforeach; ?>
             <?php endif;  ?>
         </div>

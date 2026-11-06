@@ -10,13 +10,11 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\Event;
+use app\models\UserApplication;
 use yii\data\ActiveDataProvider;
 
 class SiteController extends Controller
 {
-    /**
-     * {@inheritdoc}
-     */
     public function behaviors()
     {
         return [
@@ -40,9 +38,6 @@ class SiteController extends Controller
         ];
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function actions()
     {
         return [
@@ -56,11 +51,6 @@ class SiteController extends Controller
         ];
     }
 
-    /**
-     * Displays homepage.
-     *
-     * @return string
-     */
     public function actionIndex()
     {
         $query = Event::find()->where(['>=', 'start_date', date('Y-m-d')])->orderBy(['start_date' => SORT_ASC])->limit(4);
@@ -70,7 +60,18 @@ class SiteController extends Controller
             'pagination' => false
         ]);
 
-        return $this->render('index', ['dataProvider' => $dataProvider]);
+        $registeredEventIds = [];
+        if (!Yii::$app->user->isGuest) {
+            $registeredEventIds = UserApplication::find()
+                ->select('event_id')
+                ->where(['user_id' => Yii::$app->user->id])
+                ->column();
+        }
+
+        return $this->render('index', [
+            'dataProvider' => $dataProvider,
+            'registeredEventIds' => $registeredEventIds,
+        ]);
     }
 
     public function actionAllEvents()
@@ -84,7 +85,83 @@ class SiteController extends Controller
             ],
         ]);
 
-        return $this->render('all-events', ['dataProvider' => $dataProvider]);
+        $registeredEventIds = [];
+        if (!Yii::$app->user->isGuest) {
+            $registeredEventIds = UserApplication::find()
+                ->select('event_id')
+                ->where(['user_id' => Yii::$app->user->id])
+                ->column();
+        }
+
+        return $this->render('all-events', [
+            'dataProvider' => $dataProvider,
+            'registeredEventIds' => $registeredEventIds,
+        ]);
+    }
+
+    public function actionRegisterEvent()
+    {
+        Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+        if (Yii::$app->user->isGuest) {
+            return ['success' => false, 'message' => 'Для записи необходимо войти в аккаунт.'];
+        }
+
+        $eventId = Yii::$app->request->post('event_id');
+        $userId = Yii::$app->user->id;
+
+        if (!$eventId) {
+            return ['success' => false, 'message' => 'Ошибка: не передан ID мероприятия.'];
+        }
+
+        $exists = UserApplication::find()
+            ->where(['event_id' => $eventId, 'user_id' => $userId])
+            ->exists();
+
+        if ($exists) {
+            return ['success' => false, 'message' => 'Вы уже записаны на это мероприятие.'];
+        }
+
+        $application = new UserApplication();
+        $application->event_id = $eventId;
+        $application->user_id = $userId;
+        $application->status = 'Оформлено';
+
+        if ($application->save()) {
+            $event = Event::findOne($eventId);
+            $newCount = $event ? $event->participations + 1 : 0;
+            if ($event) {
+                $event->updateCounters(['participations' => 1]);
+            }
+            return ['success' => true, 'message' => 'Вы успешно записались!', 'count' => $newCount];
+        }
+
+        return ['success' => false, 'message' => 'Произошла ошибка при сохранении.'];
+    }
+
+    public function actionCancelEvent()
+    {
+        Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+        if (Yii::$app->user->isGuest) {
+            return ['success' => false, 'message' => 'Необходимо войти.'];
+        }
+
+        $eventId = Yii::$app->request->post('event_id');
+        $userId = Yii::$app->user->id;
+
+        $application = UserApplication::findOne(['event_id' => $eventId, 'user_id' => $userId]);
+
+        if ($application && $application->delete()) {
+            $event = Event::findOne($eventId);
+            $newCount = $event && $event->participations > 0 ? $event->participations - 1 : 0;
+            if ($event && $event->participations > 0) {
+                $event->updateCounters(['participations' => -1]);
+            }
+            return ['success' => true, 'message' => 'Запись отменена.', 'count' => $newCount];
+        }
+
+        return ['success' => false, 'message' => 'Запись не найдена.'];
     }
 
     public function actionEventDetails()
@@ -146,11 +223,6 @@ class SiteController extends Controller
         return $this->render('register-2');
     }
 
-    /**
-     * Login action.
-     *
-     * @return Response|string
-     */
     public function actionLogin()
     {
         if (!Yii::$app->user->isGuest) {
@@ -168,11 +240,6 @@ class SiteController extends Controller
         ]);
     }
 
-    /**
-     * Logout action.
-     *
-     * @return Response
-     */
     public function actionLogout()
     {
         Yii::$app->user->logout();
@@ -180,11 +247,6 @@ class SiteController extends Controller
         return $this->goHome();
     }
 
-    /**
-     * Displays contact page.
-     *
-     * @return Response|string
-     */
     public function actionContact()
     {
         $model = new ContactForm();
@@ -198,11 +260,6 @@ class SiteController extends Controller
         ]);
     }
 
-    /**
-     * Displays about page.
-     *
-     * @return string
-     */
     public function actionAbout()
     {
         return $this->render('about');

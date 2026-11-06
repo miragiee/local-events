@@ -63,13 +63,11 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $query = Event::find()->where(['>=', 'start_date', date('Y-m-d')])->orderBy(['start_date' => SORT_ASC]);
+        $query = Event::find()->where(['>=', 'start_date', date('Y-m-d')])->orderBy(['start_date' => SORT_ASC])->limit(4);
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
-            'pagination' => [
-                'pageSize' => 4,
-            ],
+            'pagination' => false
         ]);
 
         return $this->render('index', ['dataProvider' => $dataProvider]);

@@ -50,17 +50,5 @@ $this->title = 'My Yii Application';
                 <?php endforeach; ?>
             <?php endif;  ?>
         </div>
-
-        <div class="paganation-wrapper">
-            <?=
-            \yii\widgets\LinkPager::widget([
-                'pagination' => $dataProvider->pagination,
-                'options' => ['class' => 'pagination-custom'],
-                'linkOptions' => ['class' => 'page-link'],
-                'prevPageLabel' => '<',
-                'nextPageLabel' => '>',
-            ])
-            ?>
-        </div>
     </section>
 </div>

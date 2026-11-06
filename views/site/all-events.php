@@ -81,7 +81,7 @@
             <?php endif;  ?>
         </div>
 
-        <div class="paganation-wrapper">
+        <div class="pagination-wrapper">
             <?=
             \yii\widgets\LinkPager::widget([
                 'pagination' => $dataProvider->pagination,

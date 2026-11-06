@@ -35,14 +35,38 @@ class m261102_082544_create_event_table extends Migration
             'organizator_id' => '1',
             'place_id' => '1',
             'type_id' => '4',
-            'image_URL' => 'web/resources/images/event-image-placeholder.jpg'
+            'image_URL' => 'web/resources/images/omon.png'
         ]);
 
         $this->insert('{{%event}}', [
             'title' => 'Рейд на нелегальных мигрантов',
             'description' => 'Депортация.',
             'participations' => '1001',
-            'start_date' => '2026-11-11',
+            'start_date' => '2026-11-9',
+            'end_date' => '2026-11-12',
+            'organizator_id' => '1',
+            'place_id' => '1',
+            'type_id' => '4',
+            'image_URL' => 'web/resources/images/musya.jpg'
+        ]);
+
+        $this->insert('{{%event}}', [
+            'title' => 'Рейд на нелегальных мигрантов',
+            'description' => 'Депортация.',
+            'participations' => '1001',
+            'start_date' => '2026-12-11',
+            'end_date' => '2026-11-12',
+            'organizator_id' => '1',
+            'place_id' => '1',
+            'type_id' => '4',
+            'image_URL' => 'web/resources/images/syrneke.jpg'
+        ]);
+
+        $this->insert('{{%event}}', [
+            'title' => 'Рейд на нелегальных мигрантов',
+            'description' => 'Депортация.',
+            'participations' => '1001',
+            'start_date' => '2026-12-14',
             'end_date' => '2026-11-12',
             'organizator_id' => '1',
             'place_id' => '1',
@@ -54,199 +78,7 @@ class m261102_082544_create_event_table extends Migration
             'title' => 'Рейд на нелегальных мигрантов',
             'description' => 'Депортация.',
             'participations' => '1001',
-            'start_date' => '2026-11-11',
-            'end_date' => '2026-11-12',
-            'organizator_id' => '1',
-            'place_id' => '1',
-            'type_id' => '4',
-            'image_URL' => 'web/resources/images/event-image-placeholder.jpg'
-        ]);
-
-        $this->insert('{{%event}}', [
-            'title' => 'Рейд на нелегальных мигрантов',
-            'description' => 'Депортация.',
-            'participations' => '1001',
-            'start_date' => '2026-11-11',
-            'end_date' => '2026-11-12',
-            'organizator_id' => '1',
-            'place_id' => '1',
-            'type_id' => '4',
-            'image_URL' => 'web/resources/images/event-image-placeholder.jpg'
-        ]);
-
-        $this->insert('{{%event}}', [
-            'title' => 'Рейд на нелегальных мигрантов',
-            'description' => 'Депортация.',
-            'participations' => '1001',
-            'start_date' => '2026-11-11',
-            'end_date' => '2026-11-12',
-            'organizator_id' => '1',
-            'place_id' => '1',
-            'type_id' => '4',
-            'image_URL' => 'web/resources/images/event-image-placeholder.jpg'
-        ]);
-
-        $this->insert('{{%event}}', [
-            'title' => 'Рейд на нелегальных мигрантов',
-            'description' => 'Депортация.',
-            'participations' => '1001',
-            'start_date' => '2026-11-11',
-            'end_date' => '2026-11-12',
-            'organizator_id' => '1',
-            'place_id' => '1',
-            'type_id' => '4',
-            'image_URL' => 'web/resources/images/event-image-placeholder.jpg'
-        ]);
-
-        $this->insert('{{%event}}', [
-            'title' => 'Рейд на нелегальных мигрантов',
-            'description' => 'Депортация.',
-            'participations' => '1001',
-            'start_date' => '2026-11-11',
-            'end_date' => '2026-11-12',
-            'organizator_id' => '1',
-            'place_id' => '1',
-            'type_id' => '4',
-            'image_URL' => 'web/resources/images/event-image-placeholder.jpg'
-        ]);
-
-        $this->insert('{{%event}}', [
-            'title' => 'Рейд на нелегальных мигрантов',
-            'description' => 'Депортация.',
-            'participations' => '1001',
-            'start_date' => '2026-11-11',
-            'end_date' => '2026-11-12',
-            'organizator_id' => '1',
-            'place_id' => '1',
-            'type_id' => '4',
-            'image_URL' => 'web/resources/images/event-image-placeholder.jpg'
-        ]);
-
-        $this->insert('{{%event}}', [
-            'title' => 'Рейд на нелегальных мигрантов',
-            'description' => 'Депортация.',
-            'participations' => '1001',
-            'start_date' => '2026-11-11',
-            'end_date' => '2026-11-12',
-            'organizator_id' => '1',
-            'place_id' => '1',
-            'type_id' => '4',
-            'image_URL' => 'web/resources/images/event-image-placeholder.jpg'
-        ]);
-
-        $this->insert('{{%event}}', [
-            'title' => 'Рейд на нелегальных мигрантов',
-            'description' => 'Депортация.',
-            'participations' => '1001',
-            'start_date' => '2026-11-11',
-            'end_date' => '2026-11-12',
-            'organizator_id' => '1',
-            'place_id' => '1',
-            'type_id' => '4',
-            'image_URL' => 'web/resources/images/event-image-placeholder.jpg'
-        ]);
-
-        $this->insert('{{%event}}', [
-            'title' => 'Рейд на нелегальных мигрантов',
-            'description' => 'Депортация.',
-            'participations' => '1001',
-            'start_date' => '2026-11-11',
-            'end_date' => '2026-11-12',
-            'organizator_id' => '1',
-            'place_id' => '1',
-            'type_id' => '4',
-            'image_URL' => 'web/resources/images/event-image-placeholder.jpg'
-        ]);
-
-        $this->insert('{{%event}}', [
-            'title' => 'Рейд на нелегальных мигрантов',
-            'description' => 'Депортация.',
-            'participations' => '1001',
-            'start_date' => '2026-11-11',
-            'end_date' => '2026-11-12',
-            'organizator_id' => '1',
-            'place_id' => '1',
-            'type_id' => '4',
-            'image_URL' => 'web/resources/images/event-image-placeholder.jpg'
-        ]);
-
-        $this->insert('{{%event}}', [
-            'title' => 'Рейд на нелегальных мигрантов',
-            'description' => 'Депортация.',
-            'participations' => '1001',
-            'start_date' => '2026-11-11',
-            'end_date' => '2026-11-12',
-            'organizator_id' => '1',
-            'place_id' => '1',
-            'type_id' => '4',
-            'image_URL' => 'web/resources/images/event-image-placeholder.jpg'
-        ]);
-
-        $this->insert('{{%event}}', [
-            'title' => 'Рейд на нелегальных мигрантов',
-            'description' => 'Депортация.',
-            'participations' => '1001',
-            'start_date' => '2026-11-11',
-            'end_date' => '2026-11-12',
-            'organizator_id' => '1',
-            'place_id' => '1',
-            'type_id' => '4',
-            'image_URL' => 'web/resources/images/event-image-placeholder.jpg'
-        ]);
-
-        $this->insert('{{%event}}', [
-            'title' => 'Рейд на нелегальных мигрантов',
-            'description' => 'Депортация.',
-            'participations' => '1001',
-            'start_date' => '2026-11-11',
-            'end_date' => '2026-11-12',
-            'organizator_id' => '1',
-            'place_id' => '1',
-            'type_id' => '4',
-            'image_URL' => 'web/resources/images/event-image-placeholder.jpg'
-        ]);
-
-        $this->insert('{{%event}}', [
-            'title' => 'Рейд на нелегальных мигрантов',
-            'description' => 'Депортация.',
-            'participations' => '1001',
-            'start_date' => '2026-11-11',
-            'end_date' => '2026-11-12',
-            'organizator_id' => '1',
-            'place_id' => '1',
-            'type_id' => '4',
-            'image_URL' => 'web/resources/images/event-image-placeholder.jpg'
-        ]);
-
-        $this->insert('{{%event}}', [
-            'title' => 'Рейд на нелегальных мигрантов',
-            'description' => 'Депортация.',
-            'participations' => '1001',
-            'start_date' => '2026-11-11',
-            'end_date' => '2026-11-12',
-            'organizator_id' => '1',
-            'place_id' => '1',
-            'type_id' => '4',
-            'image_URL' => 'web/resources/images/event-image-placeholder.jpg'
-        ]);
-
-        $this->insert('{{%event}}', [
-            'title' => 'Рейд на нелегальных мигрантов',
-            'description' => 'Депортация.',
-            'participations' => '1001',
-            'start_date' => '2026-11-11',
-            'end_date' => '2026-11-12',
-            'organizator_id' => '1',
-            'place_id' => '1',
-            'type_id' => '4',
-            'image_URL' => 'web/resources/images/event-image-placeholder.jpg'
-        ]);
-
-        $this->insert('{{%event}}', [
-            'title' => 'Рейд на нелегальных мигрантов',
-            'description' => 'Депортация.',
-            'participations' => '1001',
-            'start_date' => '2026-11-11',
+            'start_date' => '2027-01-02',
             'end_date' => '2026-11-12',
             'organizator_id' => '1',
             'place_id' => '1',

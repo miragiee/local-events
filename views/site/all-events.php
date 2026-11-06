@@ -87,8 +87,8 @@
                 'pagination' => $dataProvider->pagination,
                 'options' => ['class' => 'pagination-custom'],
                 'linkOptions' => ['class' => 'page-link'],
-                'prevPageLabel' => '&laquo',
-                'nextPageLabel' => '&raquo',
+                'prevPageLabel' => '<',
+                'nextPageLabel' => '>',
             ])
             ?>
         </div>

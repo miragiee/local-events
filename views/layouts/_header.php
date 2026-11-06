@@ -1,6 +1,12 @@
 <?php
 
 use yii\helpers\Url;
+
+$user = Yii::$app->user->identity;
+
+$avatarPath = ($user && !empty($user->avatar_URL)) ? $user->avatar_URL : 'web/resources/images/event-image-placeholder.jpg';
+
+$avatarUrl = '/' . ltrim($avatarPath, '/')
 ?>
 
 <header>
@@ -20,7 +26,7 @@ use yii\helpers\Url;
             <?php else: ?>
                 <a href="<?= Url::to('@web/site/profile') ?>">
                     <img
-                        src="<?= Url::to('@web/resources/images/sakura-art.png') ?>"
+                        src="<?= $avatarUrl ?>"
                         alt="Профиль" />
                 </a>
             <?php endif; ?>
@@ -45,7 +51,7 @@ use yii\helpers\Url;
                         href="<?= Url::to('@web/site/profile') ?>"
                         aria-label="Профиль">
                         <img
-                            src="<?= Url::to('@web/resources/images/sakura-art.png') ?>"
+                            src="<?= $avatarUrl ?>"
                             alt="" />
                         <span>Профиль</span>
                     </a>

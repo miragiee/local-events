@@ -15,13 +15,13 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
+    <?= $form->field($model, 'id')->label('Поиск по ID') ?>
 
-    <?= $form->field($model, 'title') ?>
+    <?= $form->field($model, 'title')->label('Поиск по названию') ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btn btn-outline-secondary']) ?>
+        <?= Html::submitButton('Найти', ['class' => 'btn accent-btn', 'style' => 'width: 200px;']) ?>
+        <?= Html::resetButton('Сбросить', ['class' => 'btn normal-btn', 'style' => 'width: 200px;']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

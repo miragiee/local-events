@@ -13,7 +13,7 @@ use yii\grid\GridView;
 $this->title = 'Places';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="place-index">
+<div class="place-index container">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

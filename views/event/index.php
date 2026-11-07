@@ -13,7 +13,7 @@ use yii\grid\GridView;
 $this->title = 'Events';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="event-index">
+<div class="event-index container">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

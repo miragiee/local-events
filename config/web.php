@@ -52,6 +52,7 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                 'register' => 'user/create',
+                'admin-panel' => 'admin/panel'
             ],
         ],
 

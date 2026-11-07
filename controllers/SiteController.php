@@ -386,4 +386,13 @@ class SiteController extends Controller
     {
         return $this->render('userapplication');
     }
+
+    // public function actionAdmin()
+    // {
+    //     if (Yii::$app->user->isGuest || Yii::$app->user->identity->role_id !== 2) {
+    //         throw new \yii\web\ForbiddenHttpException('У вас нет доступа к этой странице.');
+    //     }
+
+    //     return $this->render('@app/views/admin/panel');
+    // }
 }

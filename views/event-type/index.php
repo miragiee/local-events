@@ -10,19 +10,23 @@ use yii\grid\GridView;
 $this->title = 'Event Types';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="event-type-index">
+<div class="event-type-index container">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Event Type', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Создать категорию', ['create'], ['class' => 'btn accent-btn', 'style' => 'width: 200px; margin-top: 30px;']) ?>
     </p>
 
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?php echo $this->render('_search', ['model' => $searchModel]);
+    ?>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
+        'tableOptions' => [
+            'class' => 'table'
+        ],
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 

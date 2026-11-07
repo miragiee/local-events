@@ -106,4 +106,45 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     }
+
+    // Мобильное меню
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mobileMenu = document.querySelector('.mobile-menu');
+
+    if (menuToggle && mobileMenu) {
+        menuToggle.addEventListener('click', function (e) {
+            e.preventDefault();
+            mobileMenu.classList.toggle('active');
+        });
+
+        const menuLinks = mobileMenu.querySelectorAll('nav a');
+        menuLinks.forEach(function (link) {
+            link.addEventListener('click', function () {
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        document.addEventListener('click', function (e) {
+            if (!mobileMenu.contains(e.target) && mobileMenu.classList.contains('active')) {
+                mobileMenu.classList.remove('active');
+            }
+        });
+    }
+
+    // Мобильное меню фильтров
+    const filtersToggleBtn = document.querySelector('.filters-toggle-button');
+    const filterOptions = document.querySelector('.filter-options');
+
+    if (filtersToggleBtn && filterOptions) {
+        filtersToggleBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            filterOptions.classList.toggle('active');
+        });
+
+        document.addEventListener('click', function (e) {
+            if (!filterOptions.contains(e.target) && !filtersToggleBtn.contains(e.target)) {
+                filterOptions.classList.remove('active');
+            }
+        });
+    }
 });

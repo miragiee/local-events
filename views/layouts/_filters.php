@@ -12,10 +12,9 @@ $currentDate = $get['date'] ?? '';
 ?>
 
 <form method="get" action="" class="filters mobile-filter-bar">
-    <input class="filters-toggle" type="checkbox" id="filters-toggle" aria-label="Показать фильтры" />
-    <label class="filters-toggle-button" for="filters-toggle">
+    <button type="button" class="filters-toggle-button" aria-label="Показать фильтры">
         <img src="../resources/icons/filter_alt_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="" />
-    </label>
+    </button>
 
     <div class="filter-options">
         <select class="mobile-category-filter" name="type" aria-label="Категория">
@@ -43,7 +42,6 @@ $currentDate = $get['date'] ?? '';
             <a href="<?= Url::to([Yii::$app->controller->route]) ?>" class="clear-btn">
                 <img src="../resources/icons/ink_eraser_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="Очистить" />
             </a>
-
             <select name="organizator" id="organizator">
                 <option value="" <?= $currentOrg === '' ? 'selected' : '' ?>>Все организаторы</option>
                 <?php foreach ($organizers as $org): ?>
@@ -74,6 +72,12 @@ $currentDate = $get['date'] ?? '';
             </label>
         </div>
 
-        <button type="submit" class="mobile-filter-apply" style="border:none; cursor:pointer; width:100%;">Применить</button>
+        <div class="mobile-filter-actions">
+            <button type="submit" class="mobile-filter-apply" style="border:none; cursor:pointer; width:100%;">Применить</button>
+
+            <a href="<?= Url::to([Yii::$app->controller->route]) ?>" class="clear-btn-mobile">
+                <img src="../resources/icons/ink_eraser_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="Очистить" />
+            </a>
+        </div>
     </div>
 </form>

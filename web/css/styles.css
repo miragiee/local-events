@@ -1954,7 +1954,7 @@ button:active {
 
 .admin-nav-btn {
     color: var(--primary-light) !important;
-    background-color: rgba(55, 123, 231, 0.25);
+    background-color: var(--primary-accent);
     border: 1px solid var(--primary-accent);
     border-radius: 6px;
     padding: 8px 14px;
@@ -1967,7 +1967,7 @@ button:active {
 }
 
 .admin-nav-btn:hover {
-    background-color: var(--primary-accent);
+    background-color: var(--primary-dark);
     color: var(--primary-light) !important;
     text-decoration: none;
     transform: translateY(-1px);

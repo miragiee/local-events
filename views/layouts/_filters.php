@@ -5,14 +5,13 @@ use yii\helpers\Html;
 
 $get = Yii::$app->request->get();
 $currentType = $get['type'] ?? '';
-$currentCity = $get['city'] ?? '';
 $currentOrg = $get['organizator'] ?? '';
 $currentPlace = $get['place'] ?? '';
 $currentPrice = $get['price'] ?? '';
 $currentDate = $get['date'] ?? '';
 ?>
 
-<form method="get" action="<?= Url::current() ?>" class="filters mobile-filter-bar">
+<form method="get" action="" class="filters mobile-filter-bar">
     <input class="filters-toggle" type="checkbox" id="filters-toggle" aria-label="Показать фильтры" />
     <label class="filters-toggle-button" for="filters-toggle">
         <img src="../resources/icons/filter_alt_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="" />
@@ -41,17 +40,9 @@ $currentDate = $get['date'] ?? '';
         </div>
 
         <div class="other-filters">
-            <a href="<?= Url::current() ?>" class="clear-btn" style="display:flex; justify-content:center; align-items:center;">
+            <a href="<?= Url::to([Yii::$app->controller->route]) ?>" class="clear-btn">
                 <img src="../resources/icons/ink_eraser_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="Очистить" />
             </a>
-
-            <select name="city" id="citise">
-                <option value="" <?= $currentCity === '' ? 'selected' : '' ?>>По всей стране</option>
-                <option value="moskow" <?= $currentCity === 'moskow' ? 'selected' : '' ?>>Москва</option>
-                <option value="saint-petersburg" <?= $currentCity === 'saint-petersburg' ? 'selected' : '' ?>>Санкт-Петербург</option>
-                <option value="cherepovets" <?= $currentCity === 'cherepovets' ? 'selected' : '' ?>>Череповец</option>
-                <option value="vladivostok" <?= $currentCity === 'vladivostok' ? 'selected' : '' ?>>Владивосток</option>
-            </select>
 
             <select name="organizator" id="organizator">
                 <option value="" <?= $currentOrg === '' ? 'selected' : '' ?>>Все организаторы</option>

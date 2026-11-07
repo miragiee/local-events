@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     console.log("Скрипт подключен");
 
+    // Этапы регистрации
     const userInput1 = document.getElementById('user-input-1');
     const userInput2 = document.getElementById('user-input-2');
     const continueBtn = document.getElementById('continue-btn');
@@ -12,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // Обновление аватара
     const fileInput = document.getElementById('avatar-upload');
     const avatarImg = document.getElementById('profile-avatar-img');
     const deleteBtn = document.getElementById('delete-avatar-btn');
@@ -40,6 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // Обновление количества участников
     const toggleBtns = document.querySelectorAll('.event-toggle-btn');
 
     toggleBtns.forEach(function (btn) {
@@ -90,4 +93,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
         });
     });
+
+    // Фильтры
+    const filterForm = document.querySelector('.filters');
+
+    if (filterForm) {
+        const filterInputs = filterForm.querySelectorAll('select, input[type="radio"], input[type="date"]');
+
+        filterInputs.forEach(function (input) {
+            input.addEventListener('change', function () {
+                filterForm.submit();
+            });
+        });
+    }
 });

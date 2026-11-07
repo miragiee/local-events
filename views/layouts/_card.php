@@ -13,8 +13,10 @@ $image = $event->image_URL
     ? '/' . ltrim($event->image_URL, '/')
     : '/web/resources/images/event-image-placeholder.jpg';
 
-$dateFormatted = $event->start_date ? Yii::$app->formatter->asDate($event->start_date, 'dd.MM.yyyy')
+$startDateFormatted = $event->start_date ? Yii::$app->formatter->asDate($event->start_date, 'dd.MM.yyyy')
     : '';
+$endDateFormatted = $event->end_date ? Yii::$app->formatter->asDate($event->end_date, 'dd.MM.yyyy')
+    : 'Не заканичвается';
 
 $shortDescription = StringHelper::truncate($event->description, 80);
 $isRegistered = isset($registeredEventIds) && in_array($event->id, $registeredEventIds);
@@ -38,7 +40,7 @@ if ($isRegistered) {
 
     <div class="event-card-data">
         <div class="primary-data">
-            <div class="small-text date"><?= Html::encode($dateFormatted)  ?></div>
+            <div class="small-text date"><?= Html::encode($startDateFormatted)  ?> - <?= Html::encode($endDateFormatted) ?></div>
             <h3 class="event-name"><?= Html::encode($event->title)  ?></h3>
         </div>
 

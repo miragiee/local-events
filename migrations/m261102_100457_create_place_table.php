@@ -22,6 +22,16 @@ class m261102_100457_create_place_table extends Migration
             'title' => 'Остров Эпштейна',
             'address' => 'Остров Литл Сейнт Джеймс'
         ]);
+
+        $this->insert('{{%place}}', [
+            'title' => 'Кремлевский дворец',
+            'address' => 'Москва, Кремль'
+        ]);
+
+        $this->insert('{{%place}}', [
+            'title' => 'Главный штаб',
+            'address' => 'Санкт-Петербург, Дворцовая площадь'
+        ]);
     }
 
     /**

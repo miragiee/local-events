@@ -18,6 +18,65 @@ use yii\data\ActiveDataProvider;
 
 class SiteController extends Controller
 {
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['logout'],
+                'rules' => [
+                    [
+                        'actions' => ['logout'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
+            'verbs' => [
+                'class' => VerbFilter::className(),
+                'actions' => [
+                    'logout' => ['post'],
+                ],
+            ],
+        ];
+    }
+
+    public function actions()
+    {
+        return [
+            'error' => [
+                'class' => 'yii\web\ErrorAction',
+            ],
+            'captcha' => [
+                'class' => 'yii\captcha\CaptchaAction',
+                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
+            ],
+        ];
+    }
+
+    public function actionIndex()
+    {
+        $query = Event::find()->where(['>=', 'start_date', date('Y-m-d')])->orderBy(['start_date' => SORT_ASC])->limit(4);
+
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+            'pagination' => false
+        ]);
+
+        $registeredEventIds = [];
+        if (!Yii::$app->user->isGuest) {
+            $registeredEventIds = UserApplication::find()
+                ->select('event_id')
+                ->where(['user_id' => Yii::$app->user->id])
+                ->column();
+        }
+
+        return $this->render('index', [
+            'dataProvider' => $dataProvider,
+            'registeredEventIds' => $registeredEventIds,
+        ]);
+    }
+
     private function getFilteredEventsQuery()
     {
         $query = Event::find();
@@ -36,7 +95,7 @@ class SiteController extends Controller
         }
 
         if ($date = $request->get('date')) {
-            $query->andWhere(['>=', 'start_date', $date]);
+            $query->andWhere(['start_date' => $date]);
         }
 
         if ($price = $request->get('price')) {
@@ -291,5 +350,25 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+
+    public function actionEventType()
+    {
+        return $this->render('eventtype');
+    }
+
+    public function actionOrganizator()
+    {
+        return $this->render('organizator');
+    }
+
+    public function actionPlace()
+    {
+        return $this->render('place');
+    }
+
+    public function actionUserApplication()
+    {
+        return $this->render('userapplication');
     }
 }

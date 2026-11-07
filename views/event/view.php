@@ -7,38 +7,23 @@ use yii\widgets\DetailView;
 /** @var app\models\Event $model */
 
 $this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Events', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
 <div class="event-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
-
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
-            'title',
-            'description',
-            'participations',
-            'start_date',
-            'end_date',
-            'organizator_id',
-            'place_id',
-            'image_URL:url',
-            'status',
+            'title' => 'Название мероприятия',
+            'description' => 'Описание мероприятия',
+            'participations' => 'Количество участников',
+            'start_date' => 'Дата начала мероприятия',
+            'end_date' => 'Дата конца мероприятия',
+            'organizator_id' => 'Организатор',
+            'place_id' => 'Площадка проведения мероприятия',
+            'image_URL:url' => 'Картинка мероприятия'
         ],
     ]) ?>
 

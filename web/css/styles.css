@@ -911,15 +911,20 @@ button:active {
 .text-data {
     display: flex;
     flex-direction: column;
+
+    height: 500px;
+    width: 100%;
+
+    justify-content: space-between;
 }
 
 .text-data>h2 {
-    width: 650px;
+    width: 100%;
     text-align: center;
 }
 
 .text-data>p {
-    width: 650px;
+    width: 100%;
 }
 
 .event-info {

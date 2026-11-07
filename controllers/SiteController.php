@@ -256,9 +256,24 @@ class SiteController extends Controller
         return ['success' => false, 'message' => 'Запись не найдена.'];
     }
 
-    public function actionEventDetails()
+    public function actionEventDetails($id)
     {
-        return $this->render('event-details');
+        $model = Event::findOne($id);
+        if (!$model) {
+            throw new \yii\web\NotFoundHttpException('Мероприятие не найдено.');
+        }
+
+        $isRegistered = false;
+        if (!Yii::$app->user->isGuest) {
+            $isRegistered = UserApplication::find()
+                ->where(['event_id' => $model->id, 'user_id' => Yii::$app->user->id])
+                ->exists();
+        }
+
+        return $this->render('event-details', [
+            'model'        => $model,
+            'isRegistered' => $isRegistered,
+        ]);
     }
 
     public function actionProfile()

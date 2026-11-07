@@ -91,6 +91,11 @@ class Event extends \yii\db\ActiveRecord
         return $this->hasOne(Place::class, ['id' => 'place_id']);
     }
 
+    public function getType()
+    {
+        return $this->hasOne(EventType::class, ['id' => 'type_id']);
+    }
+
     /**
      * Gets query for [[UserApplications]].
      *
@@ -100,5 +105,4 @@ class Event extends \yii\db\ActiveRecord
     {
         return $this->hasMany(UserApplication::class, ['event_id' => 'id']);
     }
-
 }

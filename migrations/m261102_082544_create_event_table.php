@@ -15,7 +15,7 @@ class m261102_082544_create_event_table extends Migration
         $this->createTable('{{%event}}', [
             'id' => $this->primaryKey(),
             'title' => $this->string(255)->notNull(),
-            'description' => $this->string(1000)->notNull(),
+            'description' => $this->text()->notNull(),
             'price' => $this->integer()->notNull(),
             'city' => $this->string(255)->notNull(),
             'participations' => $this->integer(),
@@ -76,7 +76,6 @@ class m261102_082544_create_event_table extends Migration
                 'place_id' => mt_rand(1, 3),
                 'type_id' => mt_rand(1, 9),
                 'image_URL' => $images[array_rand($images)],
-                'status' => 'Предстоять'
             ]);
         }
     }

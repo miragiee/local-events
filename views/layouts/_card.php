@@ -58,7 +58,7 @@ if ($isRegistered) {
                 </button>
             <?php endif; ?>
 
-            <?= Html::a('Узнать больше', Url::to(['event/view', 'id' => $event->id]), ['class' => 'btn normal-btn learn-about'])  ?>
+            <?= Html::a('Узнать больше', Url::to(['site/event-details', 'id' => $event->id]), ['class' => 'btn normal-btn learn-about'])  ?>
         </div>
 
         <div class="participants">

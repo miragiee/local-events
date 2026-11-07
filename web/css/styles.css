@@ -1743,3 +1743,51 @@ button:active {
         vertical-align: middle;
     }
 }
+
+.admin-container {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 20px;
+
+    height: 80vh;
+}
+
+.admin-button {
+    display: flex;
+    flex-direction: row;
+
+    width: 330px;
+    height: 50px;
+
+    border-radius: 8px;
+
+    background-color: var(--primary-accent);
+    color: var(--primary-light);
+
+    padding: 20px;
+
+    justify-content: center;
+    align-items: center;
+
+    text-decoration: none;
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+}
+
+.admin-button:hover {
+    text-decoration: none;
+    color: var(--primary-light);
+
+    opacity: 0.95;
+    transform: scale(1.05);
+}
+
+.admin-button:active {
+    transform: scale(0.9);
+}

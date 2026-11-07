@@ -5,13 +5,13 @@ use yii\helpers\Url;
 
 ?>
 
-<div class="container" style="gap: 20px;">
+<div class="admin-container" style="gap: 20px;">
 
-    <a class="btn accent-btn" href="<?= Url::to('@web/user/index') ?>">Список пользователей</a>
-    <a class="btn accent-btn" href="<?= Url::to('@web/event/index') ?>">Список мероприятий</a>
-    <a class="btn accent-btn" href="<?= Url::to('@web/organizator/index') ?>">Список организаторов</a>
-    <a class="btn accent-btn" href="<?= Url::to('@web/place/index') ?>">Список площадок</a>
-    <a class="btn accent-btn" href="<?= Url::to('@web/event-type/index') ?>">Список категорий</a>
-    <a class="btn accent-btn" href="<?= Url::to('@web/user-application/index') ?>">Список заявок пользователей</a>
+    <a class="admin-button" href="<?= Url::to('@web/user/index') ?>">Управление пользователями</a>
+    <a class="admin-button" href="<?= Url::to('@web/event/index') ?>">Управление мероприятиями</a>
+    <a class="admin-button" href="<?= Url::to('@web/organizator/index') ?>">Управление организаторами</a>
+    <a class="admin-button" href="<?= Url::to('@web/place/index') ?>">Управление площадками</a>
+    <a class="admin-button" href="<?= Url::to('@web/event-type/index') ?>">Управление категориями</a>
+    <a class="admin-button" href="<?= Url::to('@web/user-application/index') ?>">Управление записями на мероприятия</a>
 
 </div>

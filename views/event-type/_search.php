@@ -3,25 +3,27 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
-/* @var $this yii\web\View */
-/* @var $model app\models\EventTypeSearch */
-/* @var $form yii\widgets\ActiveForm */
+/** @var yii\web\View $this */
+/** @var app\models\EventTypeSearch $model */
+/** @var yii\widgets\ActiveForm $form */
 ?>
 
-<div class="event-type-search">
+<div class="event-type-search crud-search-card">
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id')->label('Поиск по ID') ?>
+    <div class="search-fields-row">
+        <?= $form->field($model, 'id', ['options' => ['class' => 'search-field-item']])->textInput(['placeholder' => 'ID'])->label('Поиск по ID') ?>
 
-    <?= $form->field($model, 'title')->label('Поиск по названию') ?>
+        <?= $form->field($model, 'title', ['options' => ['class' => 'search-field-item']])->textInput(['placeholder' => 'Название категории'])->label('Поиск по названию') ?>
+    </div>
 
-    <div class="form-group">
-        <?= Html::submitButton('Найти', ['class' => 'btn accent-btn', 'style' => 'width: 200px;']) ?>
-        <?= Html::resetButton('Сбросить', ['class' => 'btn normal-btn', 'style' => 'width: 200px;']) ?>
+    <div class="form-group search-actions">
+        <?= Html::submitButton('Найти', ['class' => 'btn accent-btn', 'style' => 'width: 160px;']) ?>
+        <?= Html::a('Сбросить', ['index'], ['class' => 'btn normal-btn', 'style' => 'width: 160px; text-align: center; text-decoration: none;']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

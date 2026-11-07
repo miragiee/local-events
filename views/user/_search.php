@@ -8,38 +8,26 @@ use yii\widgets\ActiveForm;
 /** @var yii\widgets\ActiveForm $form */
 ?>
 
-<div class="user-search">
+<div class="user-search crud-search-card">
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
+    <div class="search-fields-row">
+        <?= $form->field($model, 'id', ['options' => ['class' => 'search-field-item']])->textInput(['placeholder' => 'ID'])->label('Поиск по ID') ?>
 
-    <?= $form->field($model, 'role_id') ?>
+        <?= $form->field($model, 'username', ['options' => ['class' => 'search-field-item']])->textInput(['placeholder' => 'Логин'])->label('Поиск по логину') ?>
 
-    <?= $form->field($model, 'username') ?>
+        <?= $form->field($model, 'email', ['options' => ['class' => 'search-field-item']])->textInput(['placeholder' => 'Почта'])->label('Поиск по почте') ?>
 
-    <?= $form->field($model, 'email') ?>
+        <?= $form->field($model, 'phone_number', ['options' => ['class' => 'search-field-item']])->textInput(['placeholder' => 'Телефон'])->label('Поиск по телефону') ?>
+    </div>
 
-    <?= $form->field($model, 'password') ?>
-
-    <?php // echo $form->field($model, 'fisrt_name') ?>
-
-    <?php // echo $form->field($model, 'last_name') ?>
-
-    <?php // echo $form->field($model, 'patronymic') ?>
-
-    <?php // echo $form->field($model, 'phone_number') ?>
-
-    <?php // echo $form->field($model, 'city') ?>
-
-    <?php // echo $form->field($model, 'avatar_URL') ?>
-
-    <div class="form-group">
-        <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btn btn-outline-secondary']) ?>
+    <div class="form-group search-actions">
+        <?= Html::submitButton('Найти', ['class' => 'btn accent-btn', 'style' => 'width: 160px;']) ?>
+        <?= Html::a('Сбросить', ['index'], ['class' => 'btn normal-btn', 'style' => 'width: 160px; text-align: center; text-decoration: none;']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

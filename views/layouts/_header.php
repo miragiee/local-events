@@ -6,7 +6,7 @@ $user = Yii::$app->user->identity;
 
 $avatarPath = ($user && !empty($user->avatar_URL)) ? $user->avatar_URL : 'web/resources/images/event-image-placeholder.jpg';
 
-$avatarUrl = '/' . ltrim($avatarPath, '/')
+$avatarUrl = '/' . ltrim($avatarPath, '/');
 ?>
 
 <header>
@@ -18,6 +18,10 @@ $avatarUrl = '/' . ltrim($avatarPath, '/')
             <a href="<?= Url::to('@web/site/index') ?>">Главная</a>
             <a href="<?= Url::to('@web/site/all-events') ?>">Мероприятия</a>
             <a href="<?= Url::to('@web/site/my-events') ?>">Мои записи</a>
+
+            <?php if (!Yii::$app->user->isGuest && (int)$user->role_id === 2): ?>
+                <a href="<?= Url::to('@web/admin/panel') ?>" class="admin-nav-btn">Панель управления</a>
+            <?php endif; ?>
 
             <?php if (Yii::$app->user->isGuest): ?>
                 <a
@@ -41,6 +45,10 @@ $avatarUrl = '/' . ltrim($avatarPath, '/')
                 <a href="<?= Url::to('@web/site/index') ?>">Главная</a>
                 <a href="<?= Url::to('@web/site/all-events') ?>">Мероприятия</a>
                 <a href="<?= Url::to('@web/site/my-events') ?>">Мои записи</a>
+
+                <?php if (!Yii::$app->user->isGuest && (int)$user->role_id === 2): ?>
+                    <a href="<?= Url::to('@web/admin/panel') ?>">Панель управления</a>
+                <?php endif; ?>
 
                 <?php if (Yii::$app->user->isGuest): ?>
                     <a href="<?= Url::to('@web/site/login') ?>">Войти</a>

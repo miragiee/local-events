@@ -8,36 +8,26 @@ use yii\widgets\ActiveForm;
 /** @var yii\widgets\ActiveForm $form */
 ?>
 
-<div class="event-search">
+<div class="event-search crud-search-card">
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
+    <div class="search-fields-row">
+        <?= $form->field($model, 'id', ['options' => ['class' => 'search-field-item']])->textInput(['placeholder' => 'ID'])->label('Поиск по ID') ?>
 
-    <?= $form->field($model, 'title') ?>
+        <?= $form->field($model, 'title', ['options' => ['class' => 'search-field-item']])->textInput(['placeholder' => 'Название'])->label('Поиск по названию') ?>
 
-    <?= $form->field($model, 'description') ?>
+        <?= $form->field($model, 'description', ['options' => ['class' => 'search-field-item']])->textInput(['placeholder' => 'Описание'])->label('Поиск по описанию') ?>
 
-    <?= $form->field($model, 'participations') ?>
+        <?= $form->field($model, 'start_date', ['options' => ['class' => 'search-field-item']])->textInput(['placeholder' => 'ГГГГ-ММ-ДД'])->label('Поиск по дате начала') ?>
+    </div>
 
-    <?= $form->field($model, 'start_date') ?>
-
-    <?php // echo $form->field($model, 'end_date') ?>
-
-    <?php // echo $form->field($model, 'organizator_id') ?>
-
-    <?php // echo $form->field($model, 'place_id') ?>
-
-    <?php // echo $form->field($model, 'image_URL') ?>
-
-    <?php // echo $form->field($model, 'status') ?>
-
-    <div class="form-group">
-        <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btn btn-outline-secondary']) ?>
+    <div class="form-group search-actions">
+        <?= Html::submitButton('Найти', ['class' => 'btn accent-btn', 'style' => 'width: 160px;']) ?>
+        <?= Html::a('Сбросить', ['index'], ['class' => 'btn normal-btn', 'style' => 'width: 160px; text-align: center; text-decoration: none;']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

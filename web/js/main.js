@@ -147,4 +147,30 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
+
+    // Сворачивание и разворачивание таблицы
+    const tableCollapseBtns = document.querySelectorAll('.table-collapse-btn');
+    tableCollapseBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            const targetSelector = this.getAttribute('data-target') || '#crudTableWrapper';
+            const target = document.querySelector(targetSelector);
+            if (!target) return;
+
+            const isShown = target.classList.contains('show');
+            const textSpan = this.querySelector('.btn-text');
+            const iconSpan = this.querySelector('.btn-icon');
+
+            if (isShown) {
+                target.classList.remove('show');
+                this.setAttribute('aria-expanded', 'false');
+                if (textSpan) textSpan.textContent = 'Развернуть таблицу';
+                if (iconSpan) iconSpan.textContent = '▼';
+            } else {
+                target.classList.add('show');
+                this.setAttribute('aria-expanded', 'true');
+                if (textSpan) textSpan.textContent = 'Свернуть таблицу';
+                if (iconSpan) iconSpan.textContent = '▲';
+            }
+        });
+    });
 });

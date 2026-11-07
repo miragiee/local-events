@@ -1791,3 +1791,379 @@ button:active {
 .admin-button:active {
     transform: scale(0.9);
 }
+
+
+/* --- CRUD Pages & Admin GridView Styles --- */
+
+.crud-page {
+    width: 100%;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.crud-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 8px;
+}
+
+.crud-header h1 {
+    font-size: 28px;
+    color: var(--primary-dark);
+    margin: 0;
+}
+
+.crud-actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.crud-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(55, 123, 231, 0.08);
+    padding: 24px;
+    overflow-x: auto;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.crud-summary {
+    font-size: 14px;
+    color: var(--secondary-dark);
+    margin-bottom: 16px;
+}
+
+.crud-table {
+    width: 100%;
+    margin-bottom: 0;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.crud-table thead th {
+    background-color: var(--primary-dark);
+    color: var(--primary-light);
+    font-family: "JetBrains Mono", monospace;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    padding: 12px 14px;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.crud-table thead th a {
+    color: var(--primary-light);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.crud-table thead th a:hover {
+    color: var(--primary-accent);
+    text-decoration: none;
+}
+
+.crud-table .filters th {
+    background-color: #f3f6fc;
+    padding: 8px 10px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.crud-table .filters input,
+.crud-table .filters select {
+    width: 100%;
+    height: 38px;
+    padding: 6px 12px;
+    font-family: "Lato", sans-serif;
+    font-size: 14px;
+    color: var(--primary-dark);
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.crud-table .filters input:focus,
+.crud-table .filters select:focus {
+    border-color: var(--primary-accent);
+    box-shadow: 0 0 0 3px rgba(55, 123, 231, 0.2);
+    outline: none;
+}
+
+.crud-table tbody td {
+    padding: 12px 14px;
+    vertical-align: middle;
+    font-size: 14px;
+    border-top: 1px solid #eef2f6;
+    color: var(--primary-dark);
+}
+
+.crud-table tbody tr:hover {
+    background-color: rgba(55, 123, 231, 0.04);
+}
+
+.crud-table .action-column {
+    text-align: center;
+    white-space: nowrap;
+}
+
+.crud-table .action-column a,
+.crud-card .grid-view td a[data-method],
+.crud-card .grid-view td a[title] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    margin: 0 3px;
+    color: var(--primary-accent);
+    background-color: rgba(55, 123, 231, 0.1);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.crud-table .action-column a:hover,
+.crud-card .grid-view td a[data-method]:hover,
+.crud-card .grid-view td a[title]:hover {
+    background-color: var(--primary-accent);
+    color: #ffffff;
+    transform: scale(1.08);
+}
+
+.crud-table .action-column a svg,
+.crud-card .grid-view td a svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+}
+
+.admin-nav-btn {
+    color: var(--primary-light) !important;
+    background-color: rgba(55, 123, 231, 0.25);
+    border: 1px solid var(--primary-accent);
+    border-radius: 6px;
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+.admin-nav-btn:hover {
+    background-color: var(--primary-accent);
+    color: var(--primary-light) !important;
+    text-decoration: none;
+    transform: translateY(-1px);
+}
+
+.admin-panel-back-btn {
+    border: 1px solid rgba(0, 0, 0, 0.12) !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 768px) {
+    .crud-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .crud-actions {
+        width: 100%;
+        flex-direction: column;
+    }
+    .crud-actions .btn,
+    .crud-actions a {
+        width: 100%;
+        text-align: center;
+    }
+    .crud-card {
+        padding: 12px;
+        border-radius: 12px;
+    }
+}
+
+
+/* --- Collapsible Table & Search Form with Labels --- */
+
+.container,
+.crud-page {
+    width: 100% !important;
+    max-width: 1200px !important;
+    box-sizing: border-box !important;
+}
+
+main {
+    width: 100%;
+    max-width: 100vw;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.crud-search-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(55, 123, 231, 0.08);
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.search-fields-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: flex-end;
+}
+
+.search-field-item {
+    flex: 1 1 200px;
+    min-width: 160px;
+    margin-bottom: 0 !important;
+}
+
+.search-field-item label,
+.crud-search-card label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--primary-dark);
+    margin-bottom: 6px;
+}
+
+.search-field-item input,
+.search-field-item select,
+.crud-search-card input,
+.crud-search-card select {
+    width: 100%;
+    height: 42px;
+    padding: 8px 12px;
+    font-family: "Lato", sans-serif;
+    font-size: 14px;
+    color: var(--primary-dark);
+    background-color: #f8fafc;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+}
+
+.search-field-item input:focus,
+.search-field-item select:focus,
+.crud-search-card input:focus,
+.crud-search-card select:focus {
+    background-color: #ffffff;
+    border-color: var(--primary-accent);
+    box-shadow: 0 0 0 3px rgba(55, 123, 231, 0.2);
+    outline: none;
+}
+
+.search-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 18px;
+    margin-bottom: 0 !important;
+    flex-wrap: wrap;
+}
+
+.crud-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.table-collapse-btn {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    padding: 8px 16px !important;
+    border-radius: 8px !important;
+    border: 1px solid rgba(0, 0, 0, 0.12) !important;
+    background-color: #f1f5f9 !important;
+    color: var(--primary-dark) !important;
+    cursor: pointer;
+    transition: all 0.2s ease !important;
+}
+
+.table-collapse-btn:hover {
+    background-color: #e2e8f0 !important;
+    color: var(--primary-accent) !important;
+}
+
+.crud-table-wrapper {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    transition: all 0.3s ease;
+}
+
+.crud-table-wrapper.collapse:not(.show) {
+    display: none;
+}
+
+.crud-table {
+    width: 100% !important;
+    max-width: 100% !important;
+    table-layout: fixed !important;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+.crud-table td,
+.crud-table th {
+    vertical-align: middle;
+}
+
+.crud-table td {
+    word-break: break-word;
+    white-space: normal;
+}
+
+@media (max-width: 768px) {
+    .search-fields-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .search-field-item {
+        width: 100%;
+    }
+    .search-actions {
+        flex-direction: column;
+    }
+    .search-actions .btn {
+        width: 100% !important;
+    }
+    .crud-table {
+        min-width: 600px;
+    }
+}
+
+
+.crud-table .filters,
+.grid-view .filters {
+    display: none !important;
+}

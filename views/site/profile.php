@@ -74,6 +74,12 @@ $this->title = 'Мой профиль';
         <?php ActiveForm::end(); ?>
 
         <div class="logout-wrapper" style="margin-top: 20px; width: 100%;">
+            <?php if (!Yii::$app->user->isGuest && (int)$model->role_id === 2): ?>
+                <a href="<?= Url::to('@web/admin/panel') ?>" class="admin-button" style="width: 100%; height: auto; padding: 12px 16px; margin-bottom: 12px; font-weight: 600; text-align: center; box-sizing: border-box;">
+                    Панель администратора
+                </a>
+            <?php endif; ?>
+
             <?= Html::beginForm(['/site/logout'], 'post') ?>
             <?= Html::submitButton('Выйти из аккаунта', ['class' => 'logout-btn', 'style' => 'width: 100%; padding: 12px 16px; box-sizing: border-box;']) ?>
             <?= Html::endForm() ?>

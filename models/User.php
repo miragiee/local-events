@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use Override;
 use Yii;
 
 /**
@@ -50,12 +51,13 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
             [['email'], 'unique'],
             [['phone_number'], 'unique'],
             [['role_id'], 'exist', 'skipOnError' => true, 'targetClass' => Role::class, 'targetAttribute' => ['role_id' => 'id']],
-            ['password_repeat', 'compare', 'compareAttribute' => 'password', 'message' => 'Пароли не совпадают.'],
+
+
+            [['password_repeat'], 'required', 'on' => 'register'],
+            [['password_repeat'], 'compare', 'compareAttribute' => 'password', 'message' => 'Пароли не совпадают.', 'on' => 'register'],
+
             [['avatarFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, jpeg'],
         ];
-        return array_merge(parent::rules(), [
-            [['avatarFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, jpeg'],
-        ]);
     }
 
     /**
@@ -162,9 +164,24 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
      * @param string $password password to validate
      * @return bool if password provided is valid for current user
      */
+
+    #[Override]
+    public function beforeSave($insert)
+    {
+        if (parent::beforeSave($insert)) {
+            if ($insert || !empty($this->password_repeat)) {
+                $this->password = Yii::$app->security->generatePasswordHash($this->password);
+            } elseif (!$insert) {
+                $this->password = $this->getOldAttribute('password');
+            }
+            return true;
+        }
+        return false;
+    }
+
     public function validatePassword($password)
     {
-        return $this->password === $password;
+        return Yii::$app->security->validatePassword($password, $this->password);
     }
 
     public function actionLogout()

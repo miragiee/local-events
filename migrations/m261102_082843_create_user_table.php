@@ -30,7 +30,7 @@ class m261102_082843_create_user_table extends Migration
             'role_id' => 2,
             'username' => 'admin',
             'email' => 'admin@example.com',
-            'password' => 'admin',
+            'password' => Yii::$app->security->generatePasswordHash('admin'),
             'avatar_URL' => 'web/resources/images/musya.jpg'
         ]);
 
@@ -38,7 +38,7 @@ class m261102_082843_create_user_table extends Migration
             'role_id' => 2,
             'username' => 'miragiee',
             'email' => 'miragiee@example.com',
-            'password' => 'asdfasdf',
+            'password' => Yii::$app->security->generatePasswordHash('asdfasdf'),
             'avatar_URL' => 'web/resources/images/syrneke.jpg'
         ]);
     }

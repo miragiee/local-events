@@ -42,19 +42,25 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     public function rules()
     {
         return [
-            [['email', 'fisrt_name', 'last_name', 'patronymic', 'phone_number', 'city', 'avatar_URL'], 'default', 'value' => null],
-            [['role_id'], 'default', 'value' => 1],
-            [['role_id'], 'integer'],
             [['username', 'password'], 'required'],
             [['username', 'email', 'password', 'fisrt_name', 'last_name', 'patronymic', 'phone_number', 'city', 'avatar_URL'], 'string', 'max' => 255],
-            [['username'], 'unique'],
-            [['email'], 'unique'],
-            [['phone_number'], 'unique'],
+            [['username'], 'unique', 'message' => 'Данный логин не доступен.'],
+            ['username', 'string', 'min' => 6, 'message' => 'Логин должен быть минимум 6 символов.'],
+
+            [['email', 'fisrt_name', 'last_name', 'patronymic', 'phone_number', 'city', 'avatar_URL'], 'default', 'value' => null],
+
+            [['email'], 'unique', 'message' => 'Данная почта недоступна.'],
+
+            [['role_id'], 'default', 'value' => 1],
+            [['role_id'], 'integer'],
             [['role_id'], 'exist', 'skipOnError' => true, 'targetClass' => Role::class, 'targetAttribute' => ['role_id' => 'id']],
 
+            [['phone_number'], 'unique', 'message' => 'Данный номер телефона недоступен.'],
 
             [['password_repeat'], 'required', 'on' => 'register'],
             [['password_repeat'], 'compare', 'compareAttribute' => 'password', 'message' => 'Пароли не совпадают.', 'on' => 'register'],
+
+            ['password', 'string', 'tooShort' => 'Пароль должен содержать минимум 8 символов', 'min' => 8],
 
             [['avatarFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, jpeg'],
         ];

@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Обновление количества участников
+    // Запись на мероприятие
     const toggleBtns = document.querySelectorAll('.event-toggle-btn');
 
     toggleBtns.forEach(function (btn) {

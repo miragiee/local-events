@@ -260,6 +260,16 @@ button:active {
     width: 90vw;
 }
 
+.user-create {
+    padding-top: 80px;
+
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+    align-items: center;
+}
+
 .site-register {
     display: flex;
     flex-direction: column;
@@ -270,7 +280,7 @@ button:active {
     gap: 20px;
 
     height: 70vh;
-    width: 90vw;
+    width: 100%;
 }
 
 .learn-about {
@@ -545,6 +555,7 @@ button:active {
         transform 0.1s ease;
 }
 
+
 .big-login-btn {
     color: var(--primary-light);
     background-color: var(--primary-accent);
@@ -811,7 +822,7 @@ button:active {
 }
 
 .input-block>input {
-    width: 250px;
+    /* width: 250px; */
     height: 48px;
     box-sizing: border-box;
 
@@ -864,6 +875,8 @@ button:active {
     font-weight: 400;
 
     color: var(--utils-error);
+
+    width: 300px;
 }
 
 .input-buttons {

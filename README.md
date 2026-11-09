@@ -1,193 +1,99 @@
-# Local Events
+# Локаливент
 
-Учебная практика, 1 семестр, 2026-2027 учебный год.
+«Локаливент» — учебный сайт для поиска мероприятий и записи на них. Проект создан в рамках учебной практики (1 семестр, 2026–2027 учебный год) на PHP с использованием Yii 2.
 
-## СТРУКТУРА ПРОЕКТА
+## Возможности
 
-      assets/             содержит объявление ассетов
-      commands/           содержит консольные команды
-      config/             содержит файлы конфигурации
-      controllers/        содержит контроллеры для работы с бд
-      mail/
-      models/             содержит модели для работы с бд
-      runtime/            содержит файлы создаваемые во время работы веб-приложения
-      tests/              содержит тесты
-      vendor/             содержит зависимости проекта
-      views/              содержит страницы веб-приложения
-      web/                содержит ресурсы для работы веб приложения
+- Просмотр подборки предстоящих мероприятий и каталога с пагинацией.
+- Фильтрация каталога по категории, организатору, площадке, дате и стоимости.
+- Просмотр подробной информации о мероприятии.
+- Регистрация и вход в аккаунт.
+- Запись на мероприятие и отмена записи; просмотр предстоящих и прошедших записей в личном кабинете.
+- Редактирование профиля и загрузка аватара.
+- Панель администратора для управления пользователями, мероприятиями, организаторами, площадками, категориями и записями.
 
-## ТРЕБОВАНИЯ
+## Требования
 
-Поддержка PHP 8.\*, [composer](https://getcomposer.org/download/)
+- PHP 8.3 или новее.
+- Composer.
+- MySQL или совместимая СУБД.
+- Веб-сервер с корневой директорией, указывающей на `web/`. Для локального запуска можно использовать встроенный сервер Yii.
 
-## УСТАНОВКА И ЗАПУСК
+Актуальная конфигурация подключения к базе находится в `config/db.php`. PHP 8.3 нужен, в частности, из-за атрибута `#[Override]` в коде проекта.
 
-1. Клонрирование репозитория
+## Развёртывание
 
-```
-git clone https://github.com/miragiee/local-events
-```
+### Локальный запуск
 
-2. Установка зависимостей
+1. Склонируйте репозиторий и перейдите в его каталог:
 
-```
-composer install
-```
-
-3. Измените ключ в файле `config/web.php` на какую-нибудь строку
-
-```php
-'request' => [
-    'cookieValidationKey' => '<случайная секретная строка которую вы конечно же никому не скажете =)>',
-],
-```
-
-<!-- ### Install with Docker
-
-Update your vendor packages
-
-    docker-compose run --rm php composer update --prefer-dist
-
-Run the installation triggers (creating cookie validation code)
-
-    docker-compose run --rm php composer install
-
-Start the container
-
-    docker-compose up -d
-
-You can then access the application through the following URL:
-
-    http://127.0.0.1:8000
-
-**NOTES:**
-- Minimum required Docker engine version `17.04` for development (see [Performance tuning for volume mounts](https://docs.docker.com/docker-for-mac/osxfs-caching/))
-- The default configuration uses a host-volume in your home directory `.docker-composer` for composer caches
-
-
-CONFIGURATION
--------------
-
-### Database
-
-Edit the file `config/db.php` with real data, for example:
-
-```php
-return [
-    'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=yii2basic',
-    'username' => 'root',
-    'password' => '1234',
-    'charset' => 'utf8',
-];
-```
-
-**NOTES:**
-- Yii won't create the database for you, this has to be done manually before you can access it.
-- Check and edit the other files in the `config/` directory to customize your application as required.
-- Refer to the README in the `tests` directory for information specific to basic application tests.
-
-
-TESTING
--------
-
-Tests are located in `tests` directory. They are developed with [Codeception PHP Testing Framework](http://codeception.com/).
-By default, there are 3 test suites:
-
-- `unit`
-- `functional`
-- `acceptance`
-
-Tests can be executed by running
-
-```
-vendor/bin/codecept run
-```
-
-The command above will execute unit and functional tests. Unit tests are testing the system components, while functional
-tests are for testing user interaction. Acceptance tests are disabled by default as they require additional setup since
-they perform testing in real browser.
-
-
-### Running  acceptance tests
-
-To execute acceptance tests do the following:
-
-1. Rename `tests/acceptance.suite.yml.example` to `tests/acceptance.suite.yml` to enable suite configuration
-
-2. Replace `codeception/base` package in `composer.json` with `codeception/codeception` to install full-featured
-   version of Codeception
-
-3. Update dependencies with Composer
-
-    ```
-    composer update
-    ```
-
-4. Download [Selenium Server](http://www.seleniumhq.org/download/) and launch it:
-
-    ```
-    java -jar ~/selenium-server-standalone-x.xx.x.jar
-    ```
-
-    In case of using Selenium Server 3.0 with Firefox browser since v48 or Google Chrome since v53 you must download [GeckoDriver](https://github.com/mozilla/geckodriver/releases) or [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/downloads) and launch Selenium with it:
-
-    ```
-    # for Firefox
-    java -jar -Dwebdriver.gecko.driver=~/geckodriver ~/selenium-server-standalone-3.xx.x.jar
-
-    # for Google Chrome
-    java -jar -Dwebdriver.chrome.driver=~/chromedriver ~/selenium-server-standalone-3.xx.x.jar
-    ```
-
-    As an alternative way you can use already configured Docker container with older versions of Selenium and Firefox:
-
-    ```
-    docker run --net=host selenium/standalone-firefox:2.53.0
-    ```
-
-5. (Optional) Create `yii2basic_test` database and update it by applying migrations if you have them.
-
-   ```
-   tests/bin/yii migrate
+   ```sh
+   git clone https://github.com/miragiee/local-events.git
+   cd local-events
    ```
 
-   The database configuration can be found at `config/test_db.php`.
+2. Установите зависимости:
 
-
-6. Start web server:
-
-    ```
-    tests/bin/yii serve
-    ```
-
-7. Now you can run all available tests
-
-   ```
-   # run all available tests
-   vendor/bin/codecept run
-
-   # run acceptance tests
-   vendor/bin/codecept run acceptance
-
-   # run only unit and functional tests
-   vendor/bin/codecept run unit,functional
+   ```sh
+   composer install
    ```
 
-### Code coverage support
+3. Запустите Open Server, а также модули PHP и СУБД.   
 
-By default, code coverage is disabled in `codeception.yml` configuration file, you should uncomment needed rows to be able
-to collect code coverage. You can run your tests and collect coverage with the following command:
+4. Создайте базу данных (MySQL):
 
-```
-#collect coverage for all tests
-vendor/bin/codecept run --coverage --coverage-html --coverage-xml
+   ```sql
+   CREATE DATABASE local_events CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+   ```
 
-#collect coverage only for unit tests
-vendor/bin/codecept run unit --coverage --coverage-html --coverage-xml
+5. Укажите адрес сервера, имя базы, пользователя и пароль в `config/db.php`. Не используйте учётные данные из конфигурации по умолчанию для публичного или производственного сервера.
 
-#collect coverage for unit and functional tests
-vendor/bin/codecept run functional,unit --coverage --coverage-html --coverage-xml
-```
+6. Замените `cookieValidationKey` в `config/web.php` на случайное секретное слово.
 
-You can see code coverage output under the `tests/_output` directory. -->
+7. Примените миграции. Они создадут таблицы и добавят демонстрационные записи:
+
+   ```sh
+   yii migrate --interactive=0
+   ```
+
+8. Откройте сайт по ссылке (https://local-events/web/)[https://local-events/web/].
+
+## Структура базы данных
+
+Миграции находятся в каталоге `migrations/`. База приложения содержит следующие таблицы:
+
+| Таблица | Назначение и основные поля |
+|---|---|
+| `user` | Аккаунты: `username`, `password` (хеш пароля), `email`, имя и фамилия, отчество, телефон, город, `avatar_URL`; `role_id` ссылается на роль. В названии поля `fisrt_name` сохранена опечатка из текущей схемы проекта. |
+| `role` | Роли пользователей (`title`), в том числе «Пользователь» и «Администратор». |
+| `event` | Мероприятия: название, описание, цена, город, число участников, даты начала и окончания, изображение, статус и ссылки на организатора, площадку и категорию. |
+| `event_type` | Категории мероприятий (`title`). |
+| `organizator` | Организаторы мероприятий (`title`). |
+| `place` | Площадки: название (`title`) и адрес (`address`). |
+| `user_application` | Записи пользователей на мероприятия: `user_id`, `event_id` и статус. |
+| `migration` | Служебная таблица Yii 2 для учёта применённых миграций. |
+
+Связи: пользователь относится к роли; мероприятие связано с категорией, организатором и площадкой; `user_application` связывает пользователя с мероприятием. Внешние ключи настроены с каскадным удалением и обновлением.
+
+![Схема базы данных проекта](screenshots/db_scheme.png)
+> Схема БД
+
+## Скриншоты
+
+![Главная страница](screenshots/main.png)
+> Главная страница
+
+![Все мероприятия](screenshots/all-events.png)
+> Страница со всеми мероприятиями
+
+![Мои записи](screenshots/my-events.png)
+> Страница с записями на мероприятия
+
+![Профиль](screenshots/profile.png)
+> Страница профиля пользователя
+
+![Главная страница панели администратора](screenshots/admin-panel-main.png)
+> Главная страница админ панели
+
+![Страница управления данными в таблице БД](screenshots/edit-data.png)
+> Пример страницы управления данными в таблице БД на примере управления площадками

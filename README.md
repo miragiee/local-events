@@ -53,8 +53,6 @@
    yii migrate --interactive=0
    ```
 
-8. Откройте сайт по ссылке (https://local-events/web/)[https://local-events/web/].
-
 ## Структура базы данных
 
 Миграции находятся в каталоге `migrations/`. База приложения содержит следующие таблицы:

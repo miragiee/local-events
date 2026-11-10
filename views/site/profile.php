@@ -56,6 +56,7 @@ $this->title = 'Мой профиль';
 
             <button type="button" class="cancel" id="delete-avatar-btn">Удалить аватар</button>
         </div>
+        <?= Html::error($model, 'avatarFile', ['class' => 'error-message']) ?>
     </div>
 
     <div class="input-section">

@@ -7,6 +7,7 @@ use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
+use yii\helpers\FileHelper;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\Event;
@@ -292,19 +293,24 @@ class SiteController extends Controller
             }
 
             $file = \yii\web\UploadedFile::getInstance($model, 'avatarFile');
-            if ($file) {
-                $uploadDir = Yii::getAlias('@webroot/resources/images/avatars/');
-                if (!is_dir($uploadDir)) {
-                    mkdir($uploadDir, 0777, true);
-                }
+            $uploadValid = true;
+            if ($file !== null) {
+                $uploadValid = $model->validate(['avatarFile']);
+                if ($uploadValid) {
+                    $uploadDir = Yii::getAlias('@webroot/resources/images/avatars');
+                    FileHelper::createDirectory($uploadDir);
 
-                $fileName = uniqid() . '.' . $file->extension;
-                if ($file->saveAs($uploadDir . $fileName)) {
-                    $model->avatar_URL = 'web/resources/images/avatars/' . $fileName;
+                    $fileName = Yii::$app->security->generateRandomString() . '.' . $file->extension;
+                    if ($file->saveAs($uploadDir . DIRECTORY_SEPARATOR . $fileName)) {
+                        $model->avatar_URL = 'web/resources/images/avatars/' . $fileName;
+                    } else {
+                        $model->addError('avatarFile', 'Не удалось сохранить файл аватара.');
+                        $uploadValid = false;
+                    }
                 }
             }
 
-            if ($model->save(false)) {
+            if ($uploadValid && $model->save()) {
                 Yii::$app->session->setFlash('success', 'Профиль успешно обновлен!');
                 return $this->refresh();
             }

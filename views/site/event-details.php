@@ -38,7 +38,7 @@ $btnAction = $isRegistered ? 'cancel' : 'register';
 
 <div class="container">
     <div class="event-details">
-        <img style="width: 500px; height: 500px;" src="<?= Html::encode($imagePath) ?>" alt="<?= Html::encode($model->title) ?>" />
+        <img src="<?= Html::encode($imagePath) ?>" alt="<?= Html::encode($model->title) ?>" />
 
         <section class="text-data">
             <h2><?= Html::encode($model->title) ?></h2>

@@ -6,7 +6,7 @@ use yii\helpers\Url;
 use yii\bootstrap4\Carousel;
 use yii\helpers\Html;
 
-$this->title = 'My Yii Application';
+$this->title = 'Локаливент — поиск мероприятий';
 ?>
 <div class="container">
     <?=

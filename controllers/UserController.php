@@ -19,17 +19,31 @@ class UserController extends Controller
      */
     public function behaviors()
     {
-        return array_merge(
-            parent::behaviors(),
-            [
-                'verbs' => [
-                    'class' => VerbFilter::className(),
-                    'actions' => [
-                        'delete' => ['POST'],
+        return [
+            'access' => [
+                'class' => \yii\filters\AccessControl::class,
+                'rules' => [
+                    [
+                        'actions' => ['create'],
+                        'allow' => true,
+                        'roles' => ['?', '@'],
+                    ],
+                    [
+                        'allow' => true,
+                        'roles' => ['@'],
+                        'matchCallback' => function () {
+                            return !Yii::$app->user->isGuest && (int) Yii::$app->user->identity->role_id === 2;
+                        },
                     ],
                 ],
-            ]
-        );
+            ],
+            'verbs' => [
+                'class' => VerbFilter::className(),
+                'actions' => [
+                    'delete' => ['POST'],
+                ],
+            ],
+        ];
     }
 
     /**
@@ -72,6 +86,7 @@ class UserController extends Controller
         $model->scenario = 'register';
 
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            $model->role_id = 1;
 
             if ($model->save()) {
                 Yii::$app->user->login($model);

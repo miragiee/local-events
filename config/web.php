@@ -17,7 +17,7 @@ $config = [
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'cookieValidationKey' => 'Гойда',
+            'cookieValidationKey' => getenv('COOKIE_VALIDATION_KEY') ?: 'local-events-2026-secret-key',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',

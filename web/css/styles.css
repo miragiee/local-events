@@ -405,6 +405,7 @@ button:active,
     justify-content: center;
 
     width: 1200px;
+    min-width: 0;
 
     margin: 0;
     padding: 0;
@@ -447,6 +448,10 @@ body {
 
     padding: 0;
     margin: 0;
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 header {
@@ -529,7 +534,30 @@ main {
     justify-content: center;
     align-items: center;
 
-    margin: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 10px 0;
+    flex: 1 0 auto;
+}
+
+.site-footer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: auto;
+    padding: 18px 0;
+    background-color: var(--primary-dark);
+    color: var(--primary-light);
+}
+
+.site-footer .container {
+    width: min(1200px, calc(100% - 40px));
+    margin: 0 auto;
+}
+
+.site-footer p {
+    margin: 0;
+    text-align: center;
 }
 
 .mobile-menu {
@@ -572,6 +600,36 @@ main {
 
     height: 70vh;
     width: 90vw;
+}
+
+#login-input-block {
+    width: min(100%, 360px);
+    min-width: 0;
+}
+
+#login-input-block > .form-group {
+    width: 100%;
+    align-items: stretch;
+}
+
+#login-input-block .input-block {
+    width: 100%;
+    min-width: 0;
+}
+
+#login-input-block .input-block > input {
+    display: block;
+    width: 100%;
+    min-width: 0;
+}
+
+#login-input-block .error-message,
+#login-input-block .invalid-feedback {
+    width: 100%;
+    min-width: 0;
+    min-height: 20px;
+    box-sizing: border-box;
+    overflow-wrap: anywhere;
 }
 
 .user-create {
@@ -625,6 +683,7 @@ main {
     justify-content: left;
 
     width: auto;
+    min-width: 0;
     height: auto;
 
     margin-top: 20px;
@@ -673,6 +732,7 @@ main {
     display: grid;
     grid-template-columns: repeat(2, 570px);
 
+    min-width: 0;
     gap: 20px;
 }
 
@@ -683,6 +743,7 @@ main {
     align-items: stretch;
 
     width: 570px;
+    min-width: 0;
     height: 270px;
     box-sizing: border-box;
 
@@ -1433,9 +1494,9 @@ main {
 
 .container,
 .crud-page {
-    width: 100% !important;
-    max-width: 1200px !important;
-    box-sizing: border-box !important;
+    width: 100%;
+    max-width: 1200px;
+    box-sizing: border-box;
 }
 
 main {
@@ -1640,7 +1701,7 @@ main {
     }
 }
 
-@media (min-width: 768px) and (max-width: 1199.98px) {
+@media (min-width: 768px) and (max-width: 1199px) {
     .container,
     .filters,
     .center-container {
@@ -1662,7 +1723,11 @@ main {
     header>.container>nav {
         font-size: 18px;
 
-        gap: 20px;
+        gap: 12px;
+    }
+
+    header>.container>nav>a {
+        font-size: 13px;
     }
 
     .filters {
@@ -1694,39 +1759,36 @@ main {
     }
 
     .event-cards {
-        display: flex;
-
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
         width: 100%;
-
         gap: 16px;
-
-        overflow-x: auto;
     }
 
     .event-card {
-        width: 520px;
+        width: 100%;
         height: auto;
         min-height: 270px;
 
-        padding-left: 28px;
-
-        flex: 0 0 520px;
+        padding: 16px 16px 16px 28px;
+        flex: initial;
         gap: 16px;
     }
 
     .event-card-image-wrapper {
-        width: 32%;
-        min-width: 160px;
-        max-width: 220px;
+        width: 30%;
+        min-width: 180px;
+        max-width: 260px;
         height: auto;
 
         aspect-ratio: 0.88;
     }
 
     .carousel-item>img {
-        width: 500px;
-        height: 400px;
-
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1.62;
+        object-fit: cover;
         border-radius: 18px;
     }
 
@@ -1771,7 +1833,7 @@ main {
     }
 }
 
-@media (max-width: 768px) {
+@media (min-width: 360px) and (max-width: 767px) {
     .crud-header {
         flex-direction: column;
 
@@ -1820,7 +1882,7 @@ main {
     }
 }
 
-@media (max-width: 767px) {
+@media (min-width: 360px) and (max-width: 767px) {
     header {
         width: 100%;
         height: 80px;
@@ -1921,9 +1983,10 @@ main {
     }
 
     .carousel-item>img {
-        width: 400px;
-        height: 230px;
-
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1.62;
+        object-fit: cover;
         border-radius: 18px;
     }
 
@@ -1939,6 +2002,14 @@ main {
 
     main {
         margin: 8px 0;
+    }
+
+    .site-footer {
+        padding: 16px 0;
+    }
+
+    .site-footer .container {
+        width: calc(100% - 24px);
     }
 
     .container,
@@ -2454,5 +2525,16 @@ main {
 
     .question-link>p {
         vertical-align: middle;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
 }

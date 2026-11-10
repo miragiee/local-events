@@ -39,6 +39,15 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     /**
      * {@inheritdoc}
      */
+    public function scenarios()
+    {
+        $scenarios = parent::scenarios();
+        $scenarios['register'] = ['username', 'email', 'password', 'password_repeat', 'fisrt_name', 'last_name', 'patronymic', 'phone_number', 'city', 'avatar_URL'];
+        $scenarios['default'] = ['username', 'email', 'password', 'fisrt_name', 'last_name', 'patronymic', 'phone_number', 'city', 'avatar_URL'];
+
+        return $scenarios;
+    }
+
     public function rules()
     {
         return [

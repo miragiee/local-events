@@ -21,7 +21,7 @@ use yii\helpers\Url;
             'options' => ['class' => 'input-block'],
             'labelOptions' => [],
             'inputOptions' => [],
-            'errorOptions' => ['error-message'],
+            'errorOptions' => ['class' => 'error-message'],
         ],
     ]); ?>
 

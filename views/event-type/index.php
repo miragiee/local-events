@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <?php if (!Yii::$app->user->isGuest && (int)Yii::$app->user->identity->role_id === 2): ?>
                 <?= Html::a('← Панель управления', Url::to('@web/admin/panel'), ['class' => 'btn normal-btn admin-panel-back-btn']) ?>
             <?php endif; ?>
-            <?= Html::a('+ Создать категорию', ['create'], ['class' => 'btn accent-btn']) ?>
+            <?= Html::a('+ Создать', ['create'], ['class' => 'btn accent-btn crud-accent-btn']) ?>
         </div>
     </div>
 

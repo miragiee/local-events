@@ -531,6 +531,8 @@ nav>a>img:hover {
 }
 
 main {
+    font-family: "Lato", sans-serif;
+    
     display: flex;
     flex-direction: column;
 
@@ -572,8 +574,9 @@ main {
 }
 
 .small-text {
+    font-family: "Lato", sans-serif;
     font-size: 14px;
-    font-weight: lighter;
+    font-weight: 200;
 }
 
 .name {
@@ -747,6 +750,7 @@ main {
 
 .event-card {
     display: flex;
+    flex-direction: row-reverse;
 
     justify-content: space-between;
     align-items: stretch;
@@ -813,6 +817,7 @@ main {
 
 .date {
     color: var(--primary-light);
+    font-weight: lighter;
 }
 
 .description {

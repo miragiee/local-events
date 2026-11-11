@@ -44,7 +44,7 @@ if ($isRegistered) {
             <h3 class="event-name"><?= Html::encode($event->title)  ?></h3>
         </div>
 
-        <div class="description"><?= Html::encode($shortDescription) ?></div>
+        <div class="small-text description"><?= Html::encode($shortDescription) ?></div>
 
         <div class="buttons">
             <?php if (!$isPast): ?>
@@ -61,7 +61,7 @@ if ($isRegistered) {
             <?= Html::a('Узнать больше', Url::to(['site/event-details', 'id' => $event->id]), ['class' => 'btn normal-btn learn-about'])  ?>
         </div>
 
-        <div class="participants">
+        <div class="small-text participants">
             Участников: <span class="participants-count" data-event-id="<?= $event->id ?>"><?= (int) $event->participations ?></span>
         </div>
     </div>

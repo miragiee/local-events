@@ -10,8 +10,6 @@ use yii\helpers\Url;
 
 ?>
 <div class="site-login">
-    <h1><?= Html::encode($this->title) ?></h1>
-
     <h2>ВОЙТИ</h2>
 
     <?php $form = ActiveForm::begin([

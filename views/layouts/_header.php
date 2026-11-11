@@ -10,7 +10,7 @@ $avatarUrl = '/' . ltrim($avatarPath, '/');
 
 <header>
     <div class="container">
-        <a href="<?= Url::to(['site/index']) ?>" class="name">Локаливент</a>
+        <a href="<?= Url::to(['site/index']) ?>" class="name">ЛОКАЛИВЕНТ</a>
         <nav>
             <a href="<?= Url::to(['site/index']) ?>">Главная</a>
             <a href="<?= Url::to(['site/all-events']) ?>">Мероприятия</a>

@@ -105,4 +105,34 @@ class Event extends \yii\db\ActiveRecord
     {
         return $this->hasMany(UserApplication::class, ['event_id' => 'id']);
     }
+
+    public function calculateStatus(): string
+    {
+        $today = date('Y-m-d');
+
+        if (empty($this->start_date)) {
+            return 'Предстоит';
+        }
+
+        if ($this->start_date > $today) {
+            return 'Предстоит';
+        }
+
+        if (!empty($this->end_date) && $this->end_date < $today) {
+            return 'Прошёл';
+        }
+
+        return 'Идёт';
+    }
+
+    public function beforeSave($insert)
+    {
+        if (!parent::beforeSave($insert)) {
+            return false;
+        }
+
+        $this->status = $this->calculateStatus();
+
+        return true;
+    }
 }

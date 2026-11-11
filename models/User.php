@@ -59,6 +59,7 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
             [['email', 'fisrt_name', 'last_name', 'patronymic', 'phone_number', 'city', 'avatar_URL'], 'default', 'value' => null],
 
             [['email'], 'unique', 'message' => 'Данная почта недоступна.'],
+            ['email', 'required', 'message' => 'Введите почту'],
 
             [['role_id'], 'default', 'value' => 1],
             [['role_id'], 'integer'],

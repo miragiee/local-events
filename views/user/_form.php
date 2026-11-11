@@ -55,7 +55,7 @@ use yii\helpers\Url;
 
         <!-- <?= $form->field($model, 'avatar_URL')->textInput(['maxlength' => true]) ?> -->
 
-        <?= Html::submitButton('Сохранить', ['class' => 'big-login-btn', 'id' => 'register-btn']) ?>
+        <?= Html::submitButton('Зарегистрироваться', ['class' => 'big-login-btn', 'id' => 'register-btn']) ?>
 
     </div>
 

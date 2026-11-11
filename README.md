@@ -85,7 +85,8 @@
 
 ## Скриншоты
 
-<img width="1010" height="916" alt="main" src="https://github.com/user-attachments/assets/f27f2b00-61e2-4062-a8e0-3f942ff717fd" />
+<img width="648" height="561" alt="main" src="https://github.com/user-attachments/assets/f27f2b00-61e2-4062-a8e0-3f942ff717fd" />
+
 > Главная страница
 
 ![Все мероприятия](screenshots/all-events.png)
